@@ -1,6 +1,7 @@
 <script>
   import "../index.scss";
   import { backend } from "$lib/canisters";
+    import ConnectPlug from "$lib/ConnectPlug.svelte";
 
   let greeting = "";
 
@@ -22,5 +23,6 @@
     <input id="name" alt="Name" type="text" />
     <button type="submit">Click Me!</button>
   </form>
+  <ConnectPlug/>
   <section id="greeting">{greeting}</section>
 </main>
