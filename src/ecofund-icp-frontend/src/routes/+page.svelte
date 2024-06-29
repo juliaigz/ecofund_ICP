@@ -4,9 +4,9 @@
 
   //*IMPORTACION DE IMAGENES PARA LOS AVALES, PERU, COLOMBIA
   //* Y ECUADOR
-  import ColombiaAval from "./../../static/ColombiaAval.png";
-  import PeruAval from "../../static/PeruAval.png";
-  import EcuadorAval from "../../static/EcuadorAval.png";
+  import ColombiaAval from "$lib/images/ColombiaAval.png";
+  import PeruAval from "$lib/images/PeruAval.jpg";
+  import EcuadorAval from "$lib/images/EcuadorAval.jpg";
   
   let greeting = "";
 
@@ -105,7 +105,6 @@
       <div class="ProyectoAval">         <!--QUITO ECUADOR-->
         <figure>
           <img src={EcuadorAval} alt="Esto es un alt de ecuador" />
-          <img src={EcuadorAval} alt="">
         </figure>
       </div>
     </div> 
