@@ -36,8 +36,8 @@
       <button>encuentra un proyecto</button>
     </div>
   </section>
-
-  <section id="Seccion2">
+  
+    <section id="Seccion2">   
     <div id="tituloComoFunciona">
       <div id="tituloSec2">
         <h2>Cómo funciona</h2>
