@@ -2,6 +2,12 @@
   import "../index.scss";
   import { backend } from "$lib/canisters";
 
+  //*IMPORTACION DE IMAGENES PARA LOS AVALES, PERU, COLOMBIA
+  //* Y ECUADOR
+  import ColombiaAval from "./../../static/ColombiaAval.png";
+  import PeruAval from "../../static/PeruAval.png";
+  import EcuadorAval from "../../static/EcuadorAval.png";
+  
   let greeting = "";
 
   function onSubmit(event) {
@@ -45,7 +51,7 @@
       </div>
     </div>
 
-    <div id="ComoFunciona">
+    <div id="ComoFuncionaCajas">
       <div class="cajasFuncionamiento">
         <h3>Escoge un proyecto</h3>
         <p>
@@ -75,31 +81,39 @@
     </div>
   </section>
 
+
+  <!--**SECCION DE LOS AVALACION DE PROYECTOS (QUE SON LAS 3 IMAGENES)-->
   <section id="Seccion3">
-    <!--AVALANDO LOS PROYECTOS-->
-    <h2>Avala los proyectos que te importan</h2>
 
-    <div>
-      <!--LIMA PERU-->
-      <figure>
-        <img src="" alt="" />
-      </figure>
+    <div id="ContenedorTitulo">
+      <h2>Avala los proyectos que te importan</h2>
     </div>
 
-    <div>
-      <!--BOGOTA COLOMBIA-->
-      <figure>
-        <img src="" alt="" />
-      </figure>
-    </div>
-
-    <div>
-      <!--QUITO ECUADOR-->
-      <figure>
-        <img src="" alt="" />
-      </figure>
-    </div>
+    <div id="ContenedorProyectos">
+      <div class="ProyectoAval">        <!--LIMA PERU-->
+        <figure>
+          <img src={PeruAval} alt="Aval sobre el país Peru, con una hermosa vista" />
+        </figure>
+      </div>
+  
+      <div class="ProyectoAval">         <!--BOGOTA COLOMBIA-->
+        <figure>
+          <img src={ColombiaAval} alt="Aval Sobre el país Colombia con un hermosa Vista" />
+        </figure>
+      </div>
+  
+      <div class="ProyectoAval">         <!--QUITO ECUADOR-->
+        <figure>
+          <img src={EcuadorAval} alt="Esto es un alt de ecuador" />
+          <img src={EcuadorAval} alt="">
+        </figure>
+      </div>
+    </div> 
   </section>
+
+
+
+
 
   <footer>
     <div></div>
@@ -107,23 +121,21 @@
 </main>
 
 <style>
-  /*Aqui solo un poco del diseño*/
   * {
     padding: 0;
     margin: 0;
   }
 
-  img {
+  /* img {
     width: 100px;
     height: 50px;
-  }
+  } */
 
-  /*DISEÑO DEL ENCABEZADO*/
+  /**DISEÑO DEL ENCABEZADO*/
 
   #Seccion1 {
     width: 100%;
     height: 28em;
-    border: 2px solid green;
   }
 
   #primerSeccion {
@@ -189,18 +201,17 @@
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 8px;
-  }
+  }   /*!Termian el diseño sobre */
 
   /**DISEÑO DE LAS 4 CAJAS SOBRE COMO FUNCIONA**/
 
-  #ComoFunciona {
+  #ComoFuncionaCajas {
     width: 100%;
     height: 44em;
-    border: 2px solid black;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 200px;
+    gap: 15px;
     flex-wrap: wrap;
   }
 
@@ -208,5 +219,41 @@
     width: 23em;
     height: 13em;
     border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;    
   }
+
+  /**AQUI INCIIA EL DISEÑO DEL LOS PROYECTOS AVALES, DONDE SE ENCUENTRAN 
+    LAS TRES IMAGENES QUE SON LIMA, ECUADOR,COLOMBIA
+  
+  */
+
+  #ContenedorTitulo{
+    display: flex;
+    justify-content: center;
+  }
+  
+
+  #ContenedorProyectos{
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    margin-top:80px;
+  }
+
+
+  .ProyectoAval{
+    width: 16em;
+    height: 20em;
+    border: 2px solid green;
+    display: flex;
+
+  }
+
+
+
+
+
 </style>

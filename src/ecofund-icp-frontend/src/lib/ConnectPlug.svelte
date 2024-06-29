@@ -72,6 +72,8 @@
             opacity 0.3s ease-in,
             transform 0.3s ease-in-out;
         transform: scale(1);
+        width: 350px;
+        height: 50px;
     }
 
     .connect-plug:hover {
