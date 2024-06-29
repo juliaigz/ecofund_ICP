@@ -7,7 +7,7 @@
   import ColombiaAval from "$lib/images/ColombiaAval.png";
   import PeruAval from "$lib/images/PeruAval.jpg";
   import EcuadorAval from "$lib/images/EcuadorAval.jpg";
-  
+
   let greeting = "";
 
   function onSubmit(event) {
@@ -24,17 +24,19 @@
     <!--SECTION 1 INFO-->
     <div id="primerSeccion">
       <div id="cajaTextoH1">
-        <h1>Aval colectivo a beneficio de la tribu</h1>
+        <h1>Aval colectivo a beneficio del medio ambiente</h1>
       </div>
       <div class="parraSecc1">
         <p>
-          Puedes usar tus ICP para avalar un proyecto, los ICP que uses para
-          avalar te serán 100% devueltos, después de que la persona a quien
-          avales devuelva el dinero, mañana puedes tú también ser avalado.
+          Usa tus ICP para avalar proyectos ambientales y recibirás tus ICP de
+          vuelta con intereses. Mañana, tú también podrías ser avalado. Únete a
+          Ecofund y apoya la sostenibilidad.
         </p>
       </div>
       <button>encuentra un proyecto</button>
     </div>
+
+    <img src="" alt="" srcset="" />
   </section>
   
     <section id="Seccion2">   
@@ -81,38 +83,41 @@
     </div>
   </section>
 
-
   <!--**SECCION DE LOS AVALACION DE PROYECTOS (QUE SON LAS 3 IMAGENES)-->
   <section id="Seccion3">
-
     <div id="ContenedorTitulo">
       <h2>Avala los proyectos que te importan</h2>
     </div>
 
     <div id="ContenedorProyectos">
-      <div class="ProyectoAval">        <!--LIMA PERU-->
+      <div class="ProyectoAval">
+        <!--LIMA PERU-->
         <figure>
-          <img src={PeruAval} alt="Aval sobre el país Peru, con una hermosa vista" />
+          <img
+            src={PeruAval}
+            alt="Aval sobre el país Peru, con una hermosa vista"
+          />
         </figure>
       </div>
-  
-      <div class="ProyectoAval">         <!--BOGOTA COLOMBIA-->
+
+      <div class="ProyectoAval">
+        <!--BOGOTA COLOMBIA-->
         <figure>
-          <img src={ColombiaAval} alt="Aval Sobre el país Colombia con un hermosa Vista" />
+          <img
+            src={ColombiaAval}
+            alt="Aval Sobre el país Colombia con un hermosa Vista"
+          />
         </figure>
       </div>
-  
-      <div class="ProyectoAval">         <!--QUITO ECUADOR-->
+
+      <div class="ProyectoAval">
+        <!--QUITO ECUADOR-->
         <figure>
           <img src={EcuadorAval} alt="Esto es un alt de ecuador" />
         </figure>
       </div>
-    </div> 
+    </div>
   </section>
-
-
-
-
 
   <footer>
     <div></div>
@@ -140,7 +145,7 @@
   #primerSeccion {
     display: block;
     padding: 5em 8em 0 8em;
-    width: 30%;
+    /* width: 30%; */
   }
 
   #primerSeccion h1 {
@@ -200,7 +205,7 @@
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 8px;
-  }   /*!Termian el diseño sobre */
+  } /*!Termian el diseño sobre */
 
   /**DISEÑO DE LAS 4 CAJAS SOBRE COMO FUNCIONA**/
 
@@ -220,8 +225,8 @@
     border: 2px solid black;
     display: flex;
     justify-content: center;
-    align-items:center;
-    flex-direction: column;    
+    align-items: center;
+    flex-direction: column;
   }
 
   /**AQUI INCIIA EL DISEÑO DEL LOS PROYECTOS AVALES, DONDE SE ENCUENTRAN 
@@ -229,30 +234,22 @@
   
   */
 
-  #ContenedorTitulo{
+  #ContenedorTitulo {
     display: flex;
     justify-content: center;
   }
-  
 
-  #ContenedorProyectos{
-    display:flex;
+  #ContenedorProyectos {
+    display: flex;
     justify-content: space-around;
-    align-items:center;
-    margin-top:80px;
+    align-items: center;
+    margin-top: 80px;
   }
 
-
-  .ProyectoAval{
+  .ProyectoAval {
     width: 16em;
     height: 20em;
     border: 2px solid green;
     display: flex;
-
   }
-
-
-
-
-
 </style>
