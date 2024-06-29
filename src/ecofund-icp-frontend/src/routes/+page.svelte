@@ -5,8 +5,8 @@
   //*IMPORTACION DE IMAGENES PARA LOS AVALES, PERU, COLOMBIA
   //* Y ECUADOR
   import ColombiaAval from "$lib/images/ColombiaAval.png";
-  import PeruAval from "$lib/images/PeruAval.png";
-  import EcuadorAval from "$lib/images/EcuadorAval.png";
+  import PeruAval from "$lib/images/PeruAval.jpg";
+  import EcuadorAval from "$lib/images/EcuadorAval.jpg";
   
   let greeting = "";
 
