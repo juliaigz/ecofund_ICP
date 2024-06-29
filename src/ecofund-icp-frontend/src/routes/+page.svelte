@@ -105,7 +105,6 @@
       <div class="ProyectoAval">         <!--QUITO ECUADOR-->
         <figure>
           <img src={EcuadorAval} alt="Esto es un alt de ecuador" />
-          <img src={EcuadorAval} alt="">
         </figure>
       </div>
     </div> 
