@@ -1,13 +1,21 @@
 <script>
-  import "../index.scss";
+  // import "../index.scss";
   import { backend } from "$lib/canisters";
 
   //*IMPORTACION DE IMAGENES PARA LOS AVALES, PERU, COLOMBIA
   //* Y ECUADOR
   import ColombiaAval from "$lib/images/ColombiaAval.png";
+
   import Sinba from "$lib/images/Sinba.jpg";
   import Reciclaje from "$lib/images/ Reciclaje.jpg";
   
+
+  import PeruAval from "$lib/images/PeruAval.jpg";
+  import EcuadorAval from "$lib/images/EcuadorAval.jpg";
+  import home from "$lib/images/home.png";
+  import Cards from "$lib/Cards.svelte";
+  import Features from "$lib/Features.svelte";
+
   let greeting = "";
 
   function onSubmit(event) {
@@ -24,20 +32,22 @@
     <!--SECTION 1 INFO-->
     <div id="primerSeccion">
       <div id="cajaTextoH1">
-        <h1>Aval colectivo a beneficio de la tribu</h1>
+        <h1>Aval colectivo a beneficio del medio ambiente</h1>
       </div>
       <div class="parraSecc1">
         <p>
-          Puedes usar tus ICP para avalar un proyecto, los ICP que uses para
-          avalar te serán 100% devueltos, después de que la persona a quien
-          avales devuelva el dinero, mañana puedes tú también ser avalado.
+          Usa tus ICP para avalar proyectos ambientales y recibirás tus ICP de
+          vuelta con intereses. Mañana, tú también podrías ser avalado. Únete a
+          Ecofund y apoya la sostenibilidad.
         </p>
       </div>
       <button>encuentra un proyecto</button>
     </div>
+
+    <img src={home} alt="principal" />
   </section>
-  
-    <section id="Seccion2">   
+
+  <section id="Seccion2">
     <div id="tituloComoFunciona">
       <div id="tituloSec2">
         <h2>Cómo funciona</h2>
@@ -50,6 +60,7 @@
         </p>
       </div>
     </div>
+
 
 
     <!--*Codigo sobre los 3 proyectos de aval, Sinba, Colombia, Reciclaje-->
@@ -84,15 +95,18 @@
     </div> 
 
 
-  </section>
 
+    <div id="ComoFuncionaCajas">
+      <Features />
+    </div>
+  </section>
 
   <!--**SECCION DE LOS AVALACION DE PROYECTOS (QUE SON LAS 3 IMAGENES)-->
   <section id="Seccion3">
-
     <div id="ContenedorTitulo">
       <h2>Avala los proyectos que te importan</h2>
     </div>
+
 
 
 
@@ -159,9 +173,13 @@
 
 
   <!--**Pie de Pagina-->
+  <section> 
   <footer>
     <div></div>
   </footer>
+
+    <Cards />
+  </section>
 </main>
 
 <style>
@@ -178,14 +196,21 @@
   /**DISEÑO DEL ENCABEZADO*/
 
   #Seccion1 {
-    width: 100%;
-    height: 28em;
+    /* width: 100%; */
+    /* height: 28em; */
+    /* width: 100vw; */
+    height: 100vh;
+    display: flex;
+    justify-self: center;
+    align-items: center;
   }
 
   #primerSeccion {
-    display: block;
-    padding: 5em 8em 0 8em;
-    width: 30%;
+    width: 750px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 6em 0em 6em 6em;
   }
 
   #primerSeccion h1 {
@@ -223,8 +248,6 @@
   }
 
   #tituloComoFunciona {
-    margin: 30px 0 20px 0;
-    width: 100%;
     height: 6em;
     text-align: center;
     display: flex;
@@ -245,28 +268,38 @@
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 8px;
-  }   /*!Termian el diseño sobre */
+  } /*!Termian el diseño sobre */
 
   /**DISEÑO DE LAS 4 CAJAS SOBRE COMO FUNCIONA**/
 
+  .dos-cajas {
+    display: flex;
+    gap: 100px;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
   #ComoFuncionaCajas {
-    width: 100%;
-    height: 44em;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    gap: 15px;
+    justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
+    height: 44em;
+    gap: 100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
   }
 
   .cajasFuncionamiento {
-    width: 23em;
-    height: 13em;
-    border: 2px solid black;
+    width: 450px;
+    height: 300px;
+    background-color: #59cf8c29;
     display: flex;
     justify-content: center;
-    align-items:center;
-    flex-direction: column;    
+    align-items: center;
+    flex-direction: column;
   }
 
 
@@ -275,21 +308,23 @@
     LAS TRES IMAGENES QUE SON Sinba, Colombia, Reciclaje 
   */
 
-  #ContenedorTitulo{
+  #ContenedorTitulo {
     display: flex;
     justify-content: center;
   }
-  
 
-  #ContenedorProyectos{
-    display:flex;
+  #ContenedorProyectos {
+    display: flex;
     justify-content: space-around;
-    align-items:center;
-    margin-top:80px;
+    align-items: center;
+    margin-top: 80px;
   }
 
 
-  .ProyectoAval{ /**Caja sobre la principal 3 de cada uno*/
+
+ /**Caja sobre la principal 3 de cada uno*/
+
+  .ProyectoAval {
     width: 16em;
     height: 25em;
     padding:0;
@@ -393,4 +428,4 @@
 
 
 
-</style>
+
