@@ -69,6 +69,15 @@
   /**DISEÑO DEL ENCABEZADO*/
 
   #Seccion1 {
+    background-color: #59cf8c29;
+    background-image: linear-gradient(
+      to bottom right,
+      transparent 50%,
+      #59cf8c29 50%
+    );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
     height: 100vh;
     display: flex;
     justify-self: center;
@@ -123,13 +132,14 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 25px
   }
 
   #tituloSec2 h2 {
     font-size: 42px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    color: rgba(11, 11, 129, 0.705);
+    /* color: rgba(11, 11, 129, 0.705); */
   }
 
   #parrafoSec2 p {
@@ -142,5 +152,6 @@
   #ContenedorTitulo {
     display: flex;
     justify-content: center;
+    margin-top: 25px;
   }
 </style>
