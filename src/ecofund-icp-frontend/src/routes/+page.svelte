@@ -141,8 +141,8 @@
   #Seccion1 {
     /* width: 100%; */
     /* height: 28em; */
-    width: 90vw;
-    height: 90vh;
+    /* width: 100vw; */
+    height: 100vh;
     display: flex;
     justify-self: center;
     align-items: center;
@@ -154,7 +154,7 @@
     display: flex;
     flex-direction: column;
     
-    padding: 6em;
+    padding: 6em 0em 6em 6em;
   }
 
   #primerSeccion h1 {
