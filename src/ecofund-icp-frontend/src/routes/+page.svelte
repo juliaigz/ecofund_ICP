@@ -8,7 +8,8 @@
   import PeruAval from "$lib/images/PeruAval.jpg";
   import EcuadorAval from "$lib/images/EcuadorAval.jpg";
   import home from "$lib/images/home.png";
-  import Cards from "../Cards.svelte";
+  import Cards from "$lib/Cards.svelte";
+  import Features from "$lib/Features.svelte";
 
   let greeting = "";
 
@@ -56,37 +57,7 @@
     </div>
 
     <div id="ComoFuncionaCajas">
-      <section class="dos-cajas">
-        <div class="cajasFuncionamiento">
-          <h3>Escoge un proyecto</h3>
-          <p>
-            Loggeate con tu billatera ICP y busca por categoria y encuentra un
-            emprendedor a quien apoyar
-          </p>
-        </div>
-        <div class="cajasFuncionamiento">
-          <h3>Realiza un movimiento</h3>
-          <p>Puedes apoyar poniendo en prenda tus near</p>
-        </div>
-      </section>
-
-      <section class="dos-cajas">
-        <div class="cajasFuncionamiento">
-          <h3>Recibe el reembolso</h3>
-          <p>
-            Cuando los prestatarios paguen su financiamiento después del periodo
-            de tiempo pactado, automáticamente se hará el reemboloso de tus ICP
-          </p>
-        </div>
-        <div class="cajasFuncionamiento">
-          <h3>Repetir</h3>
-          <p>
-            Puedes liberar tus fondos a tu billatera ICP ao volver a avalar a
-            otro emprendedor, una vez que avalas a alguien ya puedes ser avalado
-            en el futuro en esa nuestra tribu.
-          </p>
-        </div>
-      </section>
+      <Features />
     </div>
   </section>
 
