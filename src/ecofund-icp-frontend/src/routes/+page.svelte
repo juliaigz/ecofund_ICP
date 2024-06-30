@@ -118,7 +118,6 @@
   }
 
   #tituloComoFunciona {
-    height: 6em;
     text-align: center;
     display: flex;
     align-items: center;
@@ -138,35 +137,7 @@
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 8px;
-  } /*!Termian el diseño sobre */
-
-  /**DISEÑO DE LAS 4 CAJAS SOBRE COMO FUNCIONA**/
-
-  #ComoFuncionaCajas {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 44em;
-    gap: 100px;
-    margin-top: 100px;
-    margin-bottom: 100px;
   }
-
-  .cajasFuncionamiento {
-    width: 450px;
-    height: 300px;
-    background-color: #59cf8c29;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  /**AQUI INCIIA EL DISEÑO DEL LOS PROYECTOS AVALES, DONDE SE ENCUENTRAN 
-    LAS TRES IMAGENES QUE SON Sinba, Colombia, Reciclaje 
-  */
 
   #ContenedorTitulo {
     display: flex;
