@@ -50,7 +50,7 @@
         </div>
 
 
-
+        <!--**Esctructura de codigo de "Otros avales que apoyaron este proyecto"-->
 
         <div id="ApoyoAvalesPerson">
             <div id="tituloApoyoAval">
@@ -74,15 +74,57 @@
                     <img src={apoyo4} alt="">
                     <p>Sebasrojas.icp</p>
                 </div>            
-            
-            
             </div>
-        
         </div>
 
 
+        <!--*Estructura de codigo de "Detalles de Avalamiento"-->
 
+        <div id="ContenedorDetallesAvalamiento">
+            <div id="TituloAvalamiento">
+                <h4>Detalles del Avalamiento</h4>
+            </div>
+
+            <div id="ContDetallesAvalamiento">
+                <ul>
+                    <li>Tiempo de Avalalimiento: </li>
+                    <li>Calendario de Reembolso: </li>
+                    <li>Fecha de desembolso: </li>
+                    <li>Modelo de Financiamiento: </li>
+                </ul>
+
+                <ul>
+                    <li>24 meses</li>
+                    <li>al final del periódo</li>
+                    <li>--</li>
+                    <li>flexible</li>
+                </ul>
+
+
+            </div>
+
+
+            
+        </div>
     </div>
+
+    <div id="CajaConvierteAval">
+        <div class="box">
+            <select name="" id="">
+                <option value="">1 ICP</option>
+                <option value="">2 ICP</option>
+                <option value="">3 ICP</option>
+                <option value="">4 ICP</option>
+                <option value="">5 ICP</option>
+            </select>
+        </div>
+         <button>Aval Ahora</button>
+    </div>
+
+
+
+
+
 </main>
 
 <style>
@@ -92,7 +134,6 @@
         height: 96em;
         border: 2px solid black;
         border-radius: 16px;
-        
     }
 
 
@@ -216,7 +257,44 @@
 
 
 
+    /**Diseño de "Detalles de Avalamiento"*/
 
+    /* #ContenedorDetallesAvalamiento{
+        display: flex;
+            
+    } */
+    #TituloAvalamiento{
+        display: flex;
+        justify-content: center;
+        margin-top: 3em;
+    }
 
+    #ContDetallesAvalamiento{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #ContDetallesAvalamiento ul{
+        list-style: none;
+    }
+    
+
+    /***DISEÑÓ DE LA CAJA DE "CONVIERTE AVAL AHORA", que es la seccion de fondeo de la empresa*/
+
+    #CajaConvierteAval{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 10em;
+        width: 250px;
+        height: 100px;
+        border: 2px solid gray;
+        border-radius: 8px;
+    }
+
+    main{
+        display: flex;
+        gap: 9em;
+    }
 
 </style>
