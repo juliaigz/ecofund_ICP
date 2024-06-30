@@ -100,18 +100,9 @@
     padding: 0;
     margin: 0;
   }
-
-  /* img {
-    width: 100px;
-    height: 50px;
-  } */
-
   /**DISEÑO DEL ENCABEZADO*/
 
   #Seccion1 {
-    /* width: 100%; */
-    /* height: 28em; */
-    /* width: 100vw; */
     height: 100vh;
     display: flex;
     justify-self: center;
@@ -185,14 +176,6 @@
 
   /**DISEÑO DE LAS 4 CAJAS SOBRE COMO FUNCIONA**/
 
-  .dos-cajas {
-    display: flex;
-    gap: 100px;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    flex-direction: column;
-  }
-
   #ComoFuncionaCajas {
     display: flex;
     align-items: center;
@@ -222,97 +205,5 @@
   #ContenedorTitulo {
     display: flex;
     justify-content: center;
-  }
-
-  #ContenedorProyectos {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 80px;
-  }
-
-  /**Caja sobre la principal 3 de cada uno*/
-
-  .ProyectoAval {
-    width: 16em;
-    height: 25em;
-    padding: 0;
-    margin: 0;
-    border: 2px solid green;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  #CajaImgSinba {
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
-    height: auto;
-    border: 2px solid black;
-    object-fit: cover;
-  }
-
-  #CajaImgSinba figure img {
-    display: flex;
-    align-items: flex-start;
-    object-fit: cover;
-  }
-
-  .informacionAvales {
-    margin-top: 70px;
-  }
-
-  /**Diseño de la Caja Sinba y tambien sobre las medidas de la img*/
-  #CajaSinba {
-    /**Caja Sinba (figure)*/
-    width: 16em;
-    height: 10em;
-    /* border:2px solid black; */
-  }
-
-  #SinbaImg {
-    /*Tamaño de la Imagen Sinba */
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /***Diseño de las caja de las informacion de los proyectos avales, Sinba, colombia, Reciclaje*/
-
-  /* .CajasInfoAval{
-    width:100%;
-    border: 2px solid black;
-    display:flex;
-    display: block;
-    margin-bottom: ;
-  } */
-
-  /***Diseño de la caja Colombia y tambien sobre las medidas de la img*/
-
-  #CajaColombia {
-    width: 16em;
-    height: 10em;
-    /* border:2px solid black; */
-  }
-
-  #ColombiaImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /**Diseño de la caja de Reciclaje y tambien sobre las medidas de la img*/
-
-  #CajaReciclado {
-    width: 16em;
-    height: 10em;
-    /* border: 2px solid black; */
-  }
-
-  #RecicladoImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 </style>
