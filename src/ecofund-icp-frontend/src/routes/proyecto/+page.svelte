@@ -1,13 +1,36 @@
 <script>
-    let name = 'World';
+
 </script>
 
 <main>
-    <h1>Hello {name}!</h1>
+    <div id="cajaPrincipalInfo">
+        <div id="ImgYFondo">
+            <div>
+                <figure>
+                    <img src="" alt="">
+                </figure>
+                <div >
+                    <div></div>
+                </div>
+                <div>
+                    <p>Sinba.ICP</p>
+                </div>
+            </div>
+            
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
 </main>
 
 <style>
-    h1 {
-        color: blue;
-    }
 </style>

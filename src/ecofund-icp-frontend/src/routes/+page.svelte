@@ -5,8 +5,8 @@
   //*IMPORTACION DE IMAGENES PARA LOS AVALES, PERU, COLOMBIA
   //* Y ECUADOR
   import ColombiaAval from "$lib/images/ColombiaAval.png";
-  import PeruAval from "$lib/images/PeruAval.jpg";
-  import EcuadorAval from "$lib/images/EcuadorAval.jpg";
+  import Sinba from "$lib/images/Sinba.jpg";
+  import Reciclaje from "$lib/images/ Reciclaje.jpg";
   
   let greeting = "";
 
@@ -51,7 +51,10 @@
       </div>
     </div>
 
-    <div id="ComoFuncionaCajas">
+
+    <!--*Codigo sobre los 3 proyectos de aval, Sinba, Colombia, Reciclaje-->
+
+    <div id="ComoFuncionaCajas"> <!--Contenedor principal donde estan los 3 proyectos-->
       <div class="cajasFuncionamiento">
         <h3>Escoge un proyecto</h3>
         <p>
@@ -78,7 +81,9 @@
           futuro en esa nuestra tribu.
         </p>
       </div>
-    </div>
+    </div> 
+
+
   </section>
 
 
@@ -89,31 +94,71 @@
       <h2>Avala los proyectos que te importan</h2>
     </div>
 
+
+
+    <!--***Aqui inicia sobre las 3 imagenes sobre Sinba, colombia y reciclaje***-->
+
+          <!--Cajas sobre las imagenes-->
     <div id="ContenedorProyectos">
-      <div class="ProyectoAval">        <!--LIMA PERU-->
-        <figure>
-          <img src={PeruAval} alt="Aval sobre el país Peru, con una hermosa vista" />
+      <!--Cuadro sobre la fundación Sinba-->
+      <div class="ProyectoAval"> 
+        <div id="CajaImgSinba" >
+          <figure id="CajaSinba">
+            <img id="SinbaImg"  src={Sinba} alt="Aval sobre la fundación sinba" />
+            <figcaption>Sinba.icp</figcaption>
+          </figure>
+        </div>
+            <!--INFORMACION DE SINBA -->
+        <div class="informacionAvales">
+            <h4>Lima, PERU</h4>
+            <div><!--aqui va la barra de informacion--></div>
+            <h5>Peru</h5>
+            <p>Un naval de 500 ICP puede ayudar con el gestion de alimentos en Sinba</p>
+        </div>
+      </div>  
+
+      <!--Cuadro sobre Aval de Colombia-->
+      <div class="ProyectoAval">         
+        <figure id="CajaColombia" >
+          <img id="ColombiaImg"  src={ColombiaAval} alt="Aval Sobre el país Colombia con un hermosa Vista" />
+          <figcaption>Lupitag1.icp</figcaption>
         </figure>
+            <!--INFORMACION DE COLOMBIA -->
+        <div class="informacionAvales">
+          <h4>Lima, PERU</h4>
+          <div><!--aqui va la barra de informacion--></div>
+          <h5>Peru</h5>
+          <p>Un naval de 500 ICP puede ayudar con el gestion de alimentos en Sinba</p>
       </div>
-  
-      <div class="ProyectoAval">         <!--BOGOTA COLOMBIA-->
-        <figure>
-          <img src={ColombiaAval} alt="Aval Sobre el país Colombia con un hermosa Vista" />
+
+
+      </div>
+   
+
+     <!--Cuadro sobre el aval de la imagen del reciclado--> 
+      <div class="ProyectoAval">        
+        <figure id="CajaReciclado" >
+          <img id="RecicladoImg" src={Reciclaje} alt="Aval sobre el tema de reciclaje" />
+          <figcaption>raee.icp</figcaption>
         </figure>
+          <!--INFORMACION DE RECICLAJE -->
+        <div class="informacionAvales">
+          <h4>Lima, PERU</h4>
+          <div><!--aqui va la barra de informacion--></div>
+          <h5>Peru</h5>
+          <p>Un naval de 500 ICP puede ayudar con el gestion de alimentos en Sinba</p>
+        </div>
       </div>
-  
-      <div class="ProyectoAval">         <!--QUITO ECUADOR-->
-        <figure>
-          <img src={EcuadorAval} alt="Esto es un alt de ecuador" />
-        </figure>
-      </div>
+
+
+
     </div> 
   </section>
 
 
 
 
-
+  <!--**Pie de Pagina-->
   <footer>
     <div></div>
   </footer>
@@ -224,9 +269,10 @@
     flex-direction: column;    
   }
 
+
+
   /**AQUI INCIIA EL DISEÑO DEL LOS PROYECTOS AVALES, DONDE SE ENCUENTRAN 
-    LAS TRES IMAGENES QUE SON LIMA, ECUADOR,COLOMBIA
-  
+    LAS TRES IMAGENES QUE SON Sinba, Colombia, Reciclaje 
   */
 
   #ContenedorTitulo{
@@ -243,13 +289,105 @@
   }
 
 
-  .ProyectoAval{
+  .ProyectoAval{ /**Caja sobre la principal 3 de cada uno*/
     width: 16em;
-    height: 20em;
+    height: 25em;
+    padding:0;
+    margin:0;
     border: 2px solid green;
     display: flex;
+    justify-content:center;
+    flex-direction: column;
 
   }
+
+  #CajaImgSinba{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+    object-fit: cover;
+  }
+
+  #CajaImgSinba figure img{
+    display: flex;
+    align-items:flex-start;
+    object-fit: cover;
+  }
+
+
+  .informacionAvales{
+    margin-top: 70px;
+  }
+
+
+  /**Diseño de la Caja Sinba y tambien sobre las medidas de la img*/
+  #CajaSinba{ /**Caja Sinba (figure)*/
+    width:16em;
+    height: 10em;
+    /* border:2px solid black; */
+
+  }
+
+  #SinbaImg{ /*Tamaño de la Imagen Sinba */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+
+  }
+
+  /***Diseño de las caja de las informacion de los proyectos avales, Sinba, colombia, Reciclaje*/
+
+  /* .CajasInfoAval{
+    width:100%;
+    border: 2px solid black;
+    display:flex;
+    display: block;
+    margin-bottom: ;
+  } */
+  
+
+
+
+
+
+
+
+  /***Diseño de la caja Colombia y tambien sobre las medidas de la img*/
+
+  #CajaColombia{
+    width: 16em;
+    height: 10em;
+    /* border:2px solid black; */
+
+  }
+
+  #ColombiaImg{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+  }
+
+
+  /**Diseño de la caja de Reciclaje y tambien sobre las medidas de la img*/
+
+  #CajaReciclado{
+    width:16em;
+    height: 10em;
+    /* border: 2px solid black; */
+
+  }
+
+  #RecicladoImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+
+
 
 
 
