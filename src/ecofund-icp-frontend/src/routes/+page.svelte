@@ -1,5 +1,5 @@
 <script>
-  import "../index.scss";
+  // import "../index.scss";
   import { backend } from "$lib/canisters";
 
   //*IMPORTACION DE IMAGENES PARA LOS AVALES, PERU, COLOMBIA
@@ -8,6 +8,7 @@
   import PeruAval from "$lib/images/PeruAval.jpg";
   import EcuadorAval from "$lib/images/EcuadorAval.jpg";
   import home from "$lib/images/home.png";
+  import Cards from "../Cards.svelte";
 
   let greeting = "";
 
@@ -37,10 +38,10 @@
       <button>encuentra un proyecto</button>
     </div>
 
-    <img src={home} alt="principal"/>
+    <img src={home} alt="principal" />
   </section>
-  
-    <section id="Seccion2">   
+
+  <section id="Seccion2">
     <div id="tituloComoFunciona">
       <div id="tituloSec2">
         <h2>Cómo funciona</h2>
@@ -55,32 +56,37 @@
     </div>
 
     <div id="ComoFuncionaCajas">
-      <div class="cajasFuncionamiento">
-        <h3>Escoge un proyecto</h3>
-        <p>
-          Loggeate con tu billatera ICP y busca por categoria y encuentra un
-          emprendedor a quien apoyar
-        </p>
-      </div>
-      <div class="cajasFuncionamiento">
-        <h3>Realiza un movimiento</h3>
-        <p>Puedes apoyar poniendo en prenda tus near</p>
-      </div>
-      <div class="cajasFuncionamiento">
-        <h3>Recibe el reembolso</h3>
-        <p>
-          Cuando los prestatarios paguen su financiamiento después del periodo
-          de tiempo pactado, automáticamente se hará el reemboloso de tus ICP
-        </p>
-      </div>
-      <div class="cajasFuncionamiento">
-        <h3>Repetir</h3>
-        <p>
-          Puedes liberar tus fondos a tu billatera ICP ao volver a avalar a otro
-          emprendedor, una vez que avalas a alguien ya puedes ser avalado en el
-          futuro en esa nuestra tribu.
-        </p>
-      </div>
+      <section class="dos-cajas">
+        <div class="cajasFuncionamiento">
+          <h3>Escoge un proyecto</h3>
+          <p>
+            Loggeate con tu billatera ICP y busca por categoria y encuentra un
+            emprendedor a quien apoyar
+          </p>
+        </div>
+        <div class="cajasFuncionamiento">
+          <h3>Realiza un movimiento</h3>
+          <p>Puedes apoyar poniendo en prenda tus near</p>
+        </div>
+      </section>
+
+      <section class="dos-cajas">
+        <div class="cajasFuncionamiento">
+          <h3>Recibe el reembolso</h3>
+          <p>
+            Cuando los prestatarios paguen su financiamiento después del periodo
+            de tiempo pactado, automáticamente se hará el reemboloso de tus ICP
+          </p>
+        </div>
+        <div class="cajasFuncionamiento">
+          <h3>Repetir</h3>
+          <p>
+            Puedes liberar tus fondos a tu billatera ICP ao volver a avalar a
+            otro emprendedor, una vez que avalas a alguien ya puedes ser avalado
+            en el futuro en esa nuestra tribu.
+          </p>
+        </div>
+      </section>
     </div>
   </section>
 
@@ -90,39 +96,8 @@
       <h2>Avala los proyectos que te importan</h2>
     </div>
 
-    <div id="ContenedorProyectos">
-      <div class="ProyectoAval">
-        <!--LIMA PERU-->
-        <figure>
-          <img
-            src={PeruAval}
-            alt="Aval sobre el país Peru, con una hermosa vista"
-          />
-        </figure>
-      </div>
-
-      <div class="ProyectoAval">
-        <!--BOGOTA COLOMBIA-->
-        <figure>
-          <img
-            src={ColombiaAval}
-            alt="Aval Sobre el país Colombia con un hermosa Vista"
-          />
-        </figure>
-      </div>
-
-      <div class="ProyectoAval">
-        <!--QUITO ECUADOR-->
-        <figure>
-          <!-- <img src={EcuadorAval} alt="Esto es un alt de ecuador" /> -->
-        </figure>
-      </div>
-    </div>
+    <Cards />
   </section>
-
-  <footer>
-    <div></div>
-  </footer>
 </main>
 
 <style>
@@ -153,7 +128,6 @@
     height: 500px;
     display: flex;
     flex-direction: column;
-    
     padding: 6em 0em 6em 6em;
   }
 
@@ -192,8 +166,6 @@
   }
 
   #tituloComoFunciona {
-    margin: 30px 0 20px 0;
-    width: 100%;
     height: 6em;
     text-align: center;
     display: flex;
@@ -218,20 +190,30 @@
 
   /**DISEÑO DE LAS 4 CAJAS SOBRE COMO FUNCIONA**/
 
+  .dos-cajas {
+    display: flex;
+    gap: 100px;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
   #ComoFuncionaCajas {
-    width: 100%;
-    height: 44em;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    gap: 15px;
+    justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
+    height: 44em;
+    gap: 100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
   }
 
   .cajasFuncionamiento {
-    width: 23em;
-    height: 13em;
-    border: 2px solid black;
+    width: 450px;
+    height: 300px;
+    background-color: #59cf8c29;
     display: flex;
     justify-content: center;
     align-items: center;
