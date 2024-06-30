@@ -154,7 +154,7 @@
     display: flex;
     flex-direction: column;
     
-    padding: 6em
+    padding: 6em;
   }
 
   #primerSeccion h1 {
