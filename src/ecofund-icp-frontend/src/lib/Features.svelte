@@ -3,8 +3,11 @@
 
 <div class="row1-container">
     <div class="box box-down cyan">
-        <h2>Supervisor</h2>
-        <p>Monitors activity to identify project roadblocks</p>
+        <h2>Escoge un proyecto</h2>
+        <p>
+            Loggeate con tu billatera ICP y busca por categoria y encuentra un
+            emprendedor a quien apoyar
+        </p>
         <img
             src="https://assets.codepen.io/2301174/icon-supervisor.svg"
             alt=""
@@ -12,9 +15,11 @@
     </div>
 
     <div class="box red">
-        <h2>Team Builder</h2>
+        <h2>Realiza un movimiento</h2>
         <p>
-            Scans our talent network to create the optimal team for your project
+            Cuando los prestatarios paguen su financiamiento después del periodo
+            de tiempo pactado, automáticamente se hará el reemboloso de tus ICP
+            y puedes volver a avalar a otro emprendedor
         </p>
         <img
             src="https://assets.codepen.io/2301174/icon-team-builder.svg"
@@ -23,8 +28,11 @@
     </div>
 
     <div class="box box-down blue">
-        <h2>Calculator</h2>
-        <p>Uses data from past projects to provide better delivery estimates</p>
+        <h2>Recibe el reembolso</h2>
+        <p>
+            Cuando los prestatarios paguen su financiamiento después del periodo
+            de tiempo pactado, automáticamente se hará el reemboloso de tus ICP
+        </p>
         <img
             src="https://assets.codepen.io/2301174/icon-calculator.svg"
             alt=""
@@ -33,8 +41,12 @@
 </div>
 <div class="row2-container">
     <div class="box orange">
-        <h2>Karma</h2>
-        <p>Regularly evaluates our talent to ensure quality</p>
+        <h2>Repetir</h2>
+        <p>
+            Puedes liberar tus fondos a tu billatera ICP ao volver a avalar a
+            otro emprendedor, una vez que avalas a alguien ya puedes ser avalado
+            en el futuro en esa nuestra tribu.
+        </p>
         <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="" />
     </div>
 </div>
@@ -52,49 +64,6 @@
         --weight2: 400;
         --weight3: 600;
     }
-
-    body {
-        font-size: 15px;
-        font-family: "Poppins", sans-serif;
-        background-color: var(--veryLightGray);
-    }
-
-    .attribution {
-        font-size: 11px;
-        text-align: center;
-    }
-    .attribution a {
-        color: hsl(228, 45%, 44%);
-    }
-
-    h1:first-of-type {
-        font-weight: var(--weight1);
-        color: var(--varyDarkBlue);
-    }
-
-    h1:last-of-type {
-        color: var(--varyDarkBlue);
-    }
-
-    @media (max-width: 400px) {
-        h1 {
-            font-size: 1.5rem;
-        }
-    }
-
-    .header {
-        text-align: center;
-        line-height: 0.8;
-        margin-bottom: 50px;
-        margin-top: 100px;
-    }
-
-    .header p {
-        margin: 0 auto;
-        line-height: 2;
-        color: var(--grayishBlue);
-    }
-
     .box p {
         color: var(--grayishBlue);
     }
@@ -159,9 +128,6 @@
         }
         .box {
             width: 20%;
-        }
-        .header p {
-            width: 30%;
         }
     }
 </style>
