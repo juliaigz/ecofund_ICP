@@ -10,8 +10,8 @@
   import Reciclaje from "$lib/images/ Reciclaje.jpg";
   
 
-  import PeruAval from "$lib/images/PeruAval.jpg";
-  import EcuadorAval from "$lib/images/EcuadorAval.jpg";
+  // import PeruAval from "$lib/images/PeruAval.jpg";
+  // import EcuadorAval from "$lib/images/EcuadorAval.jpg";
   import home from "$lib/images/home.png";
   import Cards from "$lib/Cards.svelte";
   import Features from "$lib/Features.svelte";
