@@ -7,6 +7,7 @@
   import ColombiaAval from "$lib/images/ColombiaAval.png";
   import PeruAval from "$lib/images/PeruAval.jpg";
   import EcuadorAval from "$lib/images/EcuadorAval.jpg";
+  import home from "$lib/images/home.png";
 
   let greeting = "";
 
@@ -36,7 +37,7 @@
       <button>encuentra un proyecto</button>
     </div>
 
-    <img src="" alt="" srcset="" />
+    <img src={home} alt="principal"/>
   </section>
   
     <section id="Seccion2">   
@@ -113,7 +114,7 @@
       <div class="ProyectoAval">
         <!--QUITO ECUADOR-->
         <figure>
-          <img src={EcuadorAval} alt="Esto es un alt de ecuador" />
+          <!-- <img src={EcuadorAval} alt="Esto es un alt de ecuador" /> -->
         </figure>
       </div>
     </div>
@@ -138,14 +139,22 @@
   /**DISEÑO DEL ENCABEZADO*/
 
   #Seccion1 {
-    width: 100%;
-    height: 28em;
+    /* width: 100%; */
+    /* height: 28em; */
+    width: 90vw;
+    height: 90vh;
+    display: flex;
+    justify-self: center;
+    align-items: center;
   }
 
   #primerSeccion {
-    display: block;
-    padding: 5em 8em 0 8em;
-    /* width: 30%; */
+    width: 750px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    
+    padding: 6em
   }
 
   #primerSeccion h1 {
