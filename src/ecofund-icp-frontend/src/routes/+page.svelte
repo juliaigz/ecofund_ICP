@@ -86,7 +86,7 @@
 
   #primerSeccion {
     width: 750px;
-    height: 500px;
+    /* height: 500px; */
     display: flex;
     flex-direction: column;
     padding: 6em 0em 6em 6em;
