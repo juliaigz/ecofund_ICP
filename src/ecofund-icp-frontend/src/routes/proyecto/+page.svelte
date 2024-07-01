@@ -11,6 +11,9 @@
 </script>
 
 <main>
+    <div>
+        
+    </div>
     <div id="cajaPrincipalInfo">
         <div id="ImgYFondo">
             <div id="ContendorImg">
@@ -80,34 +83,30 @@
 
         <!--*Estructura de codigo de "Detalles de Avalamiento"-->
 
-        <div id="ContenedorDetallesAvalamiento">
+        <div id="ContenedorDetallesAvalamiento"> <!--Titulo "Detalles de avalamiento"-->
             <div id="TituloAvalamiento">
                 <h4>Detalles del Avalamiento</h4>
             </div>
 
-            <div id="ContDetallesAvalamiento">
+            <div id="ContDetallesAvalamiento">  <!--Lista sobre los detalles de avalamiento-->
                 <ul>
                     <li>Tiempo de Avalalimiento: </li>
                     <li>Calendario de Reembolso: </li>
                     <li>Fecha de desembolso: </li>
                     <li>Modelo de Financiamiento: </li>
                 </ul>
-
                 <ul>
                     <li>24 meses</li>
                     <li>al final del periódo</li>
                     <li>--</li>
                     <li>flexible</li>
                 </ul>
-
-
             </div>
-
-
-            
         </div>
     </div>
 
+
+    <!--*CAJA SOBRE LA CONVERSIÓÑ DEL AVAL (ICP)-->
     <div id="CajaConvierteAval">
         <div class="box">
             <select name="" id="">
@@ -122,9 +121,6 @@
     </div>
 
 
-
-
-
 </main>
 
 <style>
@@ -134,6 +130,7 @@
         height: 96em;
         border: 2px solid black;
         border-radius: 16px;
+        padding-top: 16px;
     }
 
 
@@ -150,6 +147,8 @@
     }
     #textosDeBarra p{
         margin:4px;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        padding-top:1.3rem;
     }
 
     #porcentajeAvaladoBarra{
@@ -161,10 +160,15 @@
 
     #porcentajeAvaladoBarra p{
         margin: 0;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    #NombreYBarra p{
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
     }
 
 
-    /**Diseño sobre el texto de información de Siban*/
+    /**Diseño sobre el texto de información de Siban el proyecto*/
 
     #TextoSobreProyecto{
         padding: 0 50px;
@@ -175,7 +179,7 @@
     
     #TextoSobreProyecto p{
         font-size: 40px;
-        font-family:sans-serif;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
         text-align: justify;
         padding: 0;
         margin: 0;
@@ -252,12 +256,12 @@
     #ImganesApoyoAval p{
         display: flex;
         justify-content: center;
-
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
     }
 
 
 
-    /**Diseño de "Detalles de Avalamiento"*/
+    /****Diseño de "Detalles de Avalamiento"****/
 
     /* #ContenedorDetallesAvalamiento{
         display: flex;
@@ -266,12 +270,25 @@
     #TituloAvalamiento{
         display: flex;
         justify-content: center;
-        margin-top: 3em;
+        margin-top: 2em;
+    }
+    #TituloAvalamiento h4{
+        font-size: 2em;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0;
     }
 
     #ContDetallesAvalamiento{
         display: flex;
         justify-content: space-around;
+        padding-top:10px;
+    }
+
+    #ContDetallesAvalamiento ul li{
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+    
     }
 
     #ContDetallesAvalamiento ul{
@@ -290,11 +307,41 @@
         height: 100px;
         border: 2px solid gray;
         border-radius: 8px;
+    }                                                                                                                                                                                                                                                           
+
+    #CajaConvierteAval button{
+        width: 125px;
+        height:25px;
+        font-size: 14px;
+        color: white;
+        font-weight: bold;
+        background-color: rgb(69, 233, 69);
+        border-radius: 6px;
+        border: 2px rgb(161, 159, 159) solid;
     }
+
+    #CajaConvierteAval select{
+        
+        width: 86px;
+    }
+
+    #CajaConvierteAval select option{
+        text-align: center;
+    }
+
+
+
+
+
+
+
+
+
+
 
     main{
         display: flex;
-        gap: 9em;
+        gap: 6em;
     }
 
 </style>
