@@ -1,6 +1,7 @@
 <script>
     // import { logoBurbujas } from "../../static/logoBurbujas.png";
     import ConnectPlug from "$lib/ConnectPlug.svelte";
+    import TransferPlug from "./TransferPlug.svelte";
 </script>
 
 <header>
