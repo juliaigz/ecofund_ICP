@@ -68,7 +68,7 @@ If you are hosting frontend code somewhere without using DFX, you may need to ma
 https://docs.google.com/document/d/1x2GZHMm5a00O64oiaZ5DFpc3_Ooj6PC5985W3lLVd2Y/edit?usp=sharing
 
 
-## Design ((Mock-up) 
+## Design (Mock-up) 
 
 This is a real front-end working , when you deploy this project in your computer you will notice this, here I have a video to show you how  our design is working connected to the backend. 
 

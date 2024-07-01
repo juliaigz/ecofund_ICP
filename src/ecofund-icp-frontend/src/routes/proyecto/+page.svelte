@@ -39,7 +39,7 @@
 
         <div id="TextoSobreProyecto">
             <p>
-                Un aval de 500 ICP puede ayudar a Siban a poner su negocio de preparación de comida para las areas de perú
+                Un aval de 500 ICP puede ayudar a Siba a poner su negocio de reciclaje de comida para las areas de perú
             </p>
             <figure id="CajaImgUbicacion">
                 <img src={UbicacionImg} alt="Icono de ubicacion">
@@ -57,6 +57,13 @@
         <!--**Esctructura de codigo de "Otros avales que apoyaron este proyecto"-->
 
         <div id="ApoyoAvalesPerson">
+            <div>
+                <h5>La misión de sinba es darle un nuevo sentido a los residuos, lograr que lo que una vez fue basura hoy se convierta en un vehículo de transformación social y ambiental.
+
+                    Sinba está innovando en la gestión de residuos en Perú, convirtiendo los desechos orgánicos en alimento para cerdos y maximizando el valor de los reciclables inorgánicos en alianza con recicladores formales.
+
+                    Hoy colaboramos con más de 20 empresas y rescatamos alrededor de 840 toneladas de residuos orgánicos por año, lo que genera un impacto positivo equivalente a sembrar 36 mil árboles. Pero esto recién empieza! Queremos multiplicar nuestro impacto positivo por 10!</h5>
+            </div>
             <div id="tituloApoyoAval">
             <h4>Otros avales que apoyaron este proyecto</h4>
             </div>
@@ -91,7 +98,7 @@
 
             <div id="ContDetallesAvalamiento">  <!--Lista sobre los detalles de avalamiento-->
                 <ul>
-                    <li>Tiempo de Avalalimiento: </li>
+                    <li>Tiempo de Avalamiento: </li>
                     <li>Calendario de Reembolso: </li>
                     <li>Fecha de desembolso: </li>
                     <li>Modelo de Financiamiento: </li>
