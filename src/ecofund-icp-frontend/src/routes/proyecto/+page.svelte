@@ -348,8 +348,10 @@
     } */
 
     #CajaConvierteAval select{
-        
+        background-color: rgb(253, 253, 253);
         width: 86px;
+        border-radius: 4px;
+        height: 25px;
     }
 
     #CajaConvierteAval select option{
