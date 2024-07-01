@@ -44,7 +44,7 @@
                 los agricultores y la comunidad en general.
             </p>
         </div>
-        <a href="#home" class="button">Ver proyecto</a>
+        <a href="/" class="button">Ver proyecto</a>
     </div>
     <div class="box">
         <div class="box-top">
@@ -65,7 +65,7 @@
                 de reciclaje.
             </p>
         </div>
-        <a href="#home" class="button">Ver proyecto</a>
+        <a href="/" class="button">Ver proyecto</a>
     </div>
 </div>
 
