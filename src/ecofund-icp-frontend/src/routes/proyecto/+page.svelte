@@ -7,6 +7,7 @@
   import apoyo2 from "$lib/images/apoyo2.png"
   import apoyo3 from "$lib/images/apoyo3.png"
   import apoyo4 from "$lib/images/apoyo4.png"
+    import TransferPlug from "$lib/TransferPlug.svelte";
 
 </script>
 
@@ -117,7 +118,7 @@
                 <option value="">5 ICP</option>
             </select>
         </div>
-         <button>Aval Ahora</button>
+         <TransferPlug amount={1}/>
     </div>
 
 
@@ -309,7 +310,7 @@
         border-radius: 8px;
     }                                                                                                                                                                                                                                                           
 
-    #CajaConvierteAval button{
+    /* #CajaConvierteAval button{
         width: 125px;
         height:25px;
         font-size: 14px;
@@ -318,7 +319,7 @@
         background-color: rgb(69, 233, 69);
         border-radius: 6px;
         border: 2px rgb(161, 159, 159) solid;
-    }
+    } */
 
     #CajaConvierteAval select{
         
