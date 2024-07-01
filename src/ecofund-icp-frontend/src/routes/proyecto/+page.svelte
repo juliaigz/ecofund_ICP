@@ -57,12 +57,14 @@
         <!--**Esctructura de codigo de "Otros avales que apoyaron este proyecto"-->
 
         <div id="ApoyoAvalesPerson">
-            <div>
-                <h5>La misión de sinba es darle un nuevo sentido a los residuos, lograr que lo que una vez fue basura hoy se convierta en un vehículo de transformación social y ambiental.
+            <div class="cajaInfoSinba">
+                <p>La misión de sinba es darle un nuevo sentido a los residuos, lograr que lo que una vez fue basura hoy se convierta en un vehículo de transformación social y ambiental.
 
                     Sinba está innovando en la gestión de residuos en Perú, convirtiendo los desechos orgánicos en alimento para cerdos y maximizando el valor de los reciclables inorgánicos en alianza con recicladores formales.
 
-                    Hoy colaboramos con más de 20 empresas y rescatamos alrededor de 840 toneladas de residuos orgánicos por año, lo que genera un impacto positivo equivalente a sembrar 36 mil árboles. Pero esto recién empieza! Queremos multiplicar nuestro impacto positivo por 10!</h5>
+                    Hoy colaboramos con más de 20 empresas y rescatamos alrededor de 840 toneladas de residuos orgánicos por año, lo que genera un impacto positivo equivalente a sembrar 36 mil árboles. Pero esto recién empieza! 
+                    Queremos multiplicar nuestro impacto positivo por 10!
+                </p>
             </div>
             <div id="tituloApoyoAval">
             <h4>Otros avales que apoyaron este proyecto</h4>
@@ -229,6 +231,21 @@
         
     }
 
+    
+    .cajaInfoSinba{
+        display: flex;
+        justify-content: center;
+        margin: 20px 0px 0px 0px;
+    }
+
+    .cajaInfoSinba p{
+        margin: 0px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.1em;
+        padding: 8px 10vh;
+        text-align: justify;
+
+    }
 
 
 
