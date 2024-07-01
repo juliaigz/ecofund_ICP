@@ -173,15 +173,17 @@
 
     #TextoSobreProyecto{
         padding: 0 50px;
-        width: 40em;
+        width: 26em;
         /* border:2px solid black; */
         margin: 50px auto;
     }
+
+
+
     
     #TextoSobreProyecto p{
-        font-size: 40px;
+        font-size: 30px;
         font-family:Verdana, Geneva, Tahoma, sans-serif;
-        text-align: justify;
         padding: 0;
         margin: 0;
     }
@@ -189,7 +191,7 @@
 
     #TextoSobreProyecto #CajaImgUbicacion img{
         width: 60px;
-        justify-content:flex-start ;
+        justify-content:flex-start;
        }
 
     
@@ -342,7 +344,7 @@
 
     main{
         display: flex;
-        gap: 6em;
+        gap: 4em;
     }
 
 </style>
