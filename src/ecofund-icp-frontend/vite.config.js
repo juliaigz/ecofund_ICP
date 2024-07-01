@@ -24,6 +24,7 @@ export default defineConfig({
         changeOrigin: true,
       },
     },
+    cors: false,
   },
   plugins: [
     sveltekit(),
