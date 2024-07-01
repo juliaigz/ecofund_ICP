@@ -1,21 +1,11 @@
 <script>
-    async function getWalletSession() {
-        let session = await window.ic.plug.sessionManager.sessionData;
+    import Loader from "./Loader.svelte";
 
-        if (!session) {
-            return "Por favor conecta tu wallet.";
-        }
-
-        return session;
-    }
-
-    async function isConnectedWallet() {
-        let session = await window.ic.plug.isConnected();
-
-        return session;
-    }
+    let isLoading = false;
+    let isConnect = false;
 
     async function connectWallet() {
+        isLoading = true;
         if (window.ic && window.ic.plug) {
             window.ic.plug
                 .requestConnect()
@@ -33,14 +23,38 @@
                     window.alert(
                         `Wallet conectado: ${window.ic.plug.sessionManager.sessionData.principalId}`,
                     );
+                    isConnect = true;
+                    isLoading = false;
                 })
                 .catch((error) => {
                     // Manejo de errores al conectar el wallet
                     console.error("Error al conectar el wallet:", error);
                     window.alert("Error al conectar el wallet");
+                    isLoading = false;
                 });
         } else {
             // console.error('La biblioteca de Plug Wallet no está disponible');
+            window.alert(
+                "Por favor instala la extencion Plug Wallet para poder conectar tu wallet.",
+            );
+            isLoading = false;
+        }
+    }
+
+    async function disconnectWallet() {
+        if (window.ic && window.ic.plug) {
+            window.ic.plug
+                .disconnect()
+                .then(() => {
+                    console.log("Wallet desconectado");
+                    window.alert("Wallet desconectado");
+                    isConnect = false;
+                })
+                .catch((error) => {
+                    console.error("Error al desconectar el wallet:", error);
+                    window.alert("Error al desconectar el wallet");
+                });
+        } else {
             window.alert(
                 "Por favor instala la extencion Plug Wallet para poder conectar tu wallet.",
             );
@@ -48,7 +62,16 @@
     }
 </script>
 
-<button on:click={connectWallet} class="connect-plug">Conectar Wallet</button>
+{#if isLoading}
+    <Loader />
+{:else if isConnect}
+    <button on:click={disconnectWallet} class="connect-plug">Desconectar</button
+    >
+{:else}
+    <button on:click={connectWallet} class="connect-plug"
+        >Conectar Wallet</button
+    >
+{/if}
 
 <style>
     .connect-plug {
