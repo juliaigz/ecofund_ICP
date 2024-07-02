@@ -1,25 +1,42 @@
 <script>
+    import Loader from "./Loader.svelte";
+
     export let amount;
     export let principalId;
+    let isLoading = false;
 
     async function transferICP() {
         // developer wallet 5y3sh-tmxh2-3mw37-2u5cc-jztqx-6zlty-qvzxy-zdsvp-rjjmz-5thhd-3ae
-        const result = await window.ic.plug.requestTransfer({
-            to: principalId,
-            amount,
-            // memo,
-        });
-
-        if (result) {
-            alert("Transferencia realizada con éxito");
-            console.log(result);
+        isLoading = true;
+        if (window.ic && window.ic.plug) {
+            await window.ic.plug
+                .requestTransfer({
+                    to: principalId,
+                    amount,
+                })
+                .then((result) => {
+                    console.log(result);
+                    isLoading = false;
+                    alert("Transferencia realizada con éxito");
+                })
+                .catch((error) => {
+                    isLoading = false;
+                    console.error("Error al transferir ICP:", error);
+                    alert("Conecta tu wallet para hacer la transferencia.");
+                });
         } else {
-            alert("Error al realizar la transferencia");
+            alert(
+                "Por favor instala la extencion Plug Wallet para poder conectar tu wallet.",
+            );
         }
     }
 </script>
 
-<button on:click={transferICP}>Transferir ICP</button>
+{#if isLoading}
+    <Loader />
+{:else}
+    <button on:click={transferICP}>Transferir ICP</button>
+{/if}
 
 <style>
     button {
