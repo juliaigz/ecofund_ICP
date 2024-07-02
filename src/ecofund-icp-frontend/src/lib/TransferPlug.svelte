@@ -1,11 +1,11 @@
 <script>
     export let amount;
-    async function transferICP() {
-        // developer wallet
-        // const memo = prompt("¿Algún mensaje que desees incluir?");
+    export let principalId;
 
+    async function transferICP() {
+        // developer wallet 5y3sh-tmxh2-3mw37-2u5cc-jztqx-6zlty-qvzxy-zdsvp-rjjmz-5thhd-3ae
         const result = await window.ic.plug.requestTransfer({
-            to: "5y3sh-tmxh2-3mw37-2u5cc-jztqx-6zlty-qvzxy-zdsvp-rjjmz-5thhd-3ae",
+            to: principalId,
             amount,
             // memo,
         });

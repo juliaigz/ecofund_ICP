@@ -8,7 +8,26 @@
   import apoyo3 from "$lib/images/apoyo3.png"
   import apoyo4 from "$lib/images/apoyo4.png"
     import TransferPlug from "$lib/TransferPlug.svelte";
+    import { onMount } from "svelte";
+    import {backend} from "$lib/canisters";
 
+    let project = {
+        name: "Sinba",
+        description: "Un aval de 500 ICP puede ayudar a Siba a poner su negocio de reciclaje de comida para las areas de perú",
+        location: "Lima, Perú",
+        daysLeft: 49,
+        icpLeft: 500,
+        percentage: 75,
+        principalId: "aaa-aaa-aa"
+    };
+
+    onMount(async () => {
+        console.log(project);
+        const result = await backend.getWallet();
+        // console.log(result[0][1].principalId);
+        project.principalId = result[0][1].principalId;
+        console.log(project);
+    });
 </script>
 
 <main>
@@ -127,7 +146,7 @@
                 <option value="">5 ICP</option>
             </select>
         </div>
-         <TransferPlug amount={1}/>
+         <TransferPlug amount={1} principalId={project.principalId}/>
     </div>
 
 
