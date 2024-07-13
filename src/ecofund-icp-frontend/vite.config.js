@@ -1,6 +1,7 @@
 import { fileURLToPath, URL } from 'url';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import { optimizeCss } from "carbon-preprocess-svelte";
 import environment from 'vite-plugin-environment';
 import dotenv from 'dotenv';
 
@@ -16,6 +17,7 @@ export default defineConfig({
         global: "globalThis",
       },
     },
+    exclude: ["carbon-components-svelte", "carbon-pictograms-svelte"],
   },
   server: {
     proxy: {
@@ -30,6 +32,7 @@ export default defineConfig({
     sveltekit(),
     environment("all", { prefix: "CANISTER_" }),
     environment("all", { prefix: "DFX_" }),
+    optimizeCss()
   ],
   resolve: {
     alias: [
