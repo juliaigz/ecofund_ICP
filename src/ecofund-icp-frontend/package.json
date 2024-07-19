@@ -1,7 +1,7 @@
 {
   "name": "ecofund-icp-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "setup": "npm i && dfx canister create ecofund-icp-backend && dfx generate ecofund-icp-backend && dfx deploy",
