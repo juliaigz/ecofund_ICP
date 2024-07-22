@@ -18,26 +18,24 @@
 </Grid>
 <hr>
 <!--*CONTENEDOR SOBRE LA INFORMACIÓN SOBRE LAS INVERSIONES-->
-<Grid narrow> <!--Primera Columna-->
+<Grid narrow style="display:flex; justify-content: space-evenly; "> <!--Primera Columna-->
 
-    <Row style="background-color: gray; width:14rem; height:68vh; display: flex; flex-direction: column; align-items: center;">
+    <Row class={"class"} style="background-color: gray; width:14rem; height:68vh; display: flex; flex-direction: column; align-items: center;">
         <img src={Sinba} alt="Logo de la campaña de reciclaje">
       <Column style="text-align: center;">Sinba</Column>
     </Row>
-</Grid>
-
-
-<Grid narrow>
+    <!--Tarjeta 2-->
     <Row>
-        <Column> </Column>
-    </Row>    
+        <Column>Hola mundo</Column>
+    </Row>
+    
+    <!--Tarjeta 3-->
+
+    <Row>
+        <Column>Tarjeta 3</Column>
+    </Row>
+
 </Grid>
-
-
-
-
-
-
 
 
 
@@ -49,9 +47,10 @@
    img{
     object-fit: cover;
     width: 25%;
-
+    grid: 23rem;
    }
 
+  
 
    
 </style>
