@@ -5,6 +5,11 @@
     import { Grid, Row, Column } from "carbon-components-svelte";
 
 
+    //*Importaciones de las Imagenes de Perfil sobre los apoyos
+    import apoyo1 from "$lib/images/apoyo1.png";
+    import apoyo2 from "$lib/images/apoyo2.png";
+
+
 </script>
 
 <Grid narrow>
@@ -18,15 +23,22 @@
 </Grid>
 <hr>
 <!--*CONTENEDOR SOBRE LA INFORMACIÓN SOBRE LAS INVERSIONES-->
-<Grid narrow style="display:flex; justify-content: space-evenly; "> <!--Primera Columna-->
+<Grid narrow style="display:flex; justify-content: space-around; "> <!--Primera Columna-->
 
     <Row class={"class"} style="background-color: gray; width:14rem; height:68vh; display: flex; flex-direction: column; align-items: center;">
         <img src={Sinba} alt="Logo de la campaña de reciclaje">
-      <Column style="text-align: center;">Sinba</Column>
+      <Column style="text-align: center;">Sinba.ICP</Column>
     </Row>
+
+
     <!--Tarjeta 2-->
-    <Row>
-        <Column>Hola mundo</Column>
+    <Row style="background-color: gray; width: 14rem; height: 68vh; display: felx; flex-direction:column; align-items: center;">
+        <img src="{ColombiaAval}" alt="Loco de compaña sobre inversión en Colombia">
+        
+        <div class="ImgYNombreUsuario">
+            <img src={apoyo2} alt="Imagen de perfil sobre Sinba">
+            <Column>Luis.ICP</Column>
+        </div>
     </Row>
     
     <!--Tarjeta 3-->
@@ -50,6 +62,10 @@
     grid: 23rem;
    }
 
+   .ImgYNombreUsuario{
+    display: flex;
+    justify-content: center;
+   }
   
 
    
