@@ -23,14 +23,32 @@
 <Grid narrow style="display:flex; justify-content: space-around; ">
   <Row
     class={"class"}
-    style="background-color: gray; width:14rem; height:68vh; display: flex; flex-direction: column; align-items: center;"
+    style="background-color: #EEEEEE; 
+    width:23.375rem; 
+    height:51.375rem; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    padding: 1.813rem;
+    "
   >
-    <ImageLoader src={Sinba} alt="Logo de la campaña de reciclaje" />
+    <ImageLoader src={Sinba} style="widht:19.75rem; height:18.375rem; " 
+    
+    alt="Logo de la campaña de reciclaje"
+      
+    />
     <Column style="text-align: center;">Sinba.ICP</Column>
   </Row>
 
-  <!-- <Row
-    style="background-color: gray; width: 14rem; height: 68vh; display: felx; flex-direction:column; align-items: center;"
+
+
+
+  <Row
+
+    style="background-color: gray; 
+    width: 14rem; height: 68vh; 
+    display: felx; flex-direction:column; 
+    align-items: center;"
   >
     <ImageLoader src={ColombiaAval} alt="Loco de compaña sobre inversión en Colombia" />
 
@@ -41,9 +59,10 @@
   </Row>
 
   <Row>
-    <Column>Tarjeta 3</Column>
-  </Row> -->
+    <Column></Column>
+  </Row>
 </Grid>
 
 <style>
+  
 </style>
