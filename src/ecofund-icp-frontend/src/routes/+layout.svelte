@@ -6,5 +6,6 @@
 <Navbar />
 <slot />
 
+
 <style>
 </style>

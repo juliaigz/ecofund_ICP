@@ -23,6 +23,9 @@
   // import { Theme } from "carbon-components-svelte";
 
   let isSideNavOpen = false;
+
+  import Features from "$lib/Features.svelte";
+
 </script>
 
 <!-- <Header style="background-color: white; color: black;" expansionBreakpoint={1700} company="Ecofound" platformName="ICP" bind:isSideNavOpen> -->
@@ -70,6 +73,7 @@
       </Column>
     </Row>
   </Grid> -->
+  <Features />
   <Cards />
 </Content>
 
