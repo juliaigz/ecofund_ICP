@@ -3,132 +3,145 @@
     import loan from "$lib/images/loan.png";
     import money from "$lib/images/money.png";
     import bussines from "$lib/images/bussines.png";
+
+
+    //Componente Carbon
+    import { Grid, Row, Column, ImageLoader } from "carbon-components-svelte";
+
 </script>
 
-<div class="row1-container">
-    <div class="box box-down cyan">
-        <h2>Escoge un proyecto</h2>
-        <p>
-            Loggeate con tu billatera ICP y busca por categoria y encuentra un
-            emprendedor a quien apoyar
-        </p>
-        <img
-            src={project}
-            alt="Escoge un proyecto"
-        />
-    </div>
 
-    <div class="box red">
-        <h2>Realiza un movimiento</h2>
-        <p>
-            Cuando los prestatarios paguen su financiamiento después del periodo
-            de tiempo pactado, automáticamente se hará el reemboloso de tus ICP
-        </p>
-        <img
-        src={loan}
-            alt=""
-        />
-    </div>
+
+<div class="howItWorks">
+    <h2>How it works?</h2>
+    <p>Use your ICP endorse environmental projects and you will receive your money back with interest. Tomorrow you could
+        also be endorsed.<br>
+        Join ecofound and support sustainability.
+    </p>
 </div>
-<div class="row2-container">
-    <div class="box box-down blue">
-        <h2>Recibe el reembolso</h2>
-        <p>
-            Cuando los prestatarios paguen su financiamiento después del periodo
-            de tiempo pactado, automáticamente se hará el reemboloso de tus ICP
+
+
+
+
+<!--Diseño de las features-->
+
+<Grid style="display: grid; row-gap: 2em;" narrow>
+    <Row style="column-gap:2rem;">
+
+
+
+        <!--*Carta1-->
+    <Column
+        style="background-color:#E6E6E6;
+        width:29.188rem;
+        height:21.563rem;     ">
+
+        <div class="Features-Box">
+        <h3>Choose a project</h3>
+        <p>Log in with your ICP wallet and search by category
+            and find an entreperneur to support
         </p>
-        <img
-        src={money}
-            alt=""
-        />
-    </div>
-    <div class="box orange">
-        <h2>Repetir</h2>
-        <p>
-            Puedes liberar tus fondos a tu billatera ICP ao volver a avalar a
-            otro emprendedor, una vez que avalas a alguien ya puedes ser avalado
-            en el futuro en esa nuestra tribu.
-        </p>
-        <img src={bussines} alt="" />
-    </div>
-</div>
+        </div>
+
+        <div class="caja-imagen">
+            <img src={project} alt="Imagen sobre ayudar a emprendedores del medio ambiente">
+        </div>
+    </Column>
+
+
+
+        <!--*Carta2-->
+      <Column  style="background-color:#EAFDF2;
+      width:29.188rem;
+      height:21.563rem;
+      
+      ">
+            <div class="Features-Box">
+                <h3>Make a move</h3>
+                    <p>
+                        You can help an entrepreneur
+                        who helps the environment by
+                        pledging your ICP
+                    </p>
+            </div>
+
+            <div class="caja-imagen">
+                <img src={loan} alt="Imagen sobre ayudar a emprendedores del medio ambiente">
+            </div>
+
+      </Column>
+    </Row>
+
+    <!--*Fila2-->
+    <Row style="column-gap: 2rem;">
+        <!--*Carta3-->
+        <Column  style="background-color:#E2FAEE;
+        width:29.188rem;
+        height:21.563rem;
+        
+        ">
+
+                <div class="Features-Box">
+                    <h3>Receive the refund</h3>
+                    <p>
+                        Whe borrowers pay their
+                        financing after the agreed
+                        period of time, your money will
+                        automatically be refunded.
+                    </p>
+                </div>
+
+                <div class="caja-imagen">
+                    <img src={money} alt="Imagen sobre reciviendo fondos"/>
+                </div>
+            
+        </Column>
+
+        
+        <!--*Carta 4-->
+        <Column style="background-color:#E6E6E6;
+        width:29.188rem;
+        height:21.563rem; " 
+        >
+                <div class="Features-Box">
+                    <h3>Repeat</h3>
+                    <p>
+                        When borrowers pay their financing after the agreed period of time, your money will automatically be refunded.
+                    </p>
+                </div>
+
+                <div class="caja-imagen">
+                    <img src={bussines} alt="Imagen sobre ayudar a emprendedores del medio ambiente">
+                </div>
+        
+        </Column>
+    </Row>
+  </Grid>
+
+
+
 
 <style>
-    :root {
-        /* --red: hsl(0, 78%, 62%); */
-        /* --orange: hsl(34, 97%, 64%); */               
-        /* --blue: hsl(212, 86%, 64%); */ 
-        /* --cyan: hsl(180, 62%, 55%); */
-        --red: #c39ad5;
-        --cyan: #c39ad5;
-        --orange: #c39ad5;
-        --blue: #c39ad5;
-        --varyDarkBlue: hsl(234, 12%, 34%);
-        --grayishBlue: hsl(229, 6%, 66%);
-        --veryLightGray: hsl(0, 0%, 98%);
-        --weight1: 200;
-        --weight2: 400;
-        --weight3: 600;
-    }
 
-    .box {
-        background-color: #59cf8c1d;
-        border-radius: 40px;
-        box-shadow: 0px 0px 30px -20px var(--grayishBlue);
-        padding: 30px;
-        margin: 20px;
-    }
-
-    img {
-        float: right;
+    .howItWorks{
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 4.938rem;
     }
 
-    @media (max-width: 450px) {
-        .box {
-            height: 200px;
-        }
+    .howItWorks p{
+        padding:0 9rem;
     }
 
-    @media (max-width: 950px) and (min-width: 450px) {
-        .box {
-            text-align: center;
-            height: 180px;
-        }
+
+
+
+    img{
+        object-fit: cover;
+        width: 35vw;
     }
 
-    .cyan {
-        border-top: 3px solid var(--cyan);
-    }
-    .red {
-        border-top: 3px solid var(--red);
-    }
-    .blue {
-        border-top: 3px solid var(--blue);
-    }
-    .orange {
-        border-top: 3px solid var(--orange);
-    }
 
-    h2 {
-        font-weight: var(--weight3);
-    }
-
-    @media (min-width: 950px) {
-        .row1-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .row2-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .box {
-            width: 20%;
-        }
-    }
 </style>
