@@ -136,11 +136,32 @@
     }
 
 
+    .Features-Box h3{
+        font-size: 1.5rem;
+        /* border: 1px solid green; */
+        margin-top: 2rem;
+        margin-left: 7%;
+        width: 23vw;
+    }
+    .Features-Box p{
+        font-size: 0.75em;
+        width: 15vw;
+        height: 15vh;
+        margin-top: 10%;
+        margin-left: 7%;
+        /* border: 1px solid black; */
+        position:relative;
+        
+    }
 
-
-    img{
+   .caja-imagen img{
+        padding: 0px;
         object-fit: cover;
-        width: 35vw;
+        width: 22vw;
+        position: relative;
+        left: 45%;
+        /* border: 1px solid black;  */
+       
     }
 
 

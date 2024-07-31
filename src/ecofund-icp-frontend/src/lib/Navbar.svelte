@@ -24,7 +24,9 @@
 
   let isSideNavOpen = false;
 
+  import Hero from "$lib/Hero.svelte";
   import Features from "$lib/Features.svelte";
+  import Footer from "$lib/Footer.svelte";
 
 </script>
 
@@ -73,8 +75,10 @@
       </Column>
     </Row>
   </Grid> -->
+  <Hero />
   <Features />
   <Cards />
+  <Footer />
 </Content>
 
 <style>
