@@ -203,7 +203,7 @@
       display: flex;
       margin-top: 1.25rem;
       margin-bottom: 2.25rem;
-      border: 2px solid red;
+      /* border: 2px solid red; */
 
     }
 
