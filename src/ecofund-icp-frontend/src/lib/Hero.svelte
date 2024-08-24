@@ -23,7 +23,8 @@ import { Grid, Row, Column } from "carbon-components-svelte";
         </p>
         
       </Column>
-      <!--Columna de Imagen-->
+      
+      <!--*Columna de Imagen-->
       <Column>
         <div>
           <img src={home} alt="Imagen de bievenida, una niña en un escritorio">
@@ -44,10 +45,5 @@ import { Grid, Row, Column } from "carbon-components-svelte";
       object-fit: cover;
       
     }
-    .triangle-background {
-      width: 0;
-      height: 0;
-      border-left: 100px solid transparent; /* Ajusta el tamaño del triángulo */
-      border-bottom: 100px solid blue; /* Color del triángulo */
-    }
+  
 </style>
