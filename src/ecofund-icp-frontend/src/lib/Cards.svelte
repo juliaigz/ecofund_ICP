@@ -71,7 +71,7 @@
         
            
            <p>This endorsement of 500 ICP is intended to strengthen Sinba's food and materials recycling management, which is an innovative project focused on waste reduction and the promotion of good practices.</p>
-          <Button icon={Add} style="background-color:#59CF8C; width: 12.625rem;"  >see project</Button>
+          <Button icon={Add} href="/project" style="background-color:#59CF8C; width: 12.625rem;"  >see project</Button>
         </Column>
     
 
