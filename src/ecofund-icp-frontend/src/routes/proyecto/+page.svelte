@@ -9,7 +9,7 @@
     import apoyo4 from "$lib/images/apoyo4.png";
     import TransferPlug from "$lib/TransferPlug.svelte";
     import { onMount } from "svelte";
-    import { backend } from "$lib/canisters";
+    // import { backend } from "$lib/canisters";
 
     let project = {
         name: "Sinba",
@@ -24,7 +24,7 @@
 
     onMount(async () => {
         console.log(project);
-        const result = await backend.getWallet();
+        // const result = await backend.getWallet();
         // console.log(result[0][1].principalId);
         project.principalId = result[0][1].principalId;
         console.log(project);
@@ -32,7 +32,7 @@
 </script>
 
 <main>
-    <div></div>
+
     <div id="cajaPrincipalInfo">
         <div id="ImgYFondo">
             <div id="ContendorImg">
