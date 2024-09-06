@@ -7,7 +7,6 @@
 
     //Componente Carbon
     import { Grid, Row, Column, ImageLoader } from "carbon-components-svelte";
-
 </script>
 
 
@@ -43,7 +42,7 @@
         </p>
         </div>
 
-        <div class="caja-imagen">
+        <div class="ImageBox">
             <img src={project} alt="Imagen sobre ayudar a emprendedores del medio ambiente">
         </div>
     </Column>
@@ -65,7 +64,7 @@
                     </p>
             </div>
 
-            <div class="caja-imagen">
+            <div class="ImageBox">
                 <img src={loan} alt="Imagen sobre ayudar a emprendedores del medio ambiente">
             </div>
 
@@ -91,7 +90,7 @@
                     </p>
                 </div>
 
-                <div class="caja-imagen">
+                <div class="ImageBox">
                     <img src={money} alt="Imagen sobre reciviendo fondos"/>
                 </div>
             
@@ -110,7 +109,7 @@
                     </p>
                 </div>
 
-                <div class="caja-imagen">
+                <div class="ImageBox">
                     <img src={bussines} alt="Imagen sobre ayudar a emprendedores del medio ambiente">
                 </div>
         
@@ -147,20 +146,30 @@
         font-size: 0.75em;
         width: 15vw;
         height: 15vh;
-        margin-top: 10%;
+        margin-top: 6%;
         margin-left: 7%;
         /* border: 1px solid black; */
         position:relative;
         
     }
-
-   .caja-imagen img{
+    
+    .ImageBox{
+        /*border: 1px solid green;*/
+        width: 22vw;
+        position: relative;
+        left: 43%;
+        bottom: 35%;
+    }
+      
+   .ImageBox img{
         padding: 0px;
         object-fit: cover;
         width: 22vw;
-        position: relative;
+        
+        /* position: relative;
         left: 45%;
-        /* border: 1px solid black;  */
+         border: 1px solid black;  
+         */
        
     }
 
