@@ -3,6 +3,7 @@
   import { Grid, Row, Column } from "carbon-components-svelte";
   import { NumberInput } from "carbon-components-svelte";
   import { Button } from "carbon-components-svelte";
+  import { Content } from "carbon-components-svelte";
   import Add from "carbon-icons-svelte/lib/Add.svelte";
 
   //import perfilIcon from
@@ -15,17 +16,12 @@
   import Luis from "$lib/images/Luis.png";
 </script>
 
-<main>
+<!-- <main> -->
+<Content>
   <Search size="sm" style="width: 55%;" />
 
-  <Grid
-    style="margin-top:1%;
-          border:0.1em solid black;
-          border-radius: 2%;
-        
-"
-  >
-    <Row style="margin-top:5%;">
+  <Grid style="border:0.1em solid black; border-radius: 2%;">
+    <Row>
       <Column lg={9}>
         <div class="ProjectInformation">
           <figure>
@@ -107,15 +103,11 @@
       </Column>
     </Row>
   </Grid>
-</main>
+</Content>
+
+<!-- </main> -->
 
 <style>
-  main {
-    margin-top: 3%;
-    padding: 2%;
-    /*border: 1px solid black;*/
-  }
-
   h2 {
     color: #59cf8c;
   }
