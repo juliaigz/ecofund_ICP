@@ -34,7 +34,6 @@
     <SideNavLink text="About" />
     <SideNavLink text="Help" />
     <SideNavLink text="Start a project" />
-
     <SideNavDivider />
   </SideNavItems>
 </SideNav>
