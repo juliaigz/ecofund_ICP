@@ -113,7 +113,7 @@
   main {
     margin-top: 3%;
     padding: 2%;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
   }
 
   h2 {
@@ -151,7 +151,7 @@
     margin-bottom: 4rem;
     width: 50vw;
     height: 40vh;
-    border: 1px solid green;
+    /*border: 1px solid green;*/
   }
 
   /* ------------------------------------------*/
@@ -163,7 +163,7 @@
     justify-content: center;
     flex-direction: column;
     padding: 2%;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
   }
 
   #boxOtherGuarantees h3 {
@@ -192,17 +192,19 @@
   .box-Ivestement {
     position: relative;
     left: 20%;
-    top: 20%;
+    top: 30%;
   }
 
   .box-Ivestement .Icp-Investment-Fund {
-    border: 1px solid black;
+    border: 3px solid;
+    box-shadow: 10px 20px 20px 40px #888888;
+
     display: flex;
     flex-direction: column;
     border-radius: 5%;
     padding: 10%;
     width: 35vw;
-    height: 45vh;
+    height: 30vh;
   }
 
   .Icp-Investment-Fund p {
