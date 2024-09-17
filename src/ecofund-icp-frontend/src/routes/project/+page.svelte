@@ -5,6 +5,7 @@
   import { Button } from "carbon-components-svelte";
   import { Content } from "carbon-components-svelte";
   import Add from "carbon-icons-svelte/lib/Add.svelte";
+  import { ProgressBar } from "carbon-components-svelte";
 
   //import perfilIcon from
   import IconPerfil from "$lib/images/apoyo1.png";
@@ -20,7 +21,7 @@
 <Content>
   <Search size="sm" style="width: 55%;" />
 
-  <Grid style="border:0.1em solid black; border-radius: 2%;">
+  <Grid style="border:0.1em solid black; border-radius: 2%; margin-top: 3%;">
     <Row>
       <Column lg={9}>
         <div class="ProjectInformation">
@@ -30,9 +31,13 @@
               alt="Profile icon of the background creator"
             />
           </figure>
-          <div id="ProgressBar">
-            <!--Progress Bar CODE-->
-          </div>
+          <ProgressBar
+            value={100}
+            max={200}
+            labelText="Upload status"
+            helperText="40 MB of 200 MB"
+            
+          />
         </div>
 
         <h2>
@@ -108,6 +113,22 @@
 <!-- </main> -->
 
 <style>
+
+  .ProjectInformation{
+    
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 3%;
+    padding: 1%;
+  }
+
+  .ProjectInformation figure{
+    margin-right: 1.3%;
+  }
+
+
+
   h2 {
     color: #59cf8c;
   }
