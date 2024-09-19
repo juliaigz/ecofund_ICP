@@ -136,7 +136,7 @@
         width: 23vw;
     }
     .Features-Box p {
-        font-size: 0.75em;
+        font-size: 1rem;
         width: 15vw;
         height: 15vh;
         margin-top: 6%;

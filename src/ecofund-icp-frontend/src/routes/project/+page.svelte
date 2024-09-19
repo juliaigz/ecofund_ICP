@@ -21,7 +21,8 @@
 <Content>
   <Search size="sm" style="width: 55%;" />
 
-  <Grid style="border:0.1em solid black; border-radius: 2%; margin-top: 3%;">
+  <Grid style="border:0.1em solid black; border-radius: 2%; margin-top: 3%; box-shadow: -1px -3px 5px 6px rgba(173,173,173,0.99) inset;
+">
     <Row>
       <Column lg={9}>
         <div class="ProjectInformation">
@@ -36,7 +37,7 @@
             max={200}
             labelText="Upload status"
             helperText="40 MB of 200 MB"
-            
+            style="width:100%;"
           />
         </div>
 
@@ -149,8 +150,8 @@
 
   #boxImgSinba {
     /* border: 1px solid black; */
-    width: 50vw;
-    height: 65vh;
+    width: 100%;
+    height: 33%;
   }
   #boxImgSinba img {
     width: 100%;
@@ -209,15 +210,15 @@
   }
 
   .box-Ivestement .Icp-Investment-Fund {
-    border: 3px solid;
-    box-shadow: 10px 20px 20px 40px #888888;
-
+    border: 1px solid black;
+    box-shadow: -1px -3px 5px 6px rgba(173,173,173,0.99) inset;
     display: flex;
     flex-direction: column;
     border-radius: 5%;
     padding: 10%;
     width: 35vw;
     height: 30vh;
+
   }
 
   .Icp-Investment-Fund p {

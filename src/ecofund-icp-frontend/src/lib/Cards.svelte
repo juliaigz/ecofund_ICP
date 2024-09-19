@@ -54,22 +54,27 @@
         <img src={ElipseSinba} alt="Imagen de Perfil del Aval Sinba" />
         <h5>SINBA.ICP</h5>
       </div>
-
-      <!--contendedor de ubicacion-->
-      <div class="Ubicacion">
-        <img src={bxs_map} alt="Icono de Ubicacions" />
-        <h6>Lima, Peru</h6>
+    
+    
+    
+      <div class="boxInfoCenter">
+        <!--contendedor de ubicacion-->
+        <div class="Ubicacion">
+          <img src={bxs_map} alt="Icono de Ubicacions" />
+          <h6>Lima, Peru</h6>
+        </div>
+  
+        <p>
+          This endorsement of 500 ICP is intended to strengthen Sinba's food and
+          materials recycling management, which is an innovative project focused
+          on waste reduction and the promotion of good practices.
+        </p>
       </div>
-
-      <p>
-        This endorsement of 500 ICP is intended to strengthen Sinba's food and
-        materials recycling management, which is an innovative project focused
-        on waste reduction and the promotion of good practices.
-      </p>
+      
       <Button
         icon={Add}
         href="/project"
-        style="background-color:#59CF8C; width: 12.625rem;">see project</Button
+        style="background-color:#59CF8C; width: 12.625rem; position: relative; left:25%;">see project</Button
       >
     </Column>
 
@@ -90,22 +95,28 @@
         <img src={ElipseColombia} alt="Imagen de Perfil del Aval Sinba" />
         <h5>LUIS.ICPP</h5>
       </div>
-
-      <!--contendedor de ubicacion-->
-      <div class="Ubicacion">
-        <img src={bxs_map} alt="Icono de Ubicacions" />
-        <h6>Cali, Colombia</h6>
+  
+    <!---Contendor de información ubicación, texto,etc.-->
+    
+    
+      <div class="boxInfoCenter">
+        <!--contendedor de ubicacion-->
+        <div class="Ubicacion">
+          <img src={bxs_map} alt="Icono de Ubicacions" />
+          <h6>Cali, Colombia</h6>
+        </div>
+  
+        <p>
+          This guarantee of 250 ICP is intended to promote an innovative
+          sustainable agriculture project. The project focuses on implementing
+          agricultural practices that protect the environment, conserve natural
+          resources and improve the quality of life of farmers and the community
+          in general.
+        </p>
       </div>
+      
 
-      <p>
-        This guarantee of 250 ICP is intended to promote an innovative
-        sustainable agriculture project. The project focuses on implementing
-        agricultural practices that protect the environment, conserve natural
-        resources and improve the quality of life of farmers and the community
-        in general.
-      </p>
-
-      <Button icon={Add} style="background-color:#59CF8C; width: 12.625rem;"
+      <Button icon={Add} style="background-color:#59CF8C; width: 12.625rem; position: relative; left:25%;"
         >see project</Button
       >
     </Column>
@@ -115,7 +126,6 @@
       style="
         padding:1.43rem;
         background-color: #EEEEEE;
-        
         "
     >
       <ImageLoader
@@ -127,21 +137,27 @@
         <img src={ElipseReciclaje} alt="Imagen de Perfil del Aval Sinba" />
         <h5>VICTOR.ICP</h5>
       </div>
-
-      <!--contendedor de ubicacion-->
-      <div class="Ubicacion">
-        <img src={bxs_map} alt="Icono de Ubicacions" />
-        <h6>Cancún, México</h6>
+      
+      
+      <div class="boxInfoCenter">
+         
+        <!--contendedor de ubicacion-->
+        <div class="Ubicacion">
+          <img src={bxs_map} alt="Icono de Ubicacions" />
+          <h6>Cancún, México</h6>
+        </div>
+  
+        <p>
+          This guarantee of 100 ICP is intended to promote an innovative recycling
+          project. The objective of the project is to promote sustainability and
+          responsible waste management through the implementation of advanced
+          technologies and efficient recycling practices.
+        </p>
       </div>
+      
+     
 
-      <p>
-        This guarantee of 100 ICP is intended to promote an innovative recycling
-        project. The objective of the project is to promote sustainability and
-        responsible waste management through the implementation of advanced
-        technologies and efficient recycling practices.
-      </p>
-
-      <Button icon={Add} style="background-color:#59CF8C; width: 12.625rem;"
+      <Button icon={Add} style="background-color:#59CF8C; width: 12.625rem; position: relative; left:25%;"
         >see project</Button
       >
     </Column>
@@ -162,6 +178,7 @@
     display: flex;
     align-items: center;
     margin-top: 1.25rem;
+    margin-left: 10%;
   }
 
   .sinba img {
@@ -174,6 +191,8 @@
     display: flex;
     align-items: center;
     margin-top: 1.25rem;
+    margin-left: 10%;
+    /*border: 1px solid green;*/
   }
 
   .luis img {
@@ -186,6 +205,7 @@
     display: flex;
     align-items: center;
     margin-top: 1.25rem;
+    margin-left: 10%;
   }
 
   .victor img {
@@ -195,15 +215,33 @@
   p {
     width: 12.625rem;
     height: 12.5rem;
-    font-size: 0.75rem;
+    font-size: 1rem;
+    width: 100%;
     margin-bottom: 8.375rem;
   }
 
   /***Contenedores de la Ubicacion con el Icono*/
   .Ubicacion {
     display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 1.25rem;
     margin-bottom: 2.25rem;
-    /* border: 2px solid red; */
+    width:100%;
+    /*border: 2px solid red; */
+  }
+  
+  
+  /*Esto diseño es sobre las 3 informaciones de cada carta*/
+  .boxInfoCenter{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*border: 1px solid black;*/
+    margin: auto;
+    padding: 0% 8%;
   }
 </style>
