@@ -3,16 +3,14 @@
     Header,
     HeaderNav,
     HeaderNavItem,
+    HeaderUtilities,
     SideNav,
     SideNavItems,
     SideNavLink,
     SideNavDivider,
     SkipToContent,
   } from "carbon-components-svelte";
-
   let isSideNavOpen = false;
-
-
   import { Button } from "carbon-components-svelte";
 
 </script>
@@ -22,7 +20,7 @@
   company="Ecofound"
   platformName="ICP" 
   bind:isSideNavOpen
-
+  href="/"
 >
   <svelte:fragment slot="skip-to-content">
     <SkipToContent />
@@ -31,9 +29,10 @@
     <HeaderNavItem href="/" text="About" />
     <HeaderNavItem href="/" text="Help" />
     <HeaderNavItem href="/" text="Start a project" />
-    <!-- <Button style="position:absolute; left:100%;">Wallet</Button> -->
   </HeaderNav>
-  <Button style="position:absolute; left:90%;">Wallet</Button>
+  <HeaderUtilities>
+
+  </HeaderUtilities>
 </Header>
 
 <SideNav bind:isOpen={isSideNavOpen}>
