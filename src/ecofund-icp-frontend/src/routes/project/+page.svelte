@@ -21,8 +21,10 @@
 <Content>
   <Search size="sm" style="width: 55%;" />
 
-  <Grid style="border:0.1em solid black; border-radius: 2%; margin-top: 3%; box-shadow: -1px -3px 5px 6px rgba(173,173,173,0.99) inset;
-">
+  <Grid
+    style="border:0.1em solid black; border-radius: 2%; margin-top: 3%; box-shadow: -1px -3px 5px 6px rgba(173,173,173,0.99) inset;
+"
+  >
     <Row>
       <Column lg={9}>
         <div class="ProjectInformation">
@@ -114,9 +116,7 @@
 <!-- </main> -->
 
 <style>
-
-  .ProjectInformation{
-    
+  .ProjectInformation {
     display: flex;
     align-items: center;
     width: 100%;
@@ -124,11 +124,9 @@
     padding: 1%;
   }
 
-  .ProjectInformation figure{
+  .ProjectInformation figure {
     margin-right: 1.3%;
   }
-
-
 
   h2 {
     color: #59cf8c;
@@ -211,14 +209,13 @@
 
   .box-Ivestement .Icp-Investment-Fund {
     border: 1px solid black;
-    box-shadow: -1px -3px 5px 6px rgba(173,173,173,0.99) inset;
+    box-shadow: -1px -3px 5px 6px rgba(173, 173, 173, 0.99) inset;
     display: flex;
     flex-direction: column;
     border-radius: 5%;
     padding: 10%;
     width: 35vw;
     height: 30vh;
-
   }
 
   .Icp-Investment-Fund p {
