@@ -1,6 +1,7 @@
 # `ecofund-icp`
 
-EcoFund ICP is an innovative blockchain-based platform leveraging the power of the Internet Computer Protocol (ICP) to facilitate solidarity loans for environmentally-focused projects. Our mission is to empower communities and individuals dedicated to sustainability by providing them with the financial resources.
+EcoFund ICP is an innovative blockchain-based platform leveraging the power of the Internet Computer Protocol (ICP) to facilitate solidarity Donations for environmentally-focused projects. Our mission is to empower communities and individuals dedicated to sustainability by providing them with the financial resources.
+
 
 Welcome to your new `ecofund-icp` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
 
