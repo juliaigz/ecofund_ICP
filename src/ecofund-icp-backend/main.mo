@@ -16,4 +16,8 @@ actor {
 
     return walletArray;
   };
+
+  public shared (msg) func whoami() : async Principal {
+    msg.caller;
+  };
 };
