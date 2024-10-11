@@ -1,11 +1,11 @@
-import { fileURLToPath, URL } from 'url';
-import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
+import { fileURLToPath, URL } from "url";
+import { sveltekit } from "@sveltejs/kit/vite";
+import { defineConfig } from "vite";
 import { optimizeCss } from "carbon-preprocess-svelte";
-import environment from 'vite-plugin-environment';
-import dotenv from 'dotenv';
+import environment from "vite-plugin-environment";
+import dotenv from "dotenv";
 
-dotenv.config({ path: '../../.env' });
+dotenv.config({ path: "../../.env" });
 
 export default defineConfig({
   build: {
@@ -32,15 +32,13 @@ export default defineConfig({
     sveltekit(),
     environment("all", { prefix: "CANISTER_" }),
     environment("all", { prefix: "DFX_" }),
-    optimizeCss()
+    optimizeCss(),
   ],
   resolve: {
     alias: [
       {
         find: "declarations",
-        replacement: fileURLToPath(
-          new URL("../declarations", import.meta.url)
-        ),
+        replacement: fileURLToPath(new URL("../declarations", import.meta.url)),
       },
     ],
   },
