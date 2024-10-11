@@ -9,16 +9,21 @@
     SideNavLink,
     SideNavDivider,
     SkipToContent,
+    HeaderGlobalAction,
+    Modal,
+    Content,
   } from "carbon-components-svelte";
+  import { UserAvatarFilledAlt } from "carbon-icons-svelte";
   let isSideNavOpen = false;
-  import { Button } from "carbon-components-svelte";
+  import InternetIdentity from "$lib/connect/InternetIdentity.svelte";
 
+  let open = false;
 </script>
 
 <Header
   expansionBreakpoint={1700}
   company="Ecofound"
-  platformName="ICP" 
+  platformName="ICP"
   bind:isSideNavOpen
   href="/"
 >
@@ -31,7 +36,11 @@
     <HeaderNavItem href="/" text="Start a project" />
   </HeaderNav>
   <HeaderUtilities>
-
+    <HeaderGlobalAction
+      on:click={() => (open = true)}
+      iconDescription="Profile"
+      icon={UserAvatarFilledAlt}
+    />
   </HeaderUtilities>
 </Header>
 
@@ -44,8 +53,21 @@
   </SideNavItems>
 </SideNav>
 
-<style>
+<Modal
+  bind:open
+  modalLabel="Join us in supporting sustainable projects! By connecting a wallet, you contribute your crypto donations seamlessly."
+  modalHeading="Connect a Wallet"
+  on:click
+  on:open
+  on:close
+  on:submit
+>
+  <Content>
+    <InternetIdentity />
+  </Content>
+</Modal>
 
+<style>
   /* button{
     text-align: center;
     position: ;
