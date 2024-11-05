@@ -20,6 +20,8 @@ If you want to start working on your project right away, you might want to try t
 cd ecofund-icp/
 dfx help
 dfx canister --help
+npm i -g ic-mops
+mops --version
 ```
 
 ## Running the project locally

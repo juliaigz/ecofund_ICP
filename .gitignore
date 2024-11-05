@@ -24,3 +24,5 @@ package-lock.json
 
 # environment variables
 .env
+
+.mops

@@ -8,12 +8,8 @@
       "type": "motoko"
     },
     "ecofund-icp-frontend": {
-      "dependencies": [
-        "ecofund-icp-backend"
-      ],
-      "source": [
-        "src/ecofund-icp-frontend/dist"
-      ],
+      "dependencies": ["ecofund-icp-backend"],
+      "source": ["src/ecofund-icp-frontend/dist"],
       "type": "assets",
       "workspace": "ecofund-icp-frontend"
     },
@@ -32,7 +28,7 @@
   "defaults": {
     "build": {
       "args": "",
-      "packtool": ""
+      "packtool": "mops sources"
     }
   },
   "output_env_file": ".env",
