@@ -3,11 +3,12 @@ import Text "mo:base/Text";
 import Principal "mo:base/Principal";
 import Nat "mo:base/Nat";
 import Debug "mo:base/Debug";
+import Bool "mo:base/Bool";
 import Map "mo:map/Map";
 import { thash } "mo:map/Map";
 actor {
   type Project = {
-    project_principal : Text;
+    principal_owner : Text;
     project_name : Text;
     categories : [Text];
     project_description : Text;
@@ -15,7 +16,12 @@ actor {
     target_amount : Nat;
     target_percentage : Nat;
     donated_amount : Nat;
-  };
+    is_visible : Bool; // Indica si el proyecto es visible (true = sí, false = no)
+    instagram_url : Text; 
+    facebook_url : Text; 
+    whatsapp_prefix : Text; 
+    whatsapp_number : Text; 
+};
 
   type ProjectId = Text;
 
