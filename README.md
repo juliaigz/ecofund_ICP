@@ -78,6 +78,99 @@ If you are making frontend changes, you can start a development server with
 npm start
 ```
 
+## Setup ICP Ledger Canister
+
+This guide will walk you through the process of setting up and configuring the ICP ledger canister for local development.
+
+### 1. Deploy the Ledger Canister
+
+Deploy the ICP ledger canister with initial configuration:
+
+```bash
+dfx deploy icp_ledger_canister --argument "(variant {
+    Init = record {
+        minting_account = \"$(dfx ledger --identity anonymous account-id)\";
+        initial_values = vec {
+            record {
+                \"$(dfx ledger --identity default account-id)\";
+                record {
+                    e8s = 10_000_000_000 : nat64;
+                };
+            };
+        };
+        send_whitelist = vec {};
+        transfer_fee = opt record {
+            e8s = 10_000 : nat64;
+        };
+        token_symbol = opt \"LICP\";
+        token_name = opt \"Local ICP\";
+    }
+})"
+```
+
+### 2. Verify Ledger Health
+
+Check that the ledger canister is working correctly by verifying the account balance:
+
+```bash
+dfx canister call icp_ledger_canister account_balance '(record {account = '$(python3 -c 'print("vec{" + ";".join([str(b) for b in bytes.fromhex("'$(dfx ledger --identity default account-id)'")]) + "}")')'})'
+```
+
+Expected output:
+
+```bash
+(record { e8s = 10_000_000_000 : nat64 })
+```
+
+### 3. Configure Canister Address
+
+Before deploying the backend, set up the canister address variables:
+
+```bash
+# Get the canister account ID
+TOKENS_TRANSFER_ACCOUNT_ID="$(dfx ledger account-id --of-canister ecofund-icp-backend)"
+
+# Convert the account ID to byte format
+TOKENS_TRANSFER_ACCOUNT_ID_BYTES="$(python3 -c 'print("vec{" + ";".join([str(b) for b in bytes.fromhex("'$TOKENS_TRANSFER_ACCOUNT_ID'")]) + "}")')"
+```
+
+### 4. Transfer Funds to Canister
+
+Transfer ICP tokens to your canister:
+
+```bash
+dfx canister --identity default call icp_ledger_canister transfer "(record {
+    to = ${TOKENS_TRANSFER_ACCOUNT_ID_BYTES};
+    memo = 1;
+    amount = record { e8s = 2_00_000_000 };
+    fee = record { e8s = 10_000 };
+})"
+```
+
+Successful output:
+
+```bash
+(variant { Ok = 1 : nat64 })
+```
+
+### 5. Test Canister Transfers
+
+Verify that the canister can transfer funds by sending ICP back to the default account:
+
+```bash
+dfx canister call ecofund-icp-backend transfer "(record {
+    amount = record { e8s = 100_000_000 };
+    toPrincipal = principal \"$(dfx identity --identity default get-principal)\"
+})"
+```
+
+### Notes
+
+- The `e8s` value represents ICP tokens in e8s (1 ICP = 100_000_000 e8s)
+- The transfer fee is set to 10_000 e8s
+- Make sure you have sufficient funds in your default identity before making transfers
+- The token symbol "LICP" stands for Local ICP, used for local development
+
 Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
 
 ### Note on frontend environment variables
