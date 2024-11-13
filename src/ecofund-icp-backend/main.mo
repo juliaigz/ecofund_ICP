@@ -59,16 +59,9 @@ actor {
   //   // Debug.print(debug_show (projects));
   // };
 
-  public query func showProjects() : async ?(ProjectId, Project) {
-    // Debug.print(
-    //   debug_show (
-
-    //     Map.entries<ProjectId, Project>(projectsList).current()
-
-    //   )
-    // );
-    return Map.entries<ProjectId, Project>(projectsList).current();
-  };
+ public query func showProjects() : async [(ProjectId, Project)] {
+    Iter.toArray(Map.entries(projectsList))
+};
 
   public query func showProjectById(idProject : ProjectId) : async ?Project {
     // return projectsList.get(idProject);
