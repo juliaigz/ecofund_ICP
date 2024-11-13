@@ -121,12 +121,7 @@ TOKENS_TRANSFER_ACCOUNT_ID_BYTES="$(python3 -c 'print("vec{" + ";".join([str(b) 
 Transfer ICP tokens to your canister:
 
 ```bash
-dfx canister --identity default call icp_ledger_canister transfer "(record {
-    to = ${TOKENS_TRANSFER_ACCOUNT_ID_BYTES};
-    memo = 1;
-    amount = record { e8s = 2_00_000_000 };
-    fee = record { e8s = 10_000 };
-})"
+dfx canister --identity default call icp_ledger_canister transfer "(record { to = ${TOKENS_TRANSFER_ACCOUNT_ID_BYTES}; memo = 1; amount = record { e8s = 2_00_000_000 }; fee = record { e8s = 10_000 }; })"
 ```
 
 Successful output:
@@ -140,10 +135,7 @@ Successful output:
 Verify that the canister can transfer funds by sending ICP back to the default account:
 
 ```bash
-dfx canister call ecofund-icp-backend transfer "(record {
-    amount = record { e8s = 100_000_000 };
-    toPrincipal = principal \"$(dfx identity --identity default get-principal)\"
-})"
+dfx canister call ecofund-icp-backend transfer "(record { amount = record { e8s = 100_000_000 }; toPrincipal = principal \"$(dfx identity --identity default get-principal)\" })"
 ```
 
 ### Notes
