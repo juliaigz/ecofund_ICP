@@ -119,7 +119,11 @@ actor {
     let account = Principal.toLedgerAccount(caller, null);
     // return debug_show(account);
     return debug_show(account);
-};
+  };
 
- 
+  public shared({ caller }) func getBalance() : async Nat64 {
+    let userAccount = Principal.toLedgerAccount(caller, null);
+    let balance = await IcpLedger.account_balance({ account = userAccount });
+    return balance.e8s;
+  };
 };
