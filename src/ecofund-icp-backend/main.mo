@@ -64,44 +64,53 @@ actor {
     return Map.remove<ProjectId, Project>(projectsList, thash, idProject);
   };
 
-  public shared func transfer(args : TransferArgs) : async Result.Result<IcpLedger.BlockIndex, Text> {
+   type Tokens = {
+    e8s : Nat64;
+  };
+
+  type TransferArgs = {
+    amount : Tokens;
+    toPrincipal : Principal;
+    toSubaccount : ?IcpLedger.SubAccount;
+  };
+
+  public shared({ caller }) func transfer(args : TransferArgs) : async Result.Result<IcpLedger.BlockIndex, Text> {
     Debug.print(
       "Transferring "
       # debug_show (args.amount)
-      # " tokens to principal "
+      # " tokens from principal "
+      # debug_show (caller)
+      # " to principal "
       # debug_show (args.toPrincipal)
       # " subaccount "
       # debug_show (args.toSubaccount)
     );
 
+    let fromAccount = Principal.toLedgerAccount(caller, null);
+    
     let transferArgs : IcpLedger.TransferArgs = {
-      // can be used to distinguish between transactions
       memo = 0;
-      // the amount we want to transfer
       amount = args.amount;
-      // the ICP ledger charges 10_000 e8s for a transfer
-      fee = { e8s = 10_000 };
-      // we are transferring from the canisters default subaccount, therefore we don't need to specify it
+      fee = { e8s = 10_000 }; // La comisión estándar del ICP Ledger
       from_subaccount = null;
-      // we take the principal and subaccount from the arguments and convert them into an account identifier
       to = Principal.toLedgerAccount(args.toPrincipal, args.toSubaccount);
-      // a timestamp indicating when the transaction was created by the caller; if it is not specified by the caller then this is set to the current ICP time
       created_at_time = null;
     };
 
     try {
-      // initiate the transfer
+      // Iniciar la transferencia
       let transferResult = await IcpLedger.transfer(transferArgs);
 
-      // check if the transfer was successfull
+      // Verificar si la transferencia fue exitosa
       switch (transferResult) {
         case (#Err(transferError)) {
           return #err("Couldn't transfer funds:\n" # debug_show (transferError));
         };
-        case (#Ok(blockIndex)) { return #ok blockIndex };
+        case (#Ok(blockIndex)) { 
+          return #ok blockIndex;
+        };
       };
     } catch (error : Error) {
-      // catch any errors that might occur during the transfer
       return #err("Reject message: " # Error.message(error));
     };
   };
