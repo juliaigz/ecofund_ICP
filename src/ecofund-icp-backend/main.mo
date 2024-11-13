@@ -9,6 +9,7 @@ import Result "mo:base/Result";
 import Error "mo:base/Error";
 import Nat "mo:base/Nat";
 import Bool "mo:base/Bool";
+import Iter "mo:base/Iter";
 actor {
   type Project = {
     principal_owner : Text;
@@ -45,29 +46,11 @@ actor {
     msg.caller;
   };
 
-  // public query func maptest() : async () {
-  //   // return Map.get<Text, Project>(projectsList, thash, id);
-  //   Debug.print(
-  //     debug_show (
-  //       Map.entries<ProjectId, Project>(projectsList).current()
-  //     )
-  //   );
-  // };
-
-  // public query func maptest2(idProject : ProjectId, project : Project) : async ?Project {
-  //   return Map.put<ProjectId, Project>(projectsList, thash, idProject, project);
-  //   // Debug.print(debug_show (projects));
-  // };
-
  public query func showProjects() : async [(ProjectId, Project)] {
     Iter.toArray(Map.entries(projectsList))
 };
 
   public query func showProjectById(idProject : ProjectId) : async ?Project {
-    // return projectsList.get(idProject);
-    // Debug.print(debug_show ("showProjectById"));
-    // Debug.print(debug_show (idProject));
-    // Debug.print(debug_show (Map.get(projectsList, thash, idProject)));
     return Map.get(projectsList, thash, idProject);
   };
 
