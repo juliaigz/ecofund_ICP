@@ -89,7 +89,7 @@ actor {
 
   public shared func updateProjectById(idProject : ProjectId, project : Project) : async ?Project {
     let existingProject = Map.get<ProjectId, Project>(projectsList, thash, idProject);
-    if (existingProject == null) {
+    if (existingProject != null) {
       return Map.put<ProjectId, Project>(projectsList, thash, idProject, project);
     };
     return Map.get<ProjectId, Project>(projectsList, thash, idProject);
