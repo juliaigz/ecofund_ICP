@@ -114,4 +114,12 @@ actor {
       return #err("Reject message: " # Error.message(error));
     };
   };
+
+  public shared({ caller }) func getMyAccount() : async Text {
+    let account = Principal.toLedgerAccount(caller, null);
+    // return debug_show(account);
+    return debug_show(account);
+};
+
+ 
 };
