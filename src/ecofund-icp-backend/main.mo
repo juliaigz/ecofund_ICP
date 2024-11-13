@@ -29,18 +29,7 @@ actor {
 
   type ProjectId = Text;
 
-    type Tokens = {
-    e8s : Nat64;
-  };
-
-  type TransferArgs = {
-    amount : Tokens;
-    toPrincipal : Principal;
-    toSubaccount : ?IcpLedger.SubAccount;
-  };
-
-  // stable let projectsList = HashMap.HashMap<ProjectId, Project>(0, Text.equal, Text.hash);
-  let projectsList = Map.new<ProjectId, Project>();
+  stable let projectsList = Map.new<ProjectId, Project>();
 
   public shared (msg) func whoami() : async Principal {
     msg.caller;
