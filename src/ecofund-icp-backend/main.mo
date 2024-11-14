@@ -64,7 +64,7 @@ actor {
     return Map.remove<ProjectId, Project>(projectsList, thash, idProject);
   };
 
-   type Tokens = {
+    type Tokens = {
     e8s : Nat64;
   };
 
@@ -75,45 +75,44 @@ actor {
   };
 
   public shared({ caller }) func transfer(args : TransferArgs) : async Result.Result<IcpLedger.BlockIndex, Text> {
-    Debug.print(
-      "Transferring "
-      # debug_show (args.amount)
-      # " tokens from principal "
-      # debug_show (caller)
-      # " to principal "
-      # debug_show (args.toPrincipal)
-      # " subaccount "
-      # debug_show (args.toSubaccount)
-    );
+    Debug.print("-----------");
+    Debug.print("Iniciando transferencia");
+    Debug.print("Cantidad: " # debug_show(args.amount));
+    Debug.print("Desde principal: " # debug_show(caller));
+    Debug.print("A principal: " # debug_show(args.toPrincipal));
+    Debug.print("A subcuenta: " # debug_show(args.toSubaccount));
+    Debug.print("Finalizando transferencia");
+    Debug.print("-----------");
 
-    let fromAccount = Principal.toLedgerAccount(caller, null);
-    
     let transferArgs : IcpLedger.TransferArgs = {
-      memo = 0;
-      amount = args.amount;
-      fee = { e8s = 10_000 }; // La comisión estándar del ICP Ledger
-      from_subaccount = null;
-      to = Principal.toLedgerAccount(args.toPrincipal, args.toSubaccount);
-      created_at_time = null;
+        memo = 0;
+        amount = args.amount;
+        fee = { e8s = 10_000 };
+        from_subaccount = null;
+        to = Principal.toLedgerAccount(args.toPrincipal, args.toSubaccount);
+        created_at_time = null;
     };
 
     try {
-      // Iniciar la transferencia
-      let transferResult = await IcpLedger.transfer(transferArgs);
+        let transferResult = await IcpLedger.transfer({
+            from_subaccount = transferArgs.from_subaccount;
+            to = transferArgs.to;
+            amount = transferArgs.amount;
+            fee = transferArgs.fee;
+            memo = transferArgs.memo;
+            created_at_time = transferArgs.created_at_time;
+        });
 
-      // Verificar si la transferencia fue exitosa
-      switch (transferResult) {
-        case (#Err(transferError)) {
-          return #err("Couldn't transfer funds:\n" # debug_show (transferError));
+        switch (transferResult) {
+            case (#Err(transferError)) {
+                return #err("Couldn't transfer funds:\n" # debug_show (transferError));
+            };
+            case (#Ok(blockIndex)) { return #ok blockIndex };
         };
-        case (#Ok(blockIndex)) { 
-          return #ok blockIndex;
-        };
-      };
     } catch (error : Error) {
-      return #err("Reject message: " # Error.message(error));
+        return #err("Reject message: " # Error.message(error));
     };
-  };
+};
 
   public shared({ caller }) func getMyAccount() : async Text {
     let account = Principal.toLedgerAccount(caller, null);
