@@ -10,6 +10,10 @@ import Error "mo:base/Error";
 import Nat "mo:base/Nat";
 import Bool "mo:base/Bool";
 import Iter "mo:base/Iter";
+import Array "mo:base/Array";
+import Int "mo:base/Int";
+import Buffer "mo:base/Buffer";
+import Nat8 "mo:base/Nat8";
 actor {
   type Project = {
     principal_owner : Text;
@@ -74,6 +78,19 @@ actor {
     toSubaccount : ?IcpLedger.SubAccount;
   };
 
+  private func principalToSubaccount(principal : Principal) : Blob {
+    var sub = Buffer.Buffer<Nat8>(32);
+    let subaccount_blob = Principal.toBlob(principal);
+
+    sub.add(Nat8.fromNat(subaccount_blob.size()));
+    sub.append(Buffer.fromArray<Nat8>(Blob.toArray(subaccount_blob)));
+    while (sub.size() < 32) {
+    sub.add(0);
+    };
+
+    Blob.fromArray(Buffer.toArray(sub));
+  };
+
   public shared({ caller }) func transfer(args : TransferArgs) : async Result.Result<IcpLedger.BlockIndex, Text> {
     Debug.print("-----------");
     Debug.print("Iniciando transferencia");
@@ -84,11 +101,13 @@ actor {
     Debug.print("Finalizando transferencia");
     Debug.print("-----------");
 
+    let caller_subaccount: IcpLedger.SubAccount = principalToSubaccount(caller);
+
     let transferArgs : IcpLedger.TransferArgs = {
         memo = 0;
         amount = args.amount;
         fee = { e8s = 10_000 };
-        from_subaccount = null;
+        from_subaccount = ?caller_subaccount;
         to = Principal.toLedgerAccount(args.toPrincipal, args.toSubaccount);
         created_at_time = null;
     };
@@ -123,6 +142,12 @@ actor {
   public shared({ caller }) func getBalance() : async Nat64 {
     let userAccount = Principal.toLedgerAccount(caller, null);
     let balance = await IcpLedger.account_balance({ account = userAccount });
+    return balance.e8s;
+  };
+
+  public shared({ caller }) func getSubBalance() : async Nat64 {
+    let caller_subaccount: IcpLedger.SubAccount = principalToSubaccount(caller);
+    let balance = await IcpLedger.account_balance({ account = caller_subaccount });
     return balance.e8s;
   };
 };
