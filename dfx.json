@@ -6,7 +6,7 @@
       },
       "main": "src/ecofund-icp-backend/main.mo",
       "type": "motoko",
-      "dependencies": ["icp_ledger_canister"]
+      "dependencies": ["icrc1_ledger_canister"]
     },
     "ecofund-icp-frontend": {
       "dependencies": ["ecofund-icp-backend"],
@@ -35,6 +35,12 @@
         }
       },
       "init_arg": "(variant {Init = record {minting_account = \"$(dfx ledger --identity anonymous account-id)\"; initial_values = vec { record { \"$(dfx ledger --identity default account-id)\"; record { e8s = 10_000_000_000 : nat64; }; }; }; send_whitelist = vec {}; transfer_fee = opt record { e8s = 10_000 : nat64; }; token_symbol = opt \"LICP\"; token_name = opt \"Local ICP\"; }})"
+    },
+    "icrc1_ledger_canister": {
+      "type": "custom",
+      "candid": "https://raw.githubusercontent.com/dfinity/ic/a62848817cec7ae50618a87a526c85d020283fd9/rs/ledger_suite/icrc1/ledger/ledger.did",
+      "wasm": "https://download.dfinity.systems/ic/a62848817cec7ae50618a87a526c85d020283fd9/canisters/ic-icrc1-ledger.wasm.gz",
+      "specified_id": "mxzaz-hqaaa-aaaar-qaada-cai"
     }
   },
   "defaults": {
