@@ -90,6 +90,10 @@ Deploy the ICP ledger canister with initial configuration:
 dfx deploy icp_ledger_canister --argument "(variant { Init = record { minting_account = \"$(dfx ledger --identity anonymous account-id)\"; initial_values = vec { record { \"$(dfx ledger --identity default account-id)\"; record { e8s = 10_000_000_000 : nat64; }; }; }; send_whitelist = vec {}; transfer_fee = opt record { e8s = 10_000 : nat64; }; token_symbol = opt \"LICP\"; token_name = opt \"Local ICP\"; } })"
 ```
 
+```bash
+dfx deploy icrc1_ledger_canister --argument "(variant { Init = record { token_symbol = \"ICRC1\"; token_name = \"L-ICRC1\"; minting_account = record { owner = principal \"$(dfx identity --identity anonymous get-principal)\" }; transfer_fee = 10_000; metadata = vec {}; initial_balances = vec { record { record { owner = principal \"$(dfx identity --identity default get-principal)\"; }; 10_000_000_000; }; }; archive_options = record { num_blocks_to_archive = 1000; trigger_threshold = 2000; controller_id = principal \"$(dfx identity --identity anonymous get-principal)\"; }; feature_flags = opt record { icrc2 = true; }; } })"
+```
+
 ### 2. Verify Ledger Health
 
 Check that the ledger canister is working correctly by verifying the account balance:
@@ -98,13 +102,17 @@ Check that the ledger canister is working correctly by verifying the account bal
 dfx canister call icp_ledger_canister account_balance '(record {account = '$(python3 -c 'print("vec{" + ";".join([str(b) for b in bytes.fromhex("'$(dfx ledger --identity default account-id)'")]) + "}")')'})'
 ```
 
+```bash
+dfx canister call icrc1_ledger_canister icrc1_balance_of "(record { owner = principal \"$(dfx identity --identity default get-principal)\"; })"
+```
+
 Expected output:
 
 ```bash
 (record { e8s = 10_000_000_000 : nat64 })
 ```
 
-### 3. Configure Canister Address
+### 3. Configure Canister Address (only icp_ledger)
 
 Before deploying the backend, set up the canister address variables:
 
