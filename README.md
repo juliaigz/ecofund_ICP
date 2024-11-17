@@ -146,6 +146,28 @@ Verify that the canister can transfer funds by sending ICP back to the default a
 dfx canister call ecofund-icp-backend transfer "(record { amount = record { e8s = 100_000_000 }; toPrincipal = principal \"$(dfx identity --identity default get-principal)\" })"
 ```
 
+### 6. Approve the canister to transfer funds on behalf of the user:
+
+Make the following call to approve the ecofund-icp-backend canister to transfer 100 tokens on behalf of the default identity:
+
+```bash
+dfx canister call --identity default icrc1_ledger_canister icrc2_approve "(record { spender = record { owner = principal \"$(dfx canister id ecofund-icp-backend)\"; }; amount = 10_000_000_000: nat; })"
+```
+
+If successful, the output should be:
+
+```bash
+(variant { Ok = 1 : nat })
+```
+
+### 7. Let the canister transfer funds on behalf of the user:
+
+Now that the canister has an approval for the default identities tokens on the ledger, the canister can transfer 1 token on behalf of the default identity to another account, in this case to the canisters own account.
+
+```bash
+dfx canister call ecofund-icp-backend transfer "(record { amount = 100_000_000; toAccount = record { owner = principal \"$(dfx canister id ecofund-icp-backend)\"; }; })"
+```
+
 ### Notes
 
 - The `e8s` value represents ICP tokens in e8s (1 ICP = 100_000_000 e8s)
