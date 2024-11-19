@@ -1,10 +1,7 @@
 <script>
   import { Search } from "carbon-components-svelte";
   import { Grid, Row, Column } from "carbon-components-svelte";
-  import { NumberInput } from "carbon-components-svelte";
-  import { Button } from "carbon-components-svelte";
   import { Content } from "carbon-components-svelte";
-  import Add from "carbon-icons-svelte/lib/Add.svelte";
   import { ProgressBar } from "carbon-components-svelte";
 
   //import perfilIcon from
@@ -15,6 +12,7 @@
   import Pedro from "$lib/images/Pedro.png";
   import Manuel from "$lib/images/Manuel.png";
   import Luis from "$lib/images/Luis.png";
+  import ProjectEndorsement from "$lib/ProjectEndorsement.svelte";
 </script>
 
 <!-- <main> -->
@@ -22,8 +20,7 @@
   <Search size="sm" style="width: 55%;" />
 
   <Grid
-    style="border:0.1em solid black; border-radius: 2%; margin-top: 3%; box-shadow: -1px -3px 5px 6px rgba(173,173,173,0.99) inset;
-"
+    style="border:0.1em solid black; border-radius: 2%; margin-top: 3%; box-shadow: -1px -3px 5px 6px rgba(173,173,173,0.99) inset;"
   >
     <Row>
       <Column lg={9}>
@@ -93,22 +90,10 @@
         </div>
       </Column>
 
-      <!---------------------------------->
-      <!-------ICP INVESTMENT FUND-------->
-      <!---------------------------------->
-      <Column id="ICP_Selection" lg={2}>
-        <div class="box-Ivestement">
-          <div class="Icp-Investment-Fund">
-            <p>Endorse this Project</p>
-            <NumberInput hideSteppers label="ICP" value={0} />
-            <Button
-              icon={Add}
-              style="width: 60%; position: relative; left: 20%; top:1%; background-color:#59CF8C;"
-              >Endorse this project</Button
-            >
-          </div>
-        </div>
-      </Column>
+      <!-- --------------------------------- -->
+      <!--        ICP Endorsement Fund       -->
+      <!-- --------------------------------- -->
+      <ProjectEndorsement />
     </Row>
   </Grid>
 </Content>
@@ -195,30 +180,5 @@
     display: flex;
     align-items: center;
     gap: 1%;
-  }
-
-  /* ------------------------------------------*/
-  /*-------"Endorse this Project"-------------*/
-  /* ----------------------------------------*/
-
-  .box-Ivestement {
-    position: relative;
-    left: 20%;
-    top: 30%;
-  }
-
-  .box-Ivestement .Icp-Investment-Fund {
-    border: 1px solid black;
-    box-shadow: -1px -3px 5px 6px rgba(173, 173, 173, 0.99) inset;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5%;
-    padding: 10%;
-    width: 35vw;
-    height: 30vh;
-  }
-
-  .Icp-Investment-Fund p {
-    margin-bottom: 5%;
   }
 </style>
