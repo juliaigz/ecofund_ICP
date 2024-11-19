@@ -20,6 +20,7 @@
   import Luis from "$lib/images/Luis.png";
   import ProjectEndorsement from "$lib/ProjectEndorsement.svelte";
   import ElipseSinba from "$lib/images/ElipseSinba.png";
+  import ProjectEndorsement from "$lib/ProjectEndorsement.svelte";
 </script>
 
 <!-- <main> -->
@@ -148,6 +149,50 @@
         </div>
       </Column>
 
+      <!---------------------------------->
+      <!-------ICP INVESTMENT FUND-------->
+      <!---------------------------------->
+      <Column id="ICP_Selection" lg={2}>
+        <div class="box-Ivestement">
+          <div class="Icp-Investment-Fund">
+            <p>Endorse this Project</p>
+            <NumberInput hideSteppers label="ICP" value={0} />
+            <Button
+              icon={Add}
+              style="width: 60%; position: relative; left: 20%; top:1%; background-color:#59CF8C;"
+              >Endorse this project</Button
+            >
+          </div>
+        </div>
+
+        <div class="Box_Project_Creator">
+          <div class="InfoProjectCreator">
+            <h4>Project Creator</h4>
+            <div class="boxImg">
+              <img src={ElipseSinba} alt="Icon Perfil" />
+            </div>
+            <p>Konstain Nezovskii</p>
+            <p>
+              Hi, I'm Konstantin, an enginnering entrepreneur with a passion ofr
+              divin innovation and positive change through blockchain
+              technology. With an M.Sc in Art and adn M.Sc. in finance, and over
+              7 years of global experience, I lead Bridge23, a groundbreaking
+              project within the ICP
+            </p>
+          </div>
+
+          <div class="Box_Link">
+            <p>Join the twitter community</p>
+            <a href="https://x.com/FareaNFts">https://x.com/FareaNFts</a>
+          </div>
+
+          <div class="Box_Link2">
+            <p>Join the Discord commmunity</p>
+            <a href="https://discord.gg/xaJhNbRt">https://discord.gg/xaJhNbRt</a
+            >
+          </div>
+        </div>
+      </Column>
       <!-- --------------------------------- -->
       <!--        ICP Endorsement Fund       -->
       <!-- --------------------------------- -->
@@ -232,14 +277,74 @@
     padding: 0% 5%;
   }
 
+  /* ------------------------------------------*/
+  /*-------"Fund this Project"-------------*/
+  /* ----------------------------------------*/
+
+  .box-Ivestement {
+    /* border:1px solid red; */
+    position: relative;
+    left: 20%;
+    top: 18%;
+    width: 35vw;
+    height: 15%;
+  }
+
+  .box-Ivestement .Icp-Investment-Fund {
+    /* border: 1px solid black; */
+    box-shadow: -1px -3px 5px 6px rgba(173, 173, 173, 0.99) inset;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5%;
+    padding: 10%;
+    width: 35vw;
+    height: 100%;
+  }
+
+  .Icp-Investment-Fund p {
+    margin-bottom: 5%;
+  }
+
+  /* --------------------------------------------*/
+  /*------- Design "Project Creator"-------------*/
+  /* --------------------------------------------*/
+
+  .Box_Project_Creator {
+    /* border: 1px solid red; */
+    width: 34vw;
+    height: 73vh;
+    position: relative;
+    top: 23%;
+    left: 35%;
+  }
+
+  .InfoProjectCreator {
+    width: 100%;
+    /* border: 1px solid blue; */
+    margin-bottom: 5%;
+  }
+
+  .InfoProjectCreator h4 {
+    font-size: 1.8rem;
+    margin-bottom: 5%;
+  }
+
+  .boxImg {
+    margin-bottom: 4%;
+  }
+
   /*--------------------------------------------*/
   /*---------- Row for the carousel ------------*/
   /* -------------------------------------------*/
-
   /* 
 	.boxSecondCarousel{
 		border: 1px solid black;
 		padding: auto;
 		width: 100%;
 	} */
+  .IconPerfilBox {
+    display: flex;
+    align-items: center;
+    gap: 1%;
+  }
 </style>
