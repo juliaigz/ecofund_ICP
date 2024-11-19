@@ -14,7 +14,10 @@
     "@dfinity/agent": "^2.1.2",
     "@dfinity/auth-client": "^2.1.2",
     "@dfinity/candid": "^2.1.2",
-    "@dfinity/principal": "^2.1.2"
+    "@dfinity/ledger-icp": "^2.6.2",
+    "@dfinity/nns": "^7.0.2",
+    "@dfinity/principal": "^2.1.2",
+    "@dfinity/utils": "^2.6.0"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.5",
