@@ -2,14 +2,88 @@
   import { Button, NumberInput, Column } from "carbon-components-svelte";
   import { Add } from "carbon-icons-svelte";
   import { auth } from "$lib/store/auth";
+  import {
+    LedgerCanister,
+    principalToAccountIdentifier,
+  } from "@dfinity/ledger-icp";
+  import { Principal } from "@dfinity/principal";
+  import { HttpAgent } from "@dfinity/agent";
+  import { AuthClient } from "@dfinity/auth-client";
 
   let investmentAmount = 0;
+  let destinationAddress = Principal.fromText(
+    "j36b6-fw3lq-t67q6-h55q2-3l7tu-bu5ad-aszjw-yy4m4-pdoqj-txm4o-kqe"
+  );
 
-  const handleEndorse = () => {
+  let accountBalance = null;
+
+  const setupLedger = async (identity) => {
+    const agent = await new HttpAgent({
+      identity,
+      host:
+        process.env.DFX_NETWORK === "ic"
+          ? "https://ic0.app"
+          : "http://localhost:4943",
+    });
+
+    const ledgerCanisterId =
+      process.env.DFX_NETWORK === "ic"
+        ? "ryjl3-tyaaa-aaaaa-aaaba-cai" // Mainnet ICP Ledger canister ID
+        : "ryjl3-tyaaa-aaaaa-aaaba-cai"; // Local ICP Ledger canister ID
+
+    return LedgerCanister.create({
+      agent,
+      canisterId: ledgerCanisterId,
+    });
+  };
+
+  const sendICP = async (ledger, toPrincipal, amount) => {
+    try {
+      const E8S_PER_ICP = BigInt(100000000);
+      const result = await ledger.transfer({
+        to: {
+          owner: principalToAccountIdentifier(toPrincipal),
+          subaccount: null,
+        },
+        amount: BigInt(amount) * E8S_PER_ICP,
+        fee: { e8s: BigInt(10000) },
+        memo: BigInt(0),
+        from_subaccount: null,
+        created_at_time: null,
+      });
+      return result;
+    } catch (error) {
+      console.error("Error sending ICP:", error);
+      throw error;
+    }
+  };
+
+  const getAccountBalance = async () => {
     if (!$auth.loggedIn) {
-      console.log("no II");
+      console.log("User not authenticated with Internet Identity");
       return;
     }
+
+    try {
+      const ledger = await setupLedger($auth.identity);
+      const balance = await ledger.accountBalance({
+        accountIdentifier: principalToAccountIdentifier($auth.principal),
+      });
+      accountBalance = Number(balance) / 100000000; // Convert e8s to ICP
+      console.log("Account balance:", accountBalance, "ICP");
+    } catch (error) {
+      console.error("Error fetching account balance:", error);
+      // Handle error (e.g., show error message to user)
+    }
+  };
+
+  const handleEndorse = async () => {
+    if (!$auth.loggedIn) {
+      console.log("User not authenticated with Internet Identity");
+      return;
+    }
+
+    console.log(await getAccountBalance());
 
     if (!investmentAmount || investmentAmount <= 0) {
       console.log("Invalid investment amount");
@@ -17,7 +91,20 @@
     }
 
     console.log("Endorsing project with ICP:", investmentAmount);
-    // Aquí puedes agregar la lógica para manejar el respaldo del proyecto.
+    try {
+      const ledger = await setupLedger($auth.identity);
+      console.log(ledger);
+      const amountInE8s = BigInt(investmentAmount * 100000000); // Convert ICP to e8s
+
+      console.log(amountInE8s);
+      console.log(investmentAmount);
+      const result = await sendICP(ledger, destinationAddress, amountInE8s);
+      console.log("Transfer successful:", result);
+      // Handle successful transfer (e.g., show success message to user)
+    } catch (error) {
+      console.error("Transfer failed:", error);
+      // Handle transfer failure (e.g., show error message to user)
+    }
   };
 </script>
 
