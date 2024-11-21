@@ -5,6 +5,7 @@ import type {
   HttpAgentOptions,
   ActorConfig,
   ActorSubclass,
+  Identity,
 } from "@dfinity/agent";
 import type { _SERVICE } from "../../../../declarations/ecofund-icp-backend/ecofund-icp-backend.did";
 
@@ -61,9 +62,17 @@ export function createActor(
     ...options.actorOptions,
   });
 }
+interface AuthState {
+  loggedIn: boolean;
+  actor: ActorSubclass<_SERVICE>;
+  principal: string | null | undefined;
+  identity: Identity | null | undefined;
+}
 
 // Estado de autenticación con Svelte store
-export const auth = writable({
+export const auth = writable<AuthState>({
   loggedIn: false,
   actor: createActor(),
+  principal: null,
+  identity: null,
 });
