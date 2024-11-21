@@ -6,6 +6,7 @@
     LedgerCanister,
     principalToAccountIdentifier,
   } from "@dfinity/ledger-icp";
+  import { createAgent } from "@dfinity/utils";
   import { Principal } from "@dfinity/principal";
   import { HttpAgent } from "@dfinity/agent";
   import { AuthClient } from "@dfinity/auth-client";
@@ -18,7 +19,7 @@
   let accountBalance = null;
 
   const setupLedger = async (identity) => {
-    const agent = await new HttpAgent({
+    const agent = await createAgent({
       identity,
       host:
         process.env.DFX_NETWORK === "ic"
