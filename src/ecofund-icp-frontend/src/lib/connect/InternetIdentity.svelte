@@ -24,6 +24,8 @@
           identity: client!.getIdentity(),
         },
       }),
+      identity: client?.getIdentity(),
+      principal: client?.getIdentity().getPrincipal().toString(),
     }));
 
     whoami = $auth.actor.whoami();
@@ -46,6 +48,8 @@
     auth.update(() => ({
       loggedIn: false,
       actor: createActor(),
+      principal: null,
+      identity: null,
     }));
 
     whoami = $auth.actor.whoami();
