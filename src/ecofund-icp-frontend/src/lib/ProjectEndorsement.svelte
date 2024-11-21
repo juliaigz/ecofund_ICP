@@ -41,16 +41,17 @@
   const sendICP = async (ledger, toPrincipal, amount) => {
     try {
       const E8S_PER_ICP = BigInt(100000000);
+      const toAccountIdentifier = principalToAccountIdentifier(
+        toPrincipal,
+        null
+      );
       const result = await ledger.transfer({
-        to: {
-          owner: principalToAccountIdentifier(toPrincipal),
-          subaccount: null,
-        },
-        amount: BigInt(amount) * E8S_PER_ICP,
+        to: toAccountIdentifier,
+        amount: { e8s: amount },
         fee: { e8s: BigInt(10000) },
         memo: BigInt(0),
-        from_subaccount: null,
-        created_at_time: null,
+        from_subaccount: [],
+        created_at_time: [],
       });
       return result;
     } catch (error) {
@@ -67,10 +68,14 @@
 
     try {
       const ledger = await setupLedger($auth.identity);
+      const accountIdentifier = principalToAccountIdentifier(
+        $auth.principal,
+        null
+      );
       const balance = await ledger.accountBalance({
-        accountIdentifier: principalToAccountIdentifier($auth.principal),
+        accountIdentifier,
       });
-      accountBalance = Number(balance) / 100000000; // Convert e8s to ICP
+      accountBalance = Number(balance.e8s) / 100000000; // Convert e8s to ICP
       console.log("Account balance:", accountBalance, "ICP");
     } catch (error) {
       console.error("Error fetching account balance:", error);
@@ -84,7 +89,7 @@
       return;
     }
 
-    console.log(await getAccountBalance());
+    await getAccountBalance();
 
     if (!investmentAmount || investmentAmount <= 0) {
       console.log("Invalid investment amount");
@@ -95,7 +100,7 @@
     try {
       const ledger = await setupLedger($auth.identity);
       console.log(ledger);
-      const amountInE8s = BigInt(investmentAmount * 100000000); // Convert ICP to e8s
+      const amountInE8s = BigInt(Math.floor(investmentAmount * 100000000)); // Convert ICP to e8s
 
       console.log(amountInE8s);
       console.log(investmentAmount);
