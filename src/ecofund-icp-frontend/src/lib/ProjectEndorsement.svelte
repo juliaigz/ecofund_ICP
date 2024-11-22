@@ -24,40 +24,23 @@
       host:
         process.env.DFX_NETWORK === "ic"
           ? "https://ic0.app"
-          : "http://localhost:4943",
+          : "http://localhost:3000", //change before test deploy frontend
+      verifyQuerySignatures: process.env.DFX_NETWORK === "ic" ? true : false,
     });
+
+    if (process.env.NODE_ENV !== "production") {
+      await agent.fetchRootKey();
+    }
 
     const ledgerCanisterId =
       process.env.DFX_NETWORK === "ic"
         ? "ryjl3-tyaaa-aaaaa-aaaba-cai" // Mainnet ICP Ledger canister ID
-        : "ryjl3-tyaaa-aaaaa-aaaba-cai"; // Local ICP Ledger canister ID
+        : process.env.CANISTER_ID_ICP_LEDGER_CANISTER; // Local ICP Ledger canister ID
 
     return LedgerCanister.create({
       agent,
       canisterId: ledgerCanisterId,
     });
-  };
-
-  const sendICP = async (ledger, toPrincipal, amount) => {
-    try {
-      const E8S_PER_ICP = BigInt(100000000);
-      const toAccountIdentifier = principalToAccountIdentifier(
-        toPrincipal,
-        null
-      );
-      const result = await ledger.transfer({
-        to: toAccountIdentifier,
-        amount: { e8s: amount },
-        fee: { e8s: BigInt(10000) },
-        memo: BigInt(0),
-        from_subaccount: [],
-        created_at_time: [],
-      });
-      return result;
-    } catch (error) {
-      console.error("Error sending ICP:", error);
-      throw error;
-    }
   };
 
   const getAccountBalance = async () => {
@@ -67,16 +50,15 @@
     }
 
     try {
-      const ledger = await setupLedger($auth.identity);
-      const accountIdentifier = principalToAccountIdentifier(
-        $auth.principal,
-        null
-      );
-      const balance = await ledger.accountBalance({
-        accountIdentifier,
+      const balance = (await setupLedger($auth.identity)).accountBalance({
+        accountIdentifier: AccountIdentifier.fromPrincipal({
+          principal: $auth.principal,
+        }),
+        certified: null,
       });
-      accountBalance = Number(balance.e8s) / 100000000; // Convert e8s to ICP
-      console.log("Account balance:", accountBalance, "ICP");
+      // accountBalance = Number(balance) / 100000000; // Convert e8s to ICP
+      console.log("Account balance:", await balance, "ICP");
+      return await balance;
     } catch (error) {
       console.error("Error fetching account balance:", error);
       // Handle error (e.g., show error message to user)
@@ -89,8 +71,6 @@
       return;
     }
 
-    await getAccountBalance();
-
     if (!investmentAmount || investmentAmount <= 0) {
       console.log("Invalid investment amount");
       return;
@@ -98,8 +78,6 @@
 
     console.log("Endorsing project with ICP:", investmentAmount);
     try {
-      const ledger = await setupLedger($auth.identity);
-      console.log(ledger);
       const amountInE8s = BigInt(Math.floor(investmentAmount * 100000000)); // Convert ICP to e8s
 
       console.log(amountInE8s);
@@ -112,12 +90,19 @@
       // Handle transfer failure (e.g., show error message to user)
     }
   };
+
+  onMount(async () => {
+    if ($auth.loggedIn) {
+      accountBalance = (await getAccountBalance()) || 0;
+    }
+  });
 </script>
 
 <Column id="ICP_Selection" lg={2}>
   <div class="investment-box">
     <div class="investment-fund">
       <p>Endorse this Project</p>
+      <p style="z-index: 99;">You have {accountBalance} ICP</p>
       <NumberInput
         hideSteppers
         label="ICP"
