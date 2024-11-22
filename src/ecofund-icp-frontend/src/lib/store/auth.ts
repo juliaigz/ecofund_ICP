@@ -8,6 +8,7 @@ import type {
   Identity,
 } from "@dfinity/agent";
 import type { _SERVICE } from "../../../../declarations/ecofund-icp-backend/ecofund-icp-backend.did";
+import type { Principal } from "@dfinity/principal";
 
 // Definimos una interfaz para las opciones que puede recibir createActor
 interface ActorOptions {
@@ -65,7 +66,7 @@ export function createActor(
 interface AuthState {
   loggedIn: boolean;
   actor: ActorSubclass<_SERVICE>;
-  principal: string | null | undefined;
+  principal: Principal | null | undefined;
   identity: Identity | null | undefined;
 }
 
