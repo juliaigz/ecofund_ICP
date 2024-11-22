@@ -86,18 +86,31 @@
 
       console.log(amountInE8s);
       console.log(investmentAmount);
-      const result = await sendICP(ledger, destinationAddress, amountInE8s);
-      console.log("Transfer successful:", result);
+
+      const result = (await setupLedger($auth.identity)).transfer({
+        to: AccountIdentifier.fromPrincipal({
+          principal: Principal.fromText(
+            "hmdu5-unhan-lp2ib-alxf5-3fjk4-umdiy-dqhdj-bke4v-dcht3-gsgm4-tqe"
+          ),
+        }),
+        amount: investmentAmount * 100000000,
+        fee: BigInt(10000),
+      });
+
+      console.log("Transfer successful:", await result);
       // Handle successful transfer (e.g., show success message to user)
     } catch (error) {
       console.error("Transfer failed:", error);
-      // Handle transfer failure (e.g., show error message to user)
+      // if (error instanceof Error) {
+      //   console.error("Error message:", error.message);
+      //   console.error("Error stack:", error.stack);
+      // }
     }
   };
 
   onMount(async () => {
     if ($auth.loggedIn) {
-      accountBalance = (await getAccountBalance()) || 0;
+      accountBalance = await getAccountBalance();
     }
   });
 </script>
