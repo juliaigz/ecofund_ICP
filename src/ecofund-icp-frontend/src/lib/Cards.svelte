@@ -20,7 +20,7 @@
   import ElipseReciclaje from "$lib/images/ElipseReciclaje.png";
 
   //icon de ubicacion
-  import bxs_map from "$lib/images/bxs_map.png";
+  import bxsMap from "$lib/images/bxs_map.png";
 </script>
 
 <div class="subTitulo">
@@ -52,13 +52,14 @@
 
       <div class="sinba">
         <img src={ElipseSinba} alt="Imagen de Perfil del Aval Sinba" />
-        <h5>SINBA.ICP</h5>
+        <h5>SINBA</h5>
+        
       </div>
 
       <div class="boxInfoCenter">
         <!--contendedor de ubicacion-->
         <div class="Ubicacion">
-          <img src={bxs_map} alt="Icono de Ubicacions" />
+          <img src={bxsMap} alt="Icono de Ubicacions" />
           <h6>Lima, Peru</h6>
         </div>
 
@@ -92,7 +93,7 @@
       />
       <div class="luis">
         <img src={ElipseColombia} alt="Imagen de Perfil del Aval Sinba" />
-        <h5>LUIS.ICPP</h5>
+        <h5>AGRIFOOD</h5>
       </div>
 
       <!---Contendor de información ubicación, texto,etc.-->
@@ -100,7 +101,7 @@
       <div class="boxInfoCenter">
         <!--contendedor de ubicacion-->
         <div class="Ubicacion">
-          <img src={bxs_map} alt="Icono de Ubicacions" />
+          <img src={bxsMap} alt="Icono de Ubicacions" />
           <h6>Cali, Colombia</h6>
         </div>
 
@@ -134,13 +135,13 @@
       />
       <div class="victor">
         <img src={ElipseReciclaje} alt="Imagen de Perfil del Aval Sinba" />
-        <h5>VICTOR.ICP</h5>
+        <h5>RECICLAME</h5>
       </div>
 
       <div class="boxInfoCenter">
         <!--contendedor de ubicacion-->
         <div class="Ubicacion">
-          <img src={bxs_map} alt="Icono de Ubicacions" />
+          <img src={bxsMap} alt="Icono de Ubicacions" />
           <h6>Cancún, México</h6>
         </div>
 
