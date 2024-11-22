@@ -5,18 +5,22 @@
   import {
     LedgerCanister,
     principalToAccountIdentifier,
+    AccountIdentifier,
   } from "@dfinity/ledger-icp";
   import { createAgent } from "@dfinity/utils";
   import { Principal } from "@dfinity/principal";
   import { HttpAgent } from "@dfinity/agent";
   import { AuthClient } from "@dfinity/auth-client";
+  import { onMount } from "svelte";
 
   let investmentAmount = 0;
   let destinationAddress = Principal.fromText(
-    "j36b6-fw3lq-t67q6-h55q2-3l7tu-bu5ad-aszjw-yy4m4-pdoqj-txm4o-kqe"
+    "hmdu5-unhan-lp2ib-alxf5-3fjk4-umdiy-dqhdj-bke4v-dcht3-gsgm4-tqe"
   );
 
   let accountBalance = null;
+
+  console.log(destinationAddress);
 
   const setupLedger = async (identity) => {
     const agent = await createAgent({
@@ -102,7 +106,7 @@
   <div class="investment-box">
     <div class="investment-fund">
       <p>Endorse this Project</p>
-      <p style="z-index: 99;">You have {accountBalance} ICP</p>
+      <p style="z-index: 99;">You have {accountBalance || 0} ICP</p>
       <NumberInput
         hideSteppers
         label="ICP"
