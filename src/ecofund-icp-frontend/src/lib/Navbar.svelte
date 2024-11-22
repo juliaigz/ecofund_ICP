@@ -22,8 +22,8 @@
 
 <Header
   expansionBreakpoint={1700}
-  company="Ecofound"
-  platformName="ICP"
+  company="EcoFund"
+  platformName=" ICP"
   bind:isSideNavOpen
   href="/"
 >
@@ -33,7 +33,7 @@
   <HeaderNav>
     <HeaderNavItem href="/" text="About" />
     <HeaderNavItem href="/" text="Help" />
-    <HeaderNavItem href="/" text="Start a project" />
+    <HeaderNavItem href="/startproject" text="Start a project" />
   </HeaderNav>
   <HeaderUtilities>
     <HeaderGlobalAction
@@ -54,17 +54,23 @@
 </SideNav>
 
 <Modal
+  passiveModal
   bind:open
-  modalLabel="Join us in supporting sustainable projects! By connecting a wallet, you contribute your crypto donations seamlessly."
   modalHeading="Connect a Wallet"
-  on:click
+  on:click()
   on:open
   on:close
   on:submit
 >
-  <Content>
+
+  <Content class="InternoModal">
+    <p>
+      Join us in supporting sustainable projects! By connecting a wallet, 
+      you contribute your crypto donations seamlessly.
+    </p>
     <InternetIdentity />
   </Content>
+
 </Modal>
 
 <style>
@@ -72,4 +78,9 @@
     text-align: center;
     position: ;
   } */
+
+
+   :global(.InternoModal){
+    background-color: rgba(185, 185, 185, 0.205);
+   }
 </style>
