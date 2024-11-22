@@ -6,15 +6,20 @@
   import { Content } from "carbon-components-svelte";
   import Add from "carbon-icons-svelte/lib/Add.svelte";
   import { ProgressBar } from "carbon-components-svelte";
+  import { OrderedList, ListItem, Link, UnorderedList } from 'carbon-components-svelte';
+
 
   //import perfilIcon from
   import IconPerfil from "$lib/images/apoyo1.png";
   import Sinba from "$lib/images/Sinba.jpg";
-  import ImgLocation from "$lib/images/UbicacionImg.png";
+  import ImgLocation from "$lib/images/bxs_map.png";
   import Robert from "$lib/images/Rober.png";
   import Pedro from "$lib/images/Pedro.png";
   import Manuel from "$lib/images/Manuel.png";
   import Luis from "$lib/images/Luis.png";
+  import ElipseSinba from "$lib/images/ElipseSinba.png";
+
+
 </script>
 
 <!-- <main> -->
@@ -30,15 +35,15 @@
         <div class="ProjectInformation">
           <figure>
             <img
-              src={IconPerfil}
+              src={ElipseSinba}
               alt="Profile icon of the background creator"
             />
           </figure>
           <ProgressBar
             value={100}
             max={200}
-            labelText="Upload status"
-            helperText="40 MB of 200 MB"
+            labelText="Sinba"
+            helperText="40 ICP of 200 ICP"
             style="width:100%;"
           />
         </div>
@@ -69,28 +74,77 @@
             beginning! They want to multiply their positive impact by 10!
           </p>
         </div>
+        
+        <div class="boxTheFunds">
+          <h3>The funds raised will be utilizad to:</h3>
 
-        <div id="boxOtherGuarantees">
-          <h3>Other guarantees that supported this project</h3>
-          <div class="Other-Guarantes-Perfil">
-            <div class="IconPerfilBox">
-              <img src={Robert} alt="IconPerfilRobert" />
-              <p>Robert.ICP</p>
-            </div>
-            <div class="IconPerfilBox">
-              <img src={Pedro} alt="IconPerfilPedro" />
-              <p>Pedro.ICP</p>
-            </div>
-            <div class="IconPerfilBox">
-              <img src={Luis} alt="IconPerfilLuis" />
-              <p>Luis.ICP</p>
-            </div>
-            <div class="IconPerfilBox">
-              <img src={Manuel} alt="IconPerfilManuel" />
-              <p>Manuel.ICP</p>
-            </div>
+          <div class="list_Box_The_Funds">
+            <OrderedList>
+              <ListItem>
+                Enhance the development of our "Data Tracker" app, improving user experience and
+                expanding functionalities.
+              </ListItem>
+              <ListItem>
+                Develop and implement the Purchase Neuron System (PNS) for seamless transactions
+                and data sales.
+              </ListItem>
+              <ListItem>
+                Expand our marketing efforts to attract more users and data buyers to the
+                platform.
+              </ListItem>
+              <ListItem>
+                Establish partnerships with local merchants, e-wallet providers, and banks to
+                integrate our POS system and promote data marketplace adoption.
+              </ListItem>
+            </OrderedList>
           </div>
         </div>
+
+        <div class="boxThefunds2">
+          <p>Link</p>
+
+          <div class="Underlist-Links">
+            <UnorderedList>
+              <ListItem>Dfinity forum showcase</ListItem>
+              <ListItem>Telegram mini-app(Full-on IC)</ListItem>
+              <ListItem>Alpha-app</ListItem>
+              <ListItem>Website</ListItem>
+              <ListItem>X</ListItem>
+              <ListItem>Whitepaper</ListItem>
+            </UnorderedList>
+          </div>
+        </div>
+      
+
+      <div class="boxProjectTimeline">
+        <h3>Project Timeline and Key milestones:</h3>
+        <div class="Underlist-ProjectTime">
+          <UnorderedList>
+            <ListItem>Q2 2024: Launch of the Alpha App.</ListItem>
+            <ListItem>Q3 2024: Launch of the App and of Bridge23 DAO.</ListItem>
+            <ListItem
+              >Future: Full rollout of the Data Marketplace and implementation of the Purchase
+              Neuron System.</ListItem
+            >
+            <ListItem
+              >Future: Expansion of partnerships with local merchants and integration of the POS
+              system.</ListItem
+            >
+            <ListItem
+              >Future: Introduction of comprehensive buyer interfaces and advanced data analytics
+              tools.</ListItem
+            >
+            <ListItem
+              >Future: Launch of the Index Data Set and separate user canisters for enhanced data
+              security.</ListItem
+            >
+            <ListItem
+              >Future: Continuous improvements based on community feedback and DAO governance.</ListItem
+            >
+          </UnorderedList>
+        </div>
+      </div>
+      
       </Column>
 
       <!---------------------------------->
@@ -108,6 +162,32 @@
             >
           </div>
         </div>
+
+        <div class="Box_Project_Creator">
+					<div class="InfoProjectCreator">
+						<h4>Project Creator</h4>
+						<div class="boxImg">
+							<img src={ElipseSinba} alt="Icon Perfil" />
+						</div>
+						<p>Konstain Nezovskii</p>
+						<p>
+							Hi, I'm Konstantin, an enginnering entrepreneur with a passion ofr divin innovation
+							and positive change through blockchain technology. With an M.Sc in Art and adn M.Sc.
+							in finance, and over 7 years of global experience, I lead Bridge23, a groundbreaking
+							project within the ICP
+						</p>
+					</div>
+
+					<div class="Box_Link">
+						<p>Join the twitter community</p>
+						<a href="https://x.com/FareaNFts">https://x.com/FareaNFts</a>
+					</div>
+
+					<div class="Box_Link2">
+						<p>Join the Discord commmunity</p>
+						<a href="https://discord.gg/xaJhNbRt">https://discord.gg/xaJhNbRt</a>
+					</div>
+				</div>
       </Column>
     </Row>
   </Grid>
@@ -166,59 +246,95 @@
     /*border: 1px solid green;*/
   }
 
-  /* ------------------------------------------*/
-  /*-------Desing "Other Guaranteees"---------*/
-  /* ----------------------------------------*/
+ 
 
-  #boxOtherGuarantees {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 2%;
-    /*border: 1px solid black;*/
-  }
+  /*-------Desing "The Funds raised will be utilizad to"----------*/
+	/* -------------------------------------------------------------*/
 
-  #boxOtherGuarantees h3 {
-    text-align: center;
-  }
+	.list_Box_The_Funds {
+		margin: 3% 0%;
+		padding: 0% 4.5%;
+	}
 
-  .Other-Guarantes-Perfil {
-    /*boxIconPerfil*/
-    margin-top: 2%;
-    margin-bottom: 2%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 10%;
-  }
+	.boxThefunds2 {
+		padding: 0% 5%;
+	}
 
-  .IconPerfilBox {
-    display: flex;
-    align-items: center;
-    gap: 1%;
-  }
+	/* -------------------------------------------------------------*/
+	/*-------Desing "Project Timeline and Key milestones: "---------*/
+	/* -------------------------------------------------------------*/
 
-  /* ------------------------------------------*/
-  /*-------"Endorse this Project"-------------*/
-  /* ----------------------------------------*/
+	.boxProjectTimeline {
+		/* border:1px solid black; */
+		margin-top: 9%;
+    margin-bottom: 9%;
+		padding: 0% 5%;
+	}
 
-  .box-Ivestement {
-    position: relative;
-    left: 20%;
-    top: 30%;
-  }
+	/* ------------------------------------------*/
+	/*-------"Fund this Project"-------------*/
+	/* ----------------------------------------*/
 
-  .box-Ivestement .Icp-Investment-Fund {
-    border: 1px solid black;
-    box-shadow: -1px -3px 5px 6px rgba(173, 173, 173, 0.99) inset;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5%;
-    padding: 10%;
-    width: 35vw;
-    height: 30vh;
-  }
+	.box-Ivestement {
+		/* border:1px solid red; */
+		position: relative;
+		left: 20%;
+		top: 18%;
+		width: 35vw;
+		height: 15%;
+	}
 
-  .Icp-Investment-Fund p {
-    margin-bottom: 5%;
-  }
+	.box-Ivestement .Icp-Investment-Fund {
+		/* border: 1px solid black; */
+		box-shadow: -1px -3px 5px 6px rgba(173, 173, 173, 0.99) inset;
+		display: flex;
+		flex-direction: column;
+		border-radius: 5%;
+		padding: 10%;
+		width: 35vw;
+		height: 100%;
+	}
+
+	.Icp-Investment-Fund p {
+		margin-bottom: 5%;
+	}
+
+	/* --------------------------------------------*/
+	/*------- Design "Project Creator"-------------*/
+	/* --------------------------------------------*/
+
+	.Box_Project_Creator {
+		/* border: 1px solid red; */
+		width: 34vw;
+		height: 73vh;
+		position: relative;
+		top: 23%;
+		left: 35%;
+	}
+
+	.InfoProjectCreator {
+		width: 100%;
+		/* border: 1px solid blue; */
+		margin-bottom: 5%;
+	}
+
+	.InfoProjectCreator h4 {
+		font-size: 1.8rem;
+		margin-bottom: 5%;
+	}
+
+	.boxImg {
+		margin-bottom: 4%;
+	}
+
+	/*--------------------------------------------*/
+	/*---------- Row for the carousel ------------*/
+	/* -------------------------------------------*/
+
+	/* 
+	.boxSecondCarousel{
+		border: 1px solid black;
+		padding: auto;
+		width: 100%;
+	} */
 </style>
