@@ -25,7 +25,7 @@
         },
       }),
       identity: client?.getIdentity(),
-      principal: client?.getIdentity().getPrincipal().toString(),
+      principal: client?.getIdentity().getPrincipal(),
     }));
 
     whoami = $auth.actor.whoami();
