@@ -17,7 +17,11 @@ export default defineConfig({
         global: "globalThis",
       },
     },
-    exclude: ["carbon-components-svelte", "carbon-pictograms-svelte"],
+    exclude: [
+      "carbon-components-svelte", 
+      "carbon-pictograms-svelte", 
+      "@dfinity/identity" // Aquí agregamos @dfinity/identity
+    ],
   },
   server: {
     proxy: {
@@ -43,3 +47,4 @@ export default defineConfig({
     ],
   },
 });
+
