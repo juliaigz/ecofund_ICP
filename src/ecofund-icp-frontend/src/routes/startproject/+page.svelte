@@ -7,6 +7,7 @@
   import { TextArea } from "carbon-components-svelte";
   import { FileUploader } from "carbon-components-svelte";
   import { Button } from "carbon-components-svelte";
+  import { goto } from "$app/navigation";
 
   import Yourproject from "$lib/yourproject.svelte";
   import Submitproyect from "$lib/submitproyect.svelte";
@@ -25,8 +26,12 @@
   function decreaseFormSteps() {
     formSteps -= 1;
     if (formSteps < 1) {
-      formSteps = maxSteps;
+      formSteps = 1;
     }
+  }
+
+  function callToBackend() {
+    goto("/");
   }
 </script>
 
@@ -57,7 +62,7 @@
 
       <div class="infoText">
         <h1>Tell us more about your</h1>
-        <p>What's your project title? write your project</p>
+        <p>What's your project title? write your project :D</p>
       </div>
     </Column>
     <!-- Form column -->
@@ -74,27 +79,37 @@
 		"
     >
       {#if formSteps === 1}
-        	<Yourproject />
+        <Yourproject />
       {:else if formSteps === 2}
-			<Submitproyect/>
-	  {/if}
+        <Submitproyect />
+      {/if}
 
-      <Button
-        class="buttonNext"
-        style="position: relative; left: 25%; padding-left: 10em;   margin-top: 6%;"
-        kind="secondary"
-		on:click={increaseFormSteps}		
-		>
-        Next
-      </Button>
+      {#if formSteps === 1}
+        <Button
+          class="buttonNext"
+          style="position: relative; left: 25%; padding-left: 10em;   margin-top: 6%;"
+          kind="secondary"
+          on:click={increaseFormSteps}
+        >
+          Next
+        </Button>
+      {:else if formSteps === 2}
+        <Button
+          class="buttonNext"
+          style="position: relative; left: 25%; padding-left: 10em;   margin-top: 6%;"
+          kind="secondary"
+          on:click={callToBackend}
+        >
+          Submit
+        </Button>
+      {/if}
 
       <Button
         style="position: relative; left: 25%; padding-left: 10em;   margin-top: 1%;"
         kind="ghost"
-		on:click={decreaseFormSteps}
-		>Back
-		</Button>
-
+        on:click={decreaseFormSteps}
+        >Back
+      </Button>
     </Column>
   </Row>
 </Grid>
