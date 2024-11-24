@@ -28,7 +28,7 @@
       host:
         process.env.DFX_NETWORK === "ic"
           ? "https://ic0.app"
-          : "http://localhost:3000", //change before test deploy frontend
+          : "http://localhost:4943", //change before test deploy frontend
       verifyQuerySignatures: process.env.DFX_NETWORK === "ic" ? true : false,
     });
 
