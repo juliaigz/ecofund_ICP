@@ -5,6 +5,7 @@
   import { auth, createActor } from "../store/auth";
   import { Button } from "carbon-components-svelte";
   import InternetComputer from "$lib/images/internet-computer-icp-seeklogo.svg";
+  import { Logout } from "carbon-icons-svelte";
 
   let client: AuthClient | undefined;
   let whoami: Promise<Principal> = $auth.actor.whoami(); // whoami es una promesa que resuelve en una string (principal)
@@ -59,12 +60,30 @@
 
 <div class="container">
   {#if $auth.loggedIn}
+    <!-- Si el usuario está logueado pasa a este diseño -->
     <div>
-      <Button on:click={logout}>Log out</Button>
+      <Button on:click={logout} icon={Logout} iconDescription="Logout"></Button>
+    </div>
+    <div class="principal-info">
+      <!-- principal information: -->
+      {#await whoami}
+        Querying caller identity...
+      {:then principal}
+        <code>{principal}</code>
+        <!-- principal del usuario para que pueda recibir sus icp-->
+        <!-- {#if principal.isAnonymous()}
+          (anonymous)
+        {/if} -->
+      {/await}
     </div>
   {:else}
+    <!-- SI el usuario NO está logueado pasa a este diseño-->
     <div class="PrincipalButtonIdentity">
-      <Button class="buttonIdentity" style="width: 42rem; height: 8rem;" on:click={login}>
+      <Button
+        class="buttonIdentity"
+        style="width: 42rem; height: 8rem;"
+        on:click={login}
+      >
         Internet Identity
         <img
           class="internetComputer"
@@ -74,19 +93,6 @@
       </Button>
     </div>
   {/if}
-
-  <div class="principal-info">
-    principal information:
-    {#await whoami}
-      Querying caller identity...
-    {:then principal}
-      Your principal ID is
-      <code>{principal}</code>
-      {#if principal.isAnonymous()}
-        (anonymous)
-      {/if}
-    {/await}
-  </div>
 </div>
 
 <style>
@@ -101,7 +107,7 @@
     color: rgb(27, 27, 27);
   }
 
-  .PrincipalButtonIdentity{
+  .PrincipalButtonIdentity {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -113,7 +119,7 @@
     width: 12rem;
     border-radius: 7px;
     padding: 5%;
-    display: flex; 
+    display: flex;
     justify-content: center;
   }
 
@@ -123,7 +129,7 @@
     color: black;
   }
 
-  .internetComputer{
+  .internetComputer {
     width: 6em;
   }
 </style>
