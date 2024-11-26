@@ -126,10 +126,18 @@
         /> -->
       </ProgressIndicator>
 
-      <div class="infoText">
-        <h1>Tell us more about your</h1>
-        <p>What's your project title? write your project :D</p>
-      </div>
+      <!--code for changing the title of forms-->
+      {#if formSteps === 1}
+        <div class="infoText">
+          <h1>Tell us more about your</h1>
+          <p>What's your project title? write your project</p>
+        </div>
+      {:else if formSteps === 2}
+        <div class="infoText">
+          <h1>Submit project</h1>
+          <p>You are ready to submit your project</p>
+        </div>
+      {/if}
     </Column>
     <!-- Form column -->
     <!--en esta etiqueta la propiedad de margin-top: 6%, no entiendo el porque se puede usar.-->
