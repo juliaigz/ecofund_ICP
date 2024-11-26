@@ -20,7 +20,6 @@
   import Luis from "$lib/images/Luis.png";
   import ProjectEndorsement from "$lib/ProjectEndorsement.svelte";
   import ElipseSinba from "$lib/images/ElipseSinba.png";
-  import ProjectEndorsement from "$lib/ProjectEndorsement.svelte";
 </script>
 
 <!-- <main> -->
@@ -153,18 +152,7 @@
       <!-------ICP INVESTMENT FUND-------->
       <!---------------------------------->
       <Column id="ICP_Selection" lg={2}>
-        <div class="box-Ivestement">
-          <div class="Icp-Investment-Fund">
-            <p>Endorse this Project</p>
-            <NumberInput hideSteppers label="ICP" value={0} />
-            <Button
-              icon={Add}
-              style="width: 60%; position: relative; left: 20%; top:1%; background-color:#59CF8C;"
-              >Endorse this project</Button
-            >
-          </div>
-        </div>
-
+        <ProjectEndorsement />
         <div class="Box_Project_Creator">
           <div class="InfoProjectCreator">
             <h4>Project Creator</h4>
@@ -193,10 +181,6 @@
           </div>
         </div>
       </Column>
-      <!-- --------------------------------- -->
-      <!--        ICP Endorsement Fund       -->
-      <!-- --------------------------------- -->
-      <ProjectEndorsement />
     </Row>
   </Grid>
 </Content>
@@ -275,34 +259,6 @@
     margin-top: 9%;
     margin-bottom: 9%;
     padding: 0% 5%;
-  }
-
-  /* ------------------------------------------*/
-  /*-------"Fund this Project"-------------*/
-  /* ----------------------------------------*/
-
-  .box-Ivestement {
-    /* border:1px solid red; */
-    position: relative;
-    left: 20%;
-    top: 18%;
-    width: 35vw;
-    height: 15%;
-  }
-
-  .box-Ivestement .Icp-Investment-Fund {
-    /* border: 1px solid black; */
-    box-shadow: -1px -3px 5px 6px rgba(173, 173, 173, 0.99) inset;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5%;
-    padding: 10%;
-    width: 35vw;
-    height: 100%;
-  }
-
-  .Icp-Investment-Fund p {
-    margin-bottom: 5%;
   }
 
   /* --------------------------------------------*/
