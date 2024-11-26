@@ -38,32 +38,46 @@
 <Grid>
   <Row>
     <Column style="margin-top: 6%;" lg={7}>
-      <ProgressIndicator preventChangeOnClick currentIndex={1}>
-        <ProgressStep
-          complete
-          label="Step 1"
-          description="The progress indicator will listen for clicks on the steps"
-        />
-        <ProgressStep
-          label="Step 2"
-          description="The progress indicator will listen for clicks on the steps"
-        />
-        <ProgressStep
-          disabled
-          label="Step 3"
-          description="The progress indicator will listen for clicks on the steps"
-        />
-        <ProgressStep
-          disabled
-          label="Step 4"
-          description="The progress indicator will listen for clicks on the steps"
-        />
-      </ProgressIndicator>
+      {#if formSteps === 1}
+        <ProgressIndicator preventChangeOnClick currentIndex={1}>
+          <ProgressStep
+            complete
+            label="Step 1"
+            description="The progress indicator will listen for clicks on the steps"
+          />
+          <ProgressStep
+            disabled
+            label="Step 2"
+            description="The progress indicator will listen for clicks on the steps"
+          />
+        </ProgressIndicator>
+      {:else if formSteps === 2}
+        <ProgressIndicator preventChangeOnClick currentIndex={1}>
+          <ProgressStep
+            complete
+            label="Step 1"
+            description="The progress indicator will listen for clicks on the steps"
+          />
+          <ProgressStep
+            complete
+            label="Step 2"
+            description="The progress indicator will listen for clicks on the steps"
+          />
+        </ProgressIndicator>
+      {/if}
 
-      <div class="infoText">
-        <h1>Tell us more about your</h1>
-        <p>What's your project title? write your project :D</p>
-      </div>
+      <!--code for changing the title of forms-->
+      {#if formSteps === 1}
+        <div class="infoText">
+          <h1>Tell us more about your</h1>
+          <p>What's your project title? write your project</p>
+        </div>
+      {:else if formSteps === 2}
+        <div class="infoText">
+          <h1>Submit project</h1>
+          <p>You are ready to submit your project</p>
+        </div>
+      {/if}
     </Column>
     <!-- Form column -->
     <!--en esta etiqueta la propiedad de margin-top: 6%, no entiendo el porque se puede usar.-->

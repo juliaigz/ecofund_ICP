@@ -57,8 +57,11 @@
 <div class="container">
   {#if $auth.loggedIn}
     <!-- Si el usuario está logueado pasa a este diseño -->
-    <div>
-      <Button on:click={logout} icon={Logout} iconDescription="Logout"></Button>
+    <div class="logout-wallet">
+      <Button class="iconLogout" on:click={logout} icon={Logout} iconDescription="Logout"></Button>
+      <p>
+        asd
+      </p>
     </div>
     <div class="principal-info">
       <!-- principal information: -->
@@ -95,6 +98,17 @@
   .container {
     margin: 64px 0;
   }
+
+  .logout-wallet{
+    width: 100%;
+    border: 1px solid black;
+  }
+
+
+
+
+
+
 
   .principal-info {
     margin-top: 32px;
