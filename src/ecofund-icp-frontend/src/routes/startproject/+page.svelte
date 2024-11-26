@@ -8,6 +8,7 @@
   import { FileUploader } from "carbon-components-svelte";
   import { Button } from "carbon-components-svelte";
   import { goto } from "$app/navigation";
+  import { backend } from "$lib/canisters";
 
   import Yourproject from "$lib/yourproject.svelte";
   import Submitproyect from "$lib/submitproyect.svelte";
@@ -30,8 +31,55 @@
     }
   }
 
-  function callToBackend() {
-    goto("/");
+  // Ejemplo inicial del proyecto (vendrá desde el componente)
+  let project = {
+    principal_owner: "a426f-wn6n7-n6d5d-kraqn-vxuxn-a2vbm-xae",
+    project_name: "My New Project",
+    categories: ["category1", "category2"],
+    project_description: "This is a new project description.",
+    project_images: [],
+    target_amount: 1000000,
+    target_percentage: 100,
+    donated_amount: 0,
+    is_visible: true,
+    instagram_url: "https://instagram.com/myproject",
+    facebook_url: "https://facebook.com/myproject",
+    whatsapp_prefix: "+1",
+    whatsapp_number: "1234567890",
+  };
+
+  // Función para generar un hash único
+  async function generateUniqueId(data) {
+    const encoder = new TextEncoder();
+    const encoded = encoder.encode(data);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", encoded);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+    return hashHex.slice(0, 12); // Recortar para mantener el ID corto
+  }
+
+  // Lógica para enviar el proyecto al backend
+  async function callToBackend() {
+    try {
+      // Generar un ID único basado en propiedades del proyecto
+      const idProject = await generateUniqueId(
+        `${project.principal_owner}-${project.project_name}-${Date.now()}`
+      );
+
+      // Enviar el proyecto al backend
+      const result = await backend.addProject(idProject, project);
+
+      if (result) {
+        console.log("Project added successfully:", result);
+        goto("/");
+      } else {
+        console.log("Project already exists or couldn't be added.");
+      }
+    } catch (error) {
+      console.error("Error adding project:", error);
+    }
   }
 </script>
 
