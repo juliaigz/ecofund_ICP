@@ -2,15 +2,9 @@
   import { Button, NumberInput, Column } from "carbon-components-svelte";
   import { Add } from "carbon-icons-svelte";
   import { auth } from "$lib/store/auth";
-  import {
-    LedgerCanister,
-    principalToAccountIdentifier,
-    AccountIdentifier,
-  } from "@dfinity/ledger-icp";
+  import { LedgerCanister, AccountIdentifier } from "@dfinity/ledger-icp";
   import { createAgent } from "@dfinity/utils";
   import { Principal } from "@dfinity/principal";
-  import { HttpAgent } from "@dfinity/agent";
-  import { AuthClient } from "@dfinity/auth-client";
   import { onMount } from "svelte";
 
   let investmentAmount = 0;
@@ -115,34 +109,35 @@
   });
 </script>
 
-<Column id="ICP_Selection" lg={2}>
-  <div class="investment-box">
-    <div class="investment-fund">
-      <p>Endorse this Project</p>
-      <p style="z-index: 99;">You have {accountBalance || 0} ICP</p>
-      <NumberInput
-        hideSteppers
-        label="ICP"
-        bind:value={investmentAmount}
-        min={0}
-        step={0.1}
-      />
-      <Button
-        icon={Add}
-        class=" width: 60%; position: relative; left: 20%; top: 1%; background-color: #59cf8c;"
-        on:click={handleEndorse}
-      >
-        Endorse this project
-      </Button>
-    </div>
+<!-- <Column id="ICP_Selection" lg={2}> -->
+<div class="investment-box">
+  <div class="investment-fund">
+    <p>Endorse this Project</p>
+    <!-- <p style="z-index: 99;">You have {accountBalance || 0} ICP</p> -->
+    <NumberInput
+      hideSteppers
+      label="ICP"
+      bind:value={investmentAmount}
+      min={0}
+      step={0.1}
+    />
+    <Button
+      icon={Add}
+      class=" width: 60%; position: relative; left: 20%; top: 1%; background-color: #59cf8c;"
+      on:click={handleEndorse}
+    >
+      Endorse this project
+    </Button>
   </div>
-</Column>
+</div>
+
+<!-- </Column> -->
 
 <style>
   .investment-box {
     position: relative;
     left: 20%;
-    top: 30%;
+    top: 15%;
   }
 
   .investment-fund {
@@ -151,7 +146,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 5%;
-    padding: 10%;
+    padding: 15px;
     width: 35vw;
     height: 30vh;
   }
