@@ -2,10 +2,6 @@
   //svelte components
   import { ProgressIndicator, ProgressStep } from "carbon-components-svelte";
   import { Grid, Row, Column } from "carbon-components-svelte";
-  import { TextInput } from "carbon-components-svelte";
-  import { MultiSelect } from "carbon-components-svelte";
-  import { TextArea } from "carbon-components-svelte";
-  import { FileUploader } from "carbon-components-svelte";
   import { Button } from "carbon-components-svelte";
   import { goto } from "$app/navigation";
   import { backend } from "$lib/canisters";
@@ -13,10 +9,13 @@
   import Yourproject from "$lib/yourproject.svelte";
   import Submitproyect from "$lib/submitproyect.svelte";
   import { Principal } from "@dfinity/principal";
+  import { onMount } from "svelte";
+  import { auth } from "$lib/store/auth";
 
   //Codigo para cambiar las secciones de forms
   let formSteps = 1;
   const maxSteps = 2;
+  let owner = "";
 
   function increaseFormSteps() {
     formSteps += 1;
@@ -45,7 +44,7 @@
 
   // Objeto reactivo para almacenar los datos del proyecto
   let project = {
-    principal_owner: Principal.anonymous().toString(),
+    principal_owner: "",
     project_name: "",
     categories: [],
     instagram_url: "",
@@ -75,6 +74,7 @@
         "---------------------------------  ---------------------------------"
       );
 
+      project.principal_owner = owner;
       const result = await backend.addProject(idProject, project);
 
       if (result) {
@@ -87,6 +87,14 @@
       console.error("Error adding project:", error);
     }
   }
+
+  onMount(() => {
+    if ($auth.loggedIn) {
+      owner = $auth.principal.toString();
+    } else {
+      goto("/");
+    }
+  });
 </script>
 
 <Grid>

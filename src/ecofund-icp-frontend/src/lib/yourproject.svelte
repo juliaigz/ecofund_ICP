@@ -15,7 +15,6 @@
   import { Principal } from "@dfinity/principal";
 
   export let project = {
-    // principal_owner: Principal.anonymous(),
     project_name: "",
     categories: [],
     instagram_url: "",
