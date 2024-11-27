@@ -61,8 +61,8 @@
     {items}
     bind:selectedIds={selectedCategories}
   />
-  <br />
-  <p>Selected Categories: {JSON.stringify(project.categories)}</p>
+  <!-- <br />
+  <p>Selected Categories: {JSON.stringify(project.categories)}</p> -->
 </div>
 
 <Grid style="width: 100%; ">
@@ -163,7 +163,7 @@
     margin-top: 5%;
   }
 
-  h2 {
+  /* h2 {
     margin-top: 2.3em;
     font-weight: bold;
   }
@@ -191,7 +191,7 @@
   .inputIconTarget img {
     width: 12%;
     margin-top: 9%;
-  }
+  } */
 
   .input_Project_Picture {
     margin-top: 9%;
