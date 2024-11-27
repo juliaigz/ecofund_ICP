@@ -3,6 +3,7 @@
   import ColombiaAval from "$lib/images/ColombiaAval.png";
   import Reciclaje from "$lib/images/ Reciclaje.jpg";
   import { Grid, Row, Column, ImageLoader } from "carbon-components-svelte";
+  import { backend } from "$lib/canisters";
 
   //*Importacion componente button
   import { Button } from "carbon-components-svelte";
@@ -21,6 +22,38 @@
 
   //icon de ubicacion
   import bxsMap from "$lib/images/bxs_map.png";
+  import { onMount } from "svelte";
+
+  let projects = [];
+
+  onMount(async () => {
+    try {
+      projects = await backend.showProjects();
+      console.log(projects);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
+  // const log = [
+  //   "9a5114981373",
+  //   {
+  //     categories: ["Animals", "Carbon footprint"],
+  //     donated_amount: [0n],
+  //     facebook_url: "@fb",
+  //     instagram_url: "instagram",
+  //     is_visible: true,
+  //     principal_owner:
+  //       "fawb2-6h67n-fqhpy-nwdls-jj7yt-neyml-k2r3p-tccwn-rpd4u-jvutq-5qe",
+  //     project_description: "story",
+  //     project_images: [],
+  //     project_name: "asdasd",
+  //     target_amount: [0n],
+  //     target_percentage: [0n],
+  //     whatsapp_number: 301212224n,
+  //     whatsapp_prefix: "+59",
+  //   },
+  // ];
 </script>
 
 <div class="subTitulo">
@@ -53,7 +86,6 @@
       <div class="sinba">
         <img src={ElipseSinba} alt="Imagen de Perfil del Aval Sinba" />
         <h5>SINBA</h5>
-        
       </div>
 
       <div class="boxInfoCenter">
