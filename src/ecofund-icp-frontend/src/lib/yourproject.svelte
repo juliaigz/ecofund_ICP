@@ -61,6 +61,7 @@
     {items}
     bind:selectedIds={selectedCategories}
   />
+  <br />
   <p>Selected Categories: {JSON.stringify(project.categories)}</p>
 </div>
 
@@ -90,15 +91,15 @@
       <div class="boxSocialMedia2">
         <NumberInput
           size="xl"
-          labelText="Whatsapp Number"
           placeholder="3042544875"
           required
+          label="Whatsapp Number"
           bind:value={project.whatsapp_number}
         />
         <br />
         <TextInput
           size="xl"
-          label="Prefix"
+          labelText="Prefix"
           placeholder="+57"
           required
           bind:value={project.whatsapp_prefix}
