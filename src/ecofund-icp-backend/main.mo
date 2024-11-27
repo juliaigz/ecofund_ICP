@@ -18,17 +18,17 @@ actor {
   type Project = {
     principal_owner : Text;
     project_name : Text;
-    categories : [Text];
     project_description : Text;
-    project_images : [Blob];
-    target_amount : Nat;
-    target_percentage : Nat;
-    donated_amount : Nat;
-    is_visible : Bool; // Indica si el proyecto es visible (true = sí, false = no)
     instagram_url : Text; 
     facebook_url : Text; 
     whatsapp_prefix : Text; 
-    whatsapp_number : Text; 
+    whatsapp_number : Nat; 
+    categories : [Text];
+    project_images : [Blob];
+    target_percentage : ?Nat;
+    is_visible : Bool; // Indica si el proyecto es visible (true = sí, false = no)
+    donated_amount : ?Nat;
+    target_amount : ?Nat;
 };
 
   type ProjectId = Text;
