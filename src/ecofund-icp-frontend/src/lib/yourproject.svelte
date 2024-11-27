@@ -28,11 +28,14 @@
 
   let target = null;
 
-  function handleSelectionChange(selectedIds) {
-    project.categories = selectedIds.map((id) => {
-      const item = items.find((item) => item.id === id);
-      return item ? item.text : id; // Puedes ajustar qué guardar en `categories`
-    });
+  let selectedCategories = [];
+
+  $: project.categories = selectedCategories.map(
+    (id) => items.find((item) => item.id === id)?.text
+  );
+
+  function updateProjectField(field, value) {
+    project = { ...project, [field]: value };
   }
 
   const items = [
@@ -53,15 +56,12 @@
 
 <div class="MultiSelect">
   <MultiSelect
-    titleText="Contact"
-    label="Select contact methods..."
+    titleText="Select Categories"
+    label="Choose categories..."
     {items}
-    selectedIds={project.categories.map((category) => {
-      const item = items.find((item) => item.text === category);
-      return item ? item.id : null;
-    })}
-    on:selectedIdsChange={(e) => handleSelectionChange(e.detail)}
+    bind:selectedIds={selectedCategories}
   />
+  <p>Selected Categories: {JSON.stringify(project.categories)}</p>
 </div>
 
 <Grid style="width: 100%; ">
