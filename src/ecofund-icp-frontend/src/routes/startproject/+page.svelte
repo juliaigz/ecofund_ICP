@@ -74,14 +74,18 @@
         "---------------------------------  ---------------------------------"
       );
 
-      project.principal_owner = owner;
-      const result = await backend.addProject(idProject, project);
-
-      if (result) {
-        console.log("Project added successfully:", result);
-        goto("/");
+      if ($auth.loggedIn) {
+        // owner = $auth.principal.toString();
+        project.principal_owner = owner;
+        const result = await backend.addProject(idProject, project);
+        if (result) {
+          console.log("Project added successfully:", result);
+          goto("/");
+        } else {
+          console.log("Project already exists or couldn't be added.");
+        }
       } else {
-        console.log("Project already exists or couldn't be added.");
+        goto("/startproject");
       }
     } catch (error) {
       console.error("Error adding project:", error);
