@@ -104,7 +104,7 @@
 <Grid>
   <Row>
     <Column style="margin-top: 6%;" lg={7}>
-      <ProgressIndicator preventChangeOnClick currentIndex={1}>
+      <ProgressIndicator preventChangeOnClick currentIndex={formSteps - 1}>
         <ProgressStep
           complete
           label="Step 1"
@@ -114,7 +114,7 @@
           label="Step 2"
           description="The progress indicator will listen for clicks on the steps"
         />
-        <ProgressStep
+        <!-- <ProgressStep
           disabled
           label="Step 3"
           description="The progress indicator will listen for clicks on the steps"
@@ -123,7 +123,7 @@
           disabled
           label="Step 4"
           description="The progress indicator will listen for clicks on the steps"
-        />
+        /> -->
       </ProgressIndicator>
 
       <div class="infoText">

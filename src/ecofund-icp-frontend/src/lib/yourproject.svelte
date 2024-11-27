@@ -95,6 +95,14 @@
           required
           bind:value={project.whatsapp_number}
         />
+        <br />
+        <TextInput
+          size="xl"
+          label="Prefix"
+          placeholder="+57"
+          required
+          bind:value={project.whatsapp_prefix}
+        />
       </div>
     </Column>
   </Row>
@@ -110,7 +118,7 @@
   />
 </div>
 
-<h2>How much would you like to raise</h2>
+<!-- <h2>How much would you like to raise</h2>
 
 <div class="inputIconTarget">
   <div class="targetAmount">
@@ -123,7 +131,7 @@
     />
   </div>
   <img src={iconInternetIdentity} alt="Icon Internet Identity" />
-</div>
+</div> -->
 
 <div class="input_Project_Picture">
   <FileUploader
