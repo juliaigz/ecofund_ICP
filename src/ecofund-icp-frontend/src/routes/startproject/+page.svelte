@@ -59,33 +59,6 @@
     donated_amount: [0], //opt
   };
 
-  // Propiedades requeridas
-  const requiredProperties = [
-    "principal_owner",
-    "project_name",
-    "categories",
-    "instagram_url",
-    "facebook_url",
-    "whatsapp_number",
-    "whatsapp_prefix",
-    "project_description",
-    // "project_images",
-  ];
-
-  // Función para verificar si todas las propiedades requeridas están completas
-  function isProjectValid() {
-    return requiredProperties.every((key) => {
-      const value = project[key];
-      if (Array.isArray(value)) {
-        return value.length > 0; // Si es un array, debe tener elementos
-      }
-      return Boolean(value); // Si no es array, debe ser un valor "truthy"
-    });
-  }
-
-  // Variable que controla si el botón está deshabilitado
-  $: isButtonDisabled = !isProjectValid();
-
   // Función para enviar el proyecto al backend
   async function callToBackend() {
     try {
@@ -179,7 +152,6 @@
           style="position: relative; left: 25%; padding-left: 10em;   margin-top: 6%;"
           kind="secondary"
           on:click={increaseFormSteps}
-          disabled={isButtonDisabled}
         >
           Next
         </Button>
