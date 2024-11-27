@@ -12,6 +12,7 @@
 
   import Yourproject from "$lib/yourproject.svelte";
   import Submitproyect from "$lib/submitproyect.svelte";
+  import { Principal } from "@dfinity/principal";
 
   //Codigo para cambiar las secciones de forms
   let formSteps = 1;
@@ -31,24 +32,6 @@
     }
   }
 
-  // Ejemplo inicial del proyecto (vendrá desde el componente)
-  let project = {
-    principal_owner: "a426f-wn6n7-n6d5d-kraqn-vxuxn-a2vbm-xae",
-    project_name: "My New Project",
-    categories: ["category1", "category2"],
-    project_description: "This is a new project description.",
-    project_images: [],
-    target_amount: 1000000,
-    target_percentage: 100,
-    donated_amount: 0,
-    is_visible: true,
-    instagram_url: "https://instagram.com/myproject",
-    facebook_url: "https://facebook.com/myproject",
-    whatsapp_prefix: "+1",
-    whatsapp_number: "1234567890",
-  };
-
-  // Función para generar un hash único
   async function generateUniqueId(data) {
     const encoder = new TextEncoder();
     const encoded = encoder.encode(data);
@@ -60,15 +43,38 @@
     return hashHex.slice(0, 12); // Recortar para mantener el ID corto
   }
 
-  // Lógica para enviar el proyecto al backend
+  // Objeto reactivo para almacenar los datos del proyecto
+  let project = {
+    principal_owner: Principal.anonymous().toString(),
+    project_name: "",
+    categories: [],
+    instagram_url: "",
+    facebook_url: "",
+    whatsapp_number: "",
+    whatsapp_prefix: "",
+    project_description: "",
+    project_images: [],
+    is_visible: true,
+    target_percentage: [0], //opt
+    target_amount: [0], //opt
+    donated_amount: [0], //opt
+  };
+
+  // Función para enviar el proyecto al backend
   async function callToBackend() {
     try {
-      // Generar un ID único basado en propiedades del proyecto
       const idProject = await generateUniqueId(
-        `${project.principal_owner}-${project.project_name}-${Date.now()}`
+        `${project.project_name}-${Date.now()}`
       );
 
-      // Enviar el proyecto al backend
+      console.log(
+        "--------------------------------- data ---------------------------------"
+      );
+      console.log(idProject, project);
+      console.log(
+        "---------------------------------  ---------------------------------"
+      );
+
       const result = await backend.addProject(idProject, project);
 
       if (result) {
@@ -127,7 +133,7 @@
 		"
     >
       {#if formSteps === 1}
-        <Yourproject />
+        <Yourproject bind:project />
       {:else if formSteps === 2}
         <Submitproyect />
       {/if}
