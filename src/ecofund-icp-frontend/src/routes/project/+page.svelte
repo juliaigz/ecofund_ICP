@@ -298,9 +298,4 @@
 		padding: auto;
 		width: 100%;
 	} */
-  .IconPerfilBox {
-    display: flex;
-    align-items: center;
-    gap: 1%;
-  }
 </style>
