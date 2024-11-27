@@ -28,32 +28,39 @@
 
   onMount(async () => {
     try {
-      projects = await backend.showProjects();
+      const response = await backend.showProjects();
+      // Formatear los datos a un array más manejable
+      projects = response.map(([id, data]) => ({
+        id,
+        ...data,
+      }));
       console.log(projects);
     } catch (error) {
       console.log(error);
     }
   });
 
-  // const log = [
-  //   "9a5114981373",
-  //   {
-  //     categories: ["Animals", "Carbon footprint"],
-  //     donated_amount: [0n],
-  //     facebook_url: "@fb",
-  //     instagram_url: "instagram",
-  //     is_visible: true,
-  //     principal_owner:
-  //       "fawb2-6h67n-fqhpy-nwdls-jj7yt-neyml-k2r3p-tccwn-rpd4u-jvutq-5qe",
-  //     project_description: "story",
-  //     project_images: [],
-  //     project_name: "asdasd",
-  //     target_amount: [0n],
-  //     target_percentage: [0n],
-  //     whatsapp_number: 301212224n,
-  //     whatsapp_prefix: "+59",
-  //   },
-  // ];
+  const log = [
+    [
+      "9a5114981373",
+      {
+        categories: ["Animals", "Carbon footprint"],
+        donated_amount: [0n],
+        facebook_url: "@fb",
+        instagram_url: "instagram",
+        is_visible: true,
+        principal_owner:
+          "fawb2-6h67n-fqhpy-nwdls-jj7yt-neyml-k2r3p-tccwn-rpd4u-jvutq-5qe",
+        project_description: "story",
+        project_images: [],
+        project_name: "asdasd",
+        target_amount: [0n],
+        target_percentage: [0n],
+        whatsapp_number: 301212224n,
+        whatsapp_prefix: "+59",
+      },
+    ],
+  ];
 </script>
 
 <div class="subTitulo">
@@ -74,124 +81,54 @@
 
 <!--*CONTENEDOR SOBRE LA INFORMACIÓN SOBRE LAS INVERSIONES-->
 <Grid narrow>
-  <Row class={"class"} style=" grid-column-gap: 1rem;">
+  <Row
+    class={"class"}
+    style="display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    margin-top: 15px;"
+  >
     <!--*Carta de la fundación Sinba-->
-    <Column style="padding:1.43rem; background-color: #EEEEEE;">
-      <ImageLoader
-        src={Sinba}
-        style="width: 12.75rem; height: 11.375rem; object-fit: cover;"
-        alt="Aval sobre el proyecto Sinba"
-      />
+    {#each projects as project (project.id)}
+      <Column style="padding:1.43rem; background-color: #EEEEEE;">
+        <!-- Imagen del proyecto -->
+        <ImageLoader
+          src={project.project_images.length > 0
+            ? project.project_images[0]
+            : Sinba}
+          style="width: 12.75rem; height: 11.375rem; object-fit: cover;"
+          alt={`Imagen del proyecto ${project.project_name}`}
+        />
 
-      <div class="sinba">
-        <img src={ElipseSinba} alt="Imagen de Perfil del Aval Sinba" />
-        <h5>SINBA</h5>
-      </div>
-
-      <div class="boxInfoCenter">
-        <!--contendedor de ubicacion-->
-        <div class="Ubicacion">
-          <img src={bxsMap} alt="Icono de Ubicacions" />
-          <h6>Lima, Peru</h6>
+        <div class="sinba">
+          <img
+            src={ElipseSinba}
+            alt={`Imagen de perfil del proyecto ${project.project_name}`}
+          />
+          <h5>{project.project_name}</h5>
         </div>
 
-        <p>
-          This endorsement of 500 ICP is intended to strengthen Sinba's food and
-          materials recycling management, which is an innovative project focused
-          on waste reduction and the promotion of good practices.
-        </p>
-      </div>
+        <div class="boxInfoCenter">
+          <!-- Contenedor de ubicación -->
+          <div class="Ubicacion">
+            <img src={bxsMap} alt="Icono de ubicación" />
+            <h6>{project.whatsapp_prefix}{project.whatsapp_number}</h6>
+          </div>
 
-      <Button
-        icon={Add}
-        href="/project"
-        style="background-color:#59CF8C; width: 12.625rem; position: relative; left:25%;"
-        >see project</Button
-      >
-    </Column>
-
-    <!--*Carta de Colombia-->
-    <Column
-      style="
-        padding:1.43rem;
-        background-color: #EEEEEE;
-      
-      "
-    >
-      <ImageLoader
-        src={ColombiaAval}
-        style="width: 12.75rem; height: 11.375rem; object-fit: cover;"
-        alt="Imagen sobre el aval de reciclaje Co"
-      />
-      <div class="luis">
-        <img src={ElipseColombia} alt="Imagen de Perfil del Aval Sinba" />
-        <h5>AGRIFOOD</h5>
-      </div>
-
-      <!---Contendor de información ubicación, texto,etc.-->
-
-      <div class="boxInfoCenter">
-        <!--contendedor de ubicacion-->
-        <div class="Ubicacion">
-          <img src={bxsMap} alt="Icono de Ubicacions" />
-          <h6>Cali, Colombia</h6>
+          <p>
+            {project.project_description}
+          </p>
         </div>
 
-        <p>
-          This guarantee of 250 ICP is intended to promote an innovative
-          sustainable agriculture project. The project focuses on implementing
-          agricultural practices that protect the environment, conserve natural
-          resources and improve the quality of life of farmers and the community
-          in general.
-        </p>
-      </div>
-
-      <Button
-        icon={Add}
-        style="background-color:#59CF8C; width: 12.625rem; position: relative; left:25%;"
-        >see project</Button
-      >
-    </Column>
-
-    <!--*Carta de Reciclaje-->
-    <Column
-      style="
-        padding:1.43rem;
-        background-color: #EEEEEE;
-        "
-    >
-      <ImageLoader
-        src={Reciclaje}
-        style="width: 12.75rem; height: 11.375rem; object-fit: cover;"
-        alt="Imagen sobre el aval de reciclaje Co"
-      />
-      <div class="victor">
-        <img src={ElipseReciclaje} alt="Imagen de Perfil del Aval Sinba" />
-        <h5>RECICLAME</h5>
-      </div>
-
-      <div class="boxInfoCenter">
-        <!--contendedor de ubicacion-->
-        <div class="Ubicacion">
-          <img src={bxsMap} alt="Icono de Ubicacions" />
-          <h6>Cancún, México</h6>
-        </div>
-
-        <p>
-          This guarantee of 100 ICP is intended to promote an innovative
-          recycling project. The objective of the project is to promote
-          sustainability and responsible waste management through the
-          implementation of advanced technologies and efficient recycling
-          practices.
-        </p>
-      </div>
-
-      <Button
-        icon={Add}
-        style="background-color:#59CF8C; width: 12.625rem; position: relative; left:25%;"
-        >see project</Button
-      >
-    </Column>
+        <Button
+          icon={Add}
+          href={`/project/${project.id}`}
+          style="background-color:#59CF8C; width: 12.625rem; position: relative; left:25%;"
+          >See Project</Button
+        >
+      </Column>
+    {/each}
   </Row>
 </Grid>
 
@@ -215,7 +152,7 @@
   .sinba img {
     margin-right: 0.4rem;
   }
-
+  /*
   .luis {
     width: 11.875rem;
     height: 4.063rem;
@@ -223,14 +160,13 @@
     align-items: center;
     margin-top: 1.25rem;
     margin-left: 10%;
-    /*border: 1px solid green;*/
-  }
-
-  .luis img {
-    margin-right: 0.4rem;
-  }
-
-  .victor {
+    }
+    
+    .luis img {
+      margin-right: 0.4rem;
+      }
+      
+      .victor {
     width: 11.875rem;
     height: 4.063rem;
     display: flex;
@@ -242,7 +178,7 @@
   .victor img {
     margin-right: 0.4rem;
   }
-
+*/
   p {
     width: 12.625rem;
     height: 12.5rem;
