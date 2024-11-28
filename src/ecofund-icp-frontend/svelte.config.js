@@ -13,6 +13,7 @@ const config = {
       fallback: undefined,
       precompress: false,
       strict: true,
+      fallback: "index.html", // o cualquier otra página que quieras usar como fallback
     }),
   },
   preprocess: [vitePreprocess(), optimizeImports()],
