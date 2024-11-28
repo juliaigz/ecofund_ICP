@@ -22,7 +22,9 @@
 
   //icon de ubicacion
   import bxsMap from "$lib/images/bxs_map.png";
+  import whatsapp from "$lib/images/whatsapp.png";
   import { onMount } from "svelte";
+  import person from "$lib/images/person.png";
 
   let projects = [];
 
@@ -39,28 +41,6 @@
       console.log(error);
     }
   });
-
-  const log = [
-    [
-      "9a5114981373",
-      {
-        categories: ["Animals", "Carbon footprint"],
-        donated_amount: [0n],
-        facebook_url: "@fb",
-        instagram_url: "instagram",
-        is_visible: true,
-        principal_owner:
-          "fawb2-6h67n-fqhpy-nwdls-jj7yt-neyml-k2r3p-tccwn-rpd4u-jvutq-5qe",
-        project_description: "story",
-        project_images: [],
-        project_name: "asdasd",
-        target_amount: [0n],
-        target_percentage: [0n],
-        whatsapp_number: 301212224n,
-        whatsapp_prefix: "+59",
-      },
-    ],
-  ];
 </script>
 
 <div class="subTitulo">
@@ -103,7 +83,7 @@
 
         <div class="sinba">
           <img
-            src={ElipseSinba}
+            src={person}
             alt={`Imagen de perfil del proyecto ${project.project_name}`}
           />
           <h5>{project.project_name}</h5>
@@ -112,7 +92,7 @@
         <div class="boxInfoCenter">
           <!-- Contenedor de ubicación -->
           <div class="Ubicacion">
-            <img src={bxsMap} alt="Icono de ubicación" />
+            <img src={whatsapp} alt="Icono de ubicación" />
             <h6>{project.whatsapp_prefix}{project.whatsapp_number}</h6>
           </div>
 
@@ -151,6 +131,8 @@
 
   .sinba img {
     margin-right: 0.4rem;
+    width: 30px;
+    /* margin: 10px; */
   }
   /*
   .luis {
@@ -194,8 +176,11 @@
     justify-content: center;
     margin-top: 1.25rem;
     margin-bottom: 2.25rem;
-    width: 100%;
-    /*border: 2px solid red; */
+    /* width: 100%; */
+  }
+
+  .Ubicacion img {
+    width: 30px;
   }
 
   /*Esto diseño es sobre las 3 informaciones de cada carta*/
