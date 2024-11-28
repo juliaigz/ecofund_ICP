@@ -6,6 +6,7 @@
   import { Button } from "carbon-components-svelte";
   import InternetComputer from "$lib/images/internet-computer-icp-seeklogo.svg";
   import { Logout } from "carbon-icons-svelte";
+  import { ToastNotification } from "carbon-components-svelte";
 
   let client: AuthClient | undefined;
   let whoami: Promise<Principal> = $auth.actor.whoami(); // whoami es una promesa que resuelve en una string (principal)
@@ -58,10 +59,36 @@
   {#if $auth.loggedIn}
     <!-- Si el usuario está logueado pasa a este diseño -->
     <div class="logout-wallet">
-      <Button class="iconLogout" on:click={logout} icon={Logout} iconDescription="Logout"></Button>
-      <p>
-        asd
-      </p>
+      <div class="boxButton">
+        <Button
+          class="iconLogout"
+          on:click={logout}
+          icon={Logout}
+          iconDescription="Logout"
+          style ="  background-color: #59cf8c; border-radius: 7px;"
+
+        ></Button>
+      </div>
+      <div class="information-box">
+        <p class="amount-of-money">$0.00</p>
+        <p class="amount-crypto">0 ICP</p>
+        <div class="infoCopy">
+          <p>
+            Copy Account ID for sending from exchanges and Principal ID for ICP
+            network.
+          </p>
+        </div>
+        <div class="infoWarning">
+          <ToastNotification lowContrast kind="warning" hideCloseButton>
+            <strong slot="caption">
+              Internet Identity generates unique Principal IDs and Account IDs
+              for each Dapp. This feature ensures that user identities and
+              account information are isolated across different applications,
+              enhancing security and privacy protection.
+            </strong>
+          </ToastNotification>
+        </div>
+      </div>
     </div>
     <div class="principal-info">
       <!-- principal information: -->
@@ -99,22 +126,44 @@
     margin: 64px 0;
   }
 
-  .logout-wallet{
+  .logout-wallet {
     width: 100%;
-    border: 1px solid black;
   }
-
-
-
-
-
-
 
   .principal-info {
     margin-top: 32px;
     text-align: center;
     font-weight: bold;
     color: rgb(27, 27, 27);
+  }
+
+  .information-box {
+    /* border: 1px solid green; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .information-box .amount-of-money {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+  }
+
+  .information-box .amount-crypto {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .infoCopy {
+    margin-top: 1rem;
+  }
+
+  .infoWarning {
+    margin-top: 1rem;
   }
 
   .PrincipalButtonIdentity {
@@ -134,6 +183,12 @@
   }
 
   :global(.buttonIdentity):hover {
+    background-color: white;
+    border-color: #59cf8c;
+    color: black;
+  }
+
+  :global(.iconLogout):hover{
     background-color: white;
     border-color: #59cf8c;
     color: black;
