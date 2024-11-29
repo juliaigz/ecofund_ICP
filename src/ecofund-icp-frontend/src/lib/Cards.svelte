@@ -44,7 +44,7 @@
 </script>
 
 <div class="subTitulo">
-  <h2>endorse the projects that matter to you</h2>
+  <h2>support the causes that matter to you</h2>
 </div>
 
 <!--Grid sobre las secciones de inversión de Avales-->

@@ -56,7 +56,7 @@
       <div class="Features-Box">
         <h3>Make a move</h3>
         <p>
-          You can help an entrepreneur who helps the environment by pledging
+          You can help an entrepreneur who helps the environment by donating
           your ICP
         </p>
       </div>
