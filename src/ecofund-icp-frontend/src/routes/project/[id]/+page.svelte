@@ -1,5 +1,5 @@
 <script>
-  import { Loading } from "carbon-components-svelte";
+  import { Loading, ToastNotification } from "carbon-components-svelte";
   import { Grid, Row, Column } from "carbon-components-svelte";
   import { Content } from "carbon-components-svelte";
   import { ListItem, UnorderedList } from "carbon-components-svelte";
@@ -8,19 +8,45 @@
   import ProjectEndorsement from "$lib/ProjectEndorsement.svelte";
 
   import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
   export let data;
 
   onMount(() => {
     console.log("project page data");
     console.log(data);
   });
+  let toast = {
+    show: false,
+    kind: "info", // "success" o "error"
+    title: "",
+    subtitle: "",
+    timeout: 10000,
+  };
+
+  function showToast(kind, title, subtitle) {
+    toast = { show: true, kind, title, subtitle, timeout: 10000 };
+    setTimeout(() => {
+      toast.show = false;
+    }, toast.timeout);
+  }
 </script>
 
 <!-- <main> -->
 <Content>
   {#if data}
     <!-- <Search size="sm" style="width: 55%;" /> -->
-
+    {#if toast.show}
+      <div transition:fade>
+        <ToastNotification
+          fullWidth
+          timeout={toast.timeout}
+          kind={toast.kind}
+          title={toast.title}
+          subtitle={toast.subtitle}
+          caption="Project endorsement"
+        />
+      </div>
+    {/if}
     <Grid
       style="border:0.1em solid black; border-radius: 2%; margin-top: 3%; box-shadow: -1px -3px 5px 6px rgba(173,173,173,0.99) inset;"
     >
@@ -153,7 +179,11 @@
         <!-------ICP INVESTMENT FUND-------->
         <!---------------------------------->
         <Column id="ICP_Selection" lg={2}>
-          <ProjectEndorsement destinationAddress={data[0].principal_owner} />
+          <ProjectEndorsement
+            destinationAddress={data[0].principal_owner}
+            on:notify={(e) =>
+              showToast(e.detail.kind, e.detail.title, e.detail.subtitle)}
+          />
           <div class="Box_Project_Creator">
             <!-- <div class="InfoProjectCreator">
             <h4>Project Creator</h4>

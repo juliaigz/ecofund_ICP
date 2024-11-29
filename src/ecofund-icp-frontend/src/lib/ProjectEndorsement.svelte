@@ -5,6 +5,7 @@
   import { LedgerCanister, AccountIdentifier } from "@dfinity/ledger-icp";
   import { createAgent } from "@dfinity/utils";
   import { Principal } from "@dfinity/principal";
+  import { createEventDispatcher } from "svelte";
 
   let investmentAmount = 0;
   export let destinationAddress;
@@ -37,24 +38,30 @@
     });
   };
 
+  const dispatch = createEventDispatcher();
+
   const handleEndorse = async () => {
     if (!$auth.loggedIn) {
       console.log("User not authenticated with Internet Identity");
+      dispatch("notify", {
+        kind: "error",
+        title: "Authentication Error",
+        subtitle: "Please log in with Internet Identity.",
+      });
       return;
     }
 
     if (!investmentAmount || investmentAmount <= 0) {
       console.log("Invalid investment amount");
+      dispatch("notify", {
+        kind: "error",
+        title: "Invalid Amount",
+        subtitle: "Please enter a valid investment amount.",
+      });
       return;
     }
 
-    console.log("Endorsing project with ICP:", investmentAmount);
     try {
-      const amountInE8s = BigInt(Math.floor(investmentAmount * 100000000)); // Convert ICP to e8s
-
-      console.log(amountInE8s);
-      console.log(investmentAmount);
-
       const result = (await setupLedger($auth.identity)).transfer({
         to: AccountIdentifier.fromPrincipal({
           principal: Principal.fromText(destinationAddress),
@@ -64,13 +71,19 @@
       });
 
       console.log("Transfer successful:", await result);
-      // Handle successful transfer (e.g., show success message to user)
+      dispatch("notify", {
+        kind: "success",
+        title: "Transfer Successful",
+        subtitle: `You endorsed ${investmentAmount} ICP.`,
+      });
     } catch (error) {
-      console.error("Transfer failed:", error);
-      if (error instanceof Error) {
-        console.error("Error message:", error.message);
-        console.error("Error stack:", error.stack);
-      }
+      console.log("Transfer failed:", error);
+      dispatch("notify", {
+        kind: "error",
+        title: `Transfer Failed ${error.message}`,
+        subtitle:
+          error instanceof Error ? error.message : "Unknown error occurred.",
+      });
     }
   };
 
