@@ -5,7 +5,6 @@
   import { LedgerCanister, AccountIdentifier } from "@dfinity/ledger-icp";
   import { createAgent } from "@dfinity/utils";
   import { Principal } from "@dfinity/principal";
-  import { onMount } from "svelte";
 
   let investmentAmount = 0;
   export let destinationAddress;
@@ -23,7 +22,7 @@
       verifyQuerySignatures: process.env.DFX_NETWORK === "ic" ? true : false,
     });
 
-    if (process.env.NODE_ENV !== "production") {
+    if (process.env.DFX_NETWORK !== "ic") {
       await agent.fetchRootKey();
     }
 
@@ -36,28 +35,6 @@
       agent,
       canisterId: ledgerCanisterId,
     });
-  };
-
-  const getAccountBalance = async () => {
-    if (!$auth.loggedIn) {
-      console.log("User not authenticated with Internet Identity");
-      return;
-    }
-
-    try {
-      const balance = (await setupLedger($auth.identity)).accountBalance({
-        accountIdentifier: AccountIdentifier.fromPrincipal({
-          principal: $auth.principal,
-        }),
-        certified: null,
-      });
-      // accountBalance = Number(balance) / 100000000; // Convert e8s to ICP
-      console.log("Account balance:", await balance, "ICP");
-      return await balance;
-    } catch (error) {
-      console.error("Error fetching account balance:", error);
-      // Handle error (e.g., show error message to user)
-    }
   };
 
   const handleEndorse = async () => {
@@ -90,10 +67,10 @@
       // Handle successful transfer (e.g., show success message to user)
     } catch (error) {
       console.error("Transfer failed:", error);
-      // if (error instanceof Error) {
-      //   console.error("Error message:", error.message);
-      //   console.error("Error stack:", error.stack);
-      // }
+      if (error instanceof Error) {
+        console.error("Error message:", error.message);
+        console.error("Error stack:", error.stack);
+      }
     }
   };
 
