@@ -7,14 +7,73 @@
   import InternetComputer from "$lib/images/internet-computer-icp-seeklogo.svg";
   import { Logout } from "carbon-icons-svelte";
   import { ToastNotification } from "carbon-components-svelte";
+  import { LedgerCanister, AccountIdentifier } from "@dfinity/ledger-icp";
+  import { createAgent } from "@dfinity/utils";
+  import type { Identity } from "@dfinity/agent";
 
   let client: AuthClient | undefined;
   let whoami: Promise<Principal> = $auth.actor.whoami(); // whoami es una promesa que resuelve en una string (principal)
+  let balance: bigint = 0n;
+  let accountId;
+
+  const setupLedger = async (identity: Identity) => {
+    const agent = await createAgent({
+      identity,
+      host:
+        process.env.DFX_NETWORK === "ic"
+          ? "https://ic0.app"
+          : "http://localhost:4943", //change before test deploy frontend
+      verifyQuerySignatures: process.env.DFX_NETWORK === "ic" ? true : false,
+    });
+
+    if (process.env.DFX_NETWORK !== "ic") {
+      await agent.fetchRootKey();
+    }
+
+    const ledgerCanisterId =
+      process.env.DFX_NETWORK === "ic"
+        ? "ryjl3-tyaaa-aaaaa-aaaba-cai" // Mainnet ICP Ledger canister ID
+        : process.env.CANISTER_ID_ICP_LEDGER_CANISTER; // Local ICP Ledger canister ID
+
+    return LedgerCanister.create({
+      agent,
+      canisterId: Principal.fromText(ledgerCanisterId),
+    });
+  };
+
+  const getAccountBalance = async () => {
+    if (!$auth.loggedIn) {
+      console.log("User not authenticated with Internet Identity");
+      return;
+    }
+
+    try {
+      const balance = (await setupLedger($auth.identity)).accountBalance({
+        accountIdentifier: AccountIdentifier.fromPrincipal({
+          principal: $auth.principal,
+        }),
+        // certified: null,
+      });
+      // accountBalance = Number(balance) / 100000000; // Convert e8s to ICP
+      console.log("Account balance:", await balance, "ICP");
+      return await balance;
+    } catch (error) {
+      console.error("Error fetching account balance:", error);
+      // Handle error (e.g., show error message to user)
+    }
+  };
 
   onMount(async () => {
     client = await AuthClient.create();
     if (await client.isAuthenticated()) {
       handleAuth();
+    }
+
+    if ($auth.loggedIn) {
+      balance = await getAccountBalance();
+      accountId = AccountIdentifier.fromPrincipal({
+        principal: $auth.principal,
+      }).toHex();
     }
   });
 
@@ -30,6 +89,10 @@
       identity: client?.getIdentity(),
       principal: client?.getIdentity().getPrincipal(),
     }));
+
+    accountId = AccountIdentifier.fromPrincipal({
+      principal: $auth.principal,
+    }).toHex();
 
     whoami = $auth.actor.whoami();
   }
@@ -69,13 +132,12 @@
           on:click={logout}
           icon={Logout}
           iconDescription="Logout"
-          style ="  background-color: #59cf8c; border-radius: 7px;"
-
+          style="  background-color: #59cf8c; border-radius: 7px;"
         ></Button>
       </div>
       <div class="information-box">
-        <p class="amount-of-money">$0.00</p>
-        <p class="amount-crypto">0 ICP</p>
+        <!-- <p class="amount-of-money">$0.00</p> -->
+        <p class="amount-crypto">{`${balance} ICP`}</p>
         <div class="infoCopy">
           <p>
             Copy Account ID for sending from exchanges and Principal ID for ICP
@@ -99,7 +161,10 @@
       {#await whoami}
         Querying caller identity...
       {:then principal}
-        <code>{principal}</code>
+        <!-- <code>Principal: {principal}</code> -->
+        <!-- <br />
+        <br /> -->
+        <code>Account: {accountId}</code>
         <!-- principal del usuario para que pueda recibir sus icp-->
         <!-- {#if principal.isAnonymous()}
           (anonymous)
@@ -150,11 +215,11 @@
     align-items: center;
   }
 
-  .information-box .amount-of-money {
+  /* .information-box .amount-of-money {
     text-align: center;
     font-weight: bold;
     font-size: 2em;
-  }
+  } */
 
   .information-box .amount-crypto {
     text-align: center;
@@ -192,7 +257,7 @@
     color: black;
   }
 
-  :global(.iconLogout):hover{
+  :global(.iconLogout):hover {
     background-color: white;
     border-color: #59cf8c;
     color: black;
