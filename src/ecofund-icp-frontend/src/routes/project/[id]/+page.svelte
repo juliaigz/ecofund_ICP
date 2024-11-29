@@ -1,29 +1,13 @@
 <script>
-  import { Loading, Search } from "carbon-components-svelte";
+  import { Loading } from "carbon-components-svelte";
   import { Grid, Row, Column } from "carbon-components-svelte";
   import { Content } from "carbon-components-svelte";
-  import { ProgressBar } from "carbon-components-svelte";
-  import {
-    OrderedList,
-    ListItem,
-    Link,
-    UnorderedList,
-  } from "carbon-components-svelte";
-
-  //import perfilIcon from
-  import IconPerfil from "$lib/images/apoyo1.png";
+  import { ListItem, UnorderedList } from "carbon-components-svelte";
   import Sinba from "$lib/images/Sinba.jpg";
-  import ImgLocation from "$lib/images/bxs_map.png";
   import Whatsapp from "$lib/images/whatsapp.png";
-  import Robert from "$lib/images/Rober.png";
-  import Pedro from "$lib/images/Pedro.png";
-  import Manuel from "$lib/images/Manuel.png";
-  import Luis from "$lib/images/Luis.png";
   import ProjectEndorsement from "$lib/ProjectEndorsement.svelte";
-  import ElipseSinba from "$lib/images/ElipseSinba.png";
 
   import { onMount } from "svelte";
-  import { goto } from "$app/navigation"; // Para redirecciones
   export let data;
 
   onMount(() => {
