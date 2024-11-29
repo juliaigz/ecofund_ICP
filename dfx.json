@@ -5,8 +5,7 @@
         "node_compatibility": true
       },
       "main": "src/ecofund-icp-backend/main.mo",
-      "type": "motoko",
-      "dependencies": ["icp_ledger_canister"]
+      "type": "motoko"
     },
     "ecofund-icp-frontend": {
       "dependencies": ["ecofund-icp-backend"],
