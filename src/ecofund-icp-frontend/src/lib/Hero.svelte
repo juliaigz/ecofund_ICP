@@ -6,9 +6,8 @@
 
   //Importacion de Grid
   import { Grid, Row, Column } from "carbon-components-svelte";
-  import { Button } from 'carbon-components-svelte';
+  import { Button } from "carbon-components-svelte";
   import Add from "carbon-icons-svelte/lib/Add.svelte";
-
 </script>
 
 <AspectRatio>
@@ -16,17 +15,17 @@
     <Row>
       <!--Columna de Texto-->
       <Column class="TextHero">
-        <h2>Collective endorsement for the benefit of the environment</h2>
+        <h2>Collective donations to benefit the environment</h2>
         <p>
-          Use your ICP to endorse enviromental projects and you will receive
-          your money back with interest. Tomorrow you could also be endorsed.
-          Join ecofund and support sustainability
+          Use your ICP to support environmental projects. Tomorrow you could
+          also be helped. Join Ecofund and support sustainability.
         </p>
 
         <div class="BoxButton">
-          <Button style="background-color:#59CF8C;" icon={Add}>Find a project</Button>
+          <Button style="background-color:#59CF8C;" icon={Add}
+            >Find a project</Button
+          >
         </div>
-
       </Column>
 
       <!--*Columna de Imagen-->
@@ -49,28 +48,19 @@
     object-fit: cover;
   }
 
-  :global(.TextHero) h2{
+  :global(.TextHero) h2 {
     margin-top: 6.6%;
     font-size: 3.3rem;
   }
 
-
-  :global(.TextHero) p{
+  :global(.TextHero) p {
     margin-top: 10%;
     font-size: 1.56em;
-  
   }
 
-  .BoxButton{
+  .BoxButton {
     margin-top: 10%;
     position: relative;
-    left:35%;
+    left: 35%;
   }
-
-
-
-
-
-
-
 </style>
