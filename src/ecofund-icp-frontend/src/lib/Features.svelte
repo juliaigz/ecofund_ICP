@@ -12,9 +12,9 @@
   <div class="howItWorks_Text">
     <h2>How it works?</h2>
     <p>
-      Use your ICP endorse environmental projects and you will receive your
-      money back with interest. Tomorrow you could also be endorsed.<br />
-      Join ecofound and support sustainability.
+      Use your ICP to fund environmental projects and make a real impact.
+      Together, we can build a sustainable future for all.<br />
+      Join Ecofound and support our planet today!
     </p>
   </div>
 </div>
@@ -128,11 +128,11 @@
 
   .howItWorks_Text {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
   }
 
-  .howItWorks_Text p{
+  .howItWorks_Text p {
     text-align: center;
     font-size: 1.15rem;
     padding: 0 9rem;
