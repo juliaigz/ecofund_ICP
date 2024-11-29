@@ -1,6 +1,18 @@
 <script>
   import { Grid } from "carbon-components-svelte";
   import { ToastNotification } from "carbon-components-svelte";
+  import { onMount } from "svelte";
+  import { auth } from "$lib/store/auth";
+
+  let owner = "";
+
+  onMount(() => {
+    if ($auth.loggedIn) {
+      owner = $auth.principal.toString();
+    } else {
+      goto("/");
+    }
+  });
 </script>
 
 <Grid>
@@ -10,9 +22,7 @@
       >We are going to deposit the funds to the wallet with which you connected
       in the log in with this address:</strong
     >
-    <strong slot="caption"
-      >mbnw5-73gpb-axml4-tfodx-tz3ch-4iyvk-qdlh6-c7nir-4a2rc-6q43y-iqe</strong
-    >
+    <strong slot="caption">{owner}</strong>
     <!--Aqui va la direccion de la wallet-->
   </ToastNotification>
 </Grid>
