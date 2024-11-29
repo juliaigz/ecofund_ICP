@@ -97,7 +97,7 @@
 <!-- <Column id="ICP_Selection" lg={2}> -->
 <div class="investment-box">
   <div class="investment-fund">
-    <p>Endorse this Project</p>
+    <p>Donated this Project</p>
     <!-- <p style="z-index: 99;">You have {accountBalance || 0} ICP</p> -->
     <NumberInput
       hideSteppers
@@ -111,7 +111,7 @@
       class=" width: 60%; position: relative; left: 20%; top: 1%; background-color: #59cf8c;"
       on:click={handleEndorse}
     >
-      Endorse this project
+      Support this project
     </Button>
   </div>
 </div>
