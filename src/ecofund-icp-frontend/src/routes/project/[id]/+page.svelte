@@ -169,7 +169,7 @@
         <!-------ICP INVESTMENT FUND-------->
         <!---------------------------------->
         <Column id="ICP_Selection" lg={2}>
-          <ProjectEndorsement />
+          <ProjectEndorsement destinationAddress={data[0].principal_owner} />
           <div class="Box_Project_Creator">
             <!-- <div class="InfoProjectCreator">
             <h4>Project Creator</h4>
@@ -188,12 +188,20 @@
 
             <div class="Box_Link">
               <p>Join the instagram community</p>
-              <a href={data[0].instagram_url}>{data[0].instagram_url}</a>
+              <a
+                href={data[0].instagram_url}
+                target="_blank"
+                rel="noopener noreferrer">{data[0].instagram_url}</a
+              >
             </div>
 
             <div class="Box_Link2">
               <p>Join the facebook commmunity</p>
-              <a href={data[0].facebook_url}>{data[0].facebook_url}</a>
+              <a
+                href={data[0].facebook_url}
+                target="_blank"
+                rel="noopener noreferrer">{data[0].facebook_url}</a
+              >
             </div>
           </div>
         </Column>
