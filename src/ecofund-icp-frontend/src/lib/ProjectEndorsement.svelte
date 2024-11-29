@@ -8,13 +8,10 @@
   import { onMount } from "svelte";
 
   let investmentAmount = 0;
-  let destinationAddress = Principal.fromText(
-    "hmdu5-unhan-lp2ib-alxf5-3fjk4-umdiy-dqhdj-bke4v-dcht3-gsgm4-tqe"
-  );
-
-  let accountBalance = null;
+  export let destinationAddress;
 
   console.log(destinationAddress);
+  console.log(Principal.fromText(destinationAddress));
 
   const setupLedger = async (identity) => {
     const agent = await createAgent({
@@ -83,9 +80,7 @@
 
       const result = (await setupLedger($auth.identity)).transfer({
         to: AccountIdentifier.fromPrincipal({
-          principal: Principal.fromText(
-            "hmdu5-unhan-lp2ib-alxf5-3fjk4-umdiy-dqhdj-bke4v-dcht3-gsgm4-tqe"
-          ),
+          principal: Principal.fromText(destinationAddress),
         }),
         amount: investmentAmount * 100000000,
         fee: BigInt(10000),
@@ -102,11 +97,11 @@
     }
   };
 
-  onMount(async () => {
-    if ($auth.loggedIn) {
-      accountBalance = await getAccountBalance();
-    }
-  });
+  // onMount(async () => {
+  //   if ($auth.loggedIn) {
+  //     accountBalance = await getAccountBalance();
+  //   }
+  // });
 </script>
 
 <!-- <Column id="ICP_Selection" lg={2}> -->
