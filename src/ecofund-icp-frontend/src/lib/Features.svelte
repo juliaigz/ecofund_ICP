@@ -4,7 +4,6 @@
   import money from "$lib/images/money.png";
   import bussines from "$lib/images/bussines.png";
 
-  //Componente Carbon
   import { Grid, Row, Column, ImageLoader } from "carbon-components-svelte";
 </script>
 
@@ -19,11 +18,9 @@
   </div>
 </div>
 
-<!--Diseño de las features-->
 
 <Grid style="display: grid; row-gap: 2em;" narrow>
   <Row style="column-gap:2rem;">
-    <!--*Carta1-->
     <Column
       style="background-color:#E6E6E6;
         width:29.188rem;
@@ -45,7 +42,6 @@
       </div>
     </Column>
 
-    <!--*Carta2-->
     <Column
       style="background-color:#EAFDF2;
       width:29.188rem;
@@ -70,9 +66,7 @@
     </Column>
   </Row>
 
-  <!--*Fila2-->
   <Row style="column-gap: 2rem;">
-    <!--*Carta3-->
     <Column
       style="background-color:#E2FAEE;
         width:29.188rem;
@@ -89,11 +83,10 @@
       </div>
 
       <div class="ImageBox">
-        <img src={money} alt="Imagen sobre reciviendo fondos" />
+        <img id="community-img" src={money} alt="Imagen sobre reciviendo fondos" />
       </div>
     </Column>
 
-    <!--*Carta 4-->
     <Column
       style="background-color:#E6E6E6;
         width:29.188rem;
@@ -177,4 +170,48 @@
          border: 1px solid black;  
          */
   }
-</style>
+
+
+
+  @media (max-width: 425px){
+    .howItWorks_Text p{
+      width: 100vw;
+      padding: 0 1.3em;
+      margin-top: 1rem;
+      margin-left: 4rem;
+      text-align: initial;
+      
+    }
+    
+    .Features-Box h3{
+      font-size: 1.5rem;
+      width: 100%;
+      text-align: center;
+      font-weight: 450;
+    }
+    .Features-Box p{
+      font-size: 0.84rem;
+      text-align: center;
+      width: 100%;
+      margin-left: 0;
+    }
+    .ImageBox{
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .ImageBox img:not(#community-img){
+      width: 95%;
+    } 
+
+    .ImageBox img#community-img{
+      width: 80%;
+    }
+
+
+
+
+  }  
+  </style>
