@@ -5,11 +5,10 @@
   import { Content } from "carbon-components-svelte";
 </script>
 
-<Content>
   <Hero />
   <Features />
   <Cards />
-</Content>
+
 
 <style>
 </style>
