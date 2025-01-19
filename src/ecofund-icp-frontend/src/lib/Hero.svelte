@@ -11,7 +11,11 @@
 </script>
 
 <!-- <AspectRatio> -->
-  <Grid style="display:grid; height:100%; place-items: center;">
+  <Grid style="display:grid; height:100%; width:100%; justify-content: center; align-items: center;
+    place-items: center; 
+  "
+    class="GridHeroo" 
+  >
     <Row class="Row-Hero">
       <!--Columna de Texto-->
       <Column class="Text-Hero" >           
@@ -51,6 +55,10 @@
     object-fit: cover;
   }
 
+  :global(.Row-Hero){
+    width: 100%;
+    /* border:1px solid orange; */
+  }
   :global(.Text-Hero) h2 {
     margin-top: 6.6%;
     font-size: 3.3rem;
@@ -69,10 +77,24 @@
 
 
   /*Media Queries*/
-  @media (max-width: 425px){  /*esta va a ser nuestra medida para mobile*/
-    
+  @media (max-width: 430px){  /*esta va a ser nuestra medida para mobile*/
+
+  :global(.GridHeroo){
+    /* border: 1px black solid; */
+    width: 100vw;
+    height: 50%;
+    margin-left:15%;
+  }
+/* 
+    :global(.Row-Hero){
+      width: 200vw;
+      
+    } */
+
+
   :global(.Text-Hero){
     width: 100%;
+
     /* background-color: red; */
     /* border: blue 2px solid ; */
   }
@@ -81,17 +103,14 @@
     font-size: 2.3rem;
     font-weight: 450;
     text-align: center;
+    width: 100vw;
   }
 
   :global(.Text-Hero) p{
     font-size: 1.2rem;
     text-align: center;
   }
-  :global(.Row-Hero){
-    border: 2px solid green;
-    /* width: 100vw; */
-  }
-
+  
     img{
       width: 25em;
     }
