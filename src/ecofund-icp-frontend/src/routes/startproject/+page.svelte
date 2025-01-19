@@ -102,9 +102,9 @@
 </script>
 
 <Grid>
-  <Row>
-    <Column style="margin-top: 6%;" lg={7}>
-      <ProgressIndicator preventChangeOnClick currentIndex={formSteps - 1}>
+  <Row class="Row-StartProject">
+    <Column class="Column-StartProject-1" style="margin-top: 6%;" lg={7}>
+      <ProgressIndicator class="ProgresIndicator-StartProject-Father" preventChangeOnClick currentIndex={formSteps - 1}>
         <ProgressStep
           complete
           label="Step 1"
@@ -142,15 +142,8 @@
     <!-- Form column -->
     <!--en esta etiqueta la propiedad de margin-top: 6%, no entiendo el porque se puede usar.-->
     <Column
-      style="	box-shadow: -1px -3px 5px 6px rgba(173, 173, 173, 0.99) inset;
-		display: flex;
-		flex-direction: column;
-		border-radius: 5%;
-		padding: 5%;
-		width: 100%;
-		height: 220vh;
-		margin-top: 6%;
-		"
+      class="Forms-StartProject"
+    
     >
       {#if formSteps === 1}
         <Yourproject bind:project />
@@ -160,8 +153,7 @@
 
       {#if formSteps === 1}
         <Button
-          class="buttonNext"
-          style="position: relative; left: 25%; padding-left: 10em;   margin-top: 6%;"
+          class="buttonNext buttonNext-if"
           kind="secondary"
           on:click={increaseFormSteps}
         >
@@ -169,8 +161,7 @@
         </Button>
       {:else if formSteps === 2}
         <Button
-          class="buttonNext"
-          style="position: relative; left: 25%; padding-left: 10em;   margin-top: 6%;"
+          class="buttonNext buttonNext-elseIf"
           kind="secondary"
           on:click={callToBackend}
         >
@@ -179,7 +170,7 @@
       {/if}
 
       <Button
-        style="position: relative; left: 25%; padding-left: 10em;   margin-top: 1%;"
+        class="buttonBack"
         kind="ghost"
         on:click={decreaseFormSteps}
         >Back
@@ -207,4 +198,91 @@
 		width: 100%;
 		height: 120vh; */
   /* } */
+
+  :global(.Forms-StartProject){
+    box-shadow: -1px -3px 5px 6px rgba(173, 173, 173, 0.99) inset;
+		display: flex;
+		flex-direction: column;
+		border-radius: 5%;
+		padding: 5%;
+		width: 100%;
+		height: 150vh;
+		margin-top: 6%;
+  }
+
+  :global(.buttonNext){
+    position: relative; 
+    left: 25%; 
+    padding-left: 10em; 
+    margin-top: 6%;
+
+  }
+
+  :global(.buttonNext-elseIf){
+    position: relative; 
+    left: 25%; 
+    padding-left: 10em;   
+    margin-top: 6%;
+
+  }
+  
+  :global(.buttonBack){
+    position: relative; 
+    left: 25%; 
+    padding-left: 10em;  
+    border:1px solid black;
+    margin-top: 1%;
+  }
+
+
+  /***MEDIA QUERIES****/
+
+
+
+@media (max-width: 435px){
+  :global(.Column-StartProject-1){
+    margin-top: 10%;
+    /* border: 1px solid black; */
+  }
+
+
+  :global(.Forms-StartProject){
+    box-shadow: -1px -3px 5px 6px rgba(173, 173, 173, 0.99) inset;
+		display: flex;
+		flex-direction: column;
+		border-radius: 5%;
+		padding: 5%;
+		width: 100%;
+		height: 120vh;
+		margin-top: 6%;
+  }
+
+
+
+
+
+
+
+  :global(.ProgresIndicator-StartProject-Father){
+    margin-top: 18%;
+  }
+
+  :global(.buttonNext){
+    width: 50%;
+    padding-left:22%;
+  }
+
+  :global(.buttonNext-elseIf){
+    width: 50%;
+    padding-left:22%;
+  }
+
+  :global(.buttonBack){
+    width:50%;
+    padding-left:22%;
+  }
+
+
+}
+
 </style>
