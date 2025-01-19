@@ -15,6 +15,10 @@ const config = {
       strict: true,
       fallback: "index.html", // o cualquier otra página que quieras usar como fallback
     }),
+    prerender: {
+      handleMissingId: 'warn' // O 'ignore' para suprimir el error
+      
+    },
   },
   preprocess: [vitePreprocess(), optimizeImports()],
 };
