@@ -48,7 +48,7 @@
   <SideNavItems>
     <SideNavLink text="About" />
     <SideNavLink text="Help" />
-    <SideNavLink text="Start a project" />
+    <!-- <SideNavLink text="Start a project" /> -->
     <SideNavDivider />
   </SideNavItems>
 </SideNav>
@@ -61,16 +61,14 @@
   on:open
   on:close
   on:submit
+  id="Modal-Navbar"
 >
 
-  <Content class="InternoModal">
-    <p>
-      Join us in supporting sustainable projects! By connecting a wallet, 
-      you contribute your crypto donations seamlessly.
-    </p>
-    <InternetIdentity />
-  </Content>
-
+<p>
+  Join us in supporting sustainable projects! By connecting a wallet, you
+  contribute your crypto donations seamlessly.
+</p>
+<InternetIdentity />
 </Modal>
 
 <style>
@@ -79,8 +77,13 @@
     position: ;
   } */
 
-
-   :global(.InternoModal){
+  /* :global(.InternoModal) {
     background-color: rgba(185, 185, 185, 0.205);
-   }
+  } */
+
+  @media (max-width: 435px) {
+    /* :global(.InternoModal) {
+      width: 50%;
+    } */
+  }
 </style>
