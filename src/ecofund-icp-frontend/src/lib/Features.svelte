@@ -19,8 +19,8 @@
 </div>
 
 
-<Grid style="display: grid; row-gap: 2em;" narrow>
-  <Row style="column-gap:2rem;">
+<Grid style="display: grid; row-gap: 2em; width:100%" class="Grid-Features-Community" narrow>
+  <Row style="column-gap:2rem;" class="row-features">
     <Column
       style="background-color:#E6E6E6;
         width:29.188rem;
@@ -173,7 +173,21 @@
 
 
 
-  @media (max-width: 425px){
+  @media (max-width: 430px){
+
+    .howItWorks{
+      width: 100vw;
+      /* border: 1px solid green; */
+    }
+
+
+    :global(.Grid-Features-Community){
+      width: 100vw;
+      /* border: 1px solid red; */
+      margin-left: 5%;
+    }
+
+
     .howItWorks_Text p{
       width: 100vw;
       padding: 0 1.3em;
@@ -210,7 +224,7 @@
       width: 80%;
     }
 
-
+    
 
 
   }  
